@@ -1,4 +1,6 @@
 import { checkLink } from "./checkLink";
+import { crawlSite } from "./checkSite";
+import { getPageLinks } from "./getPageLinks";
 
 const linksToCheck = [
   "https://dev.fingerprint.com/docs/quick-start-guide",
@@ -8,11 +10,7 @@ const linksToCheck = [
 ];
 
 async function main() {
-  for (const link of linksToCheck) {
-    const result = await checkLink(link);
-    console.log(
-      `${link}: ${result.ok ? "✅" : "❌"} ${!result.ok ? result.error : ""}`
-    );
-  }
+  crawlSite("https://dev.fingerprint.com");
 }
+
 main();

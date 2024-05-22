@@ -12,5 +12,8 @@
   "dependencies": {
     "cheerio": "1.0.0-rc.12",
     "tsx": "^4.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12"
   }
 }

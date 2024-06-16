@@ -1,622 +1,794 @@
 {
-  "totalLinks": 1510,
-  "totalWorkingLinks": 1422,
-  "totalBrokenLinks": 88,
-  "brokenLinks": [
+  "totalLinks": 1465,
+  "totalWorkingLinks": 1394,
+  "totalBrokenLinks": 71,
+  "networkErrors": [
     {
-      "link": "https://dev.fingerprint.com/docs/migrating-from-previous-versions",
+      "link": "https://fingerprint-pro-azure-integration-appi4fghxf32z36q.azurewebsites.net/fpjs/%7B*restOfPath%7D",
       "result": "network error",
       "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-app-filtering"
+        {
+          "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
+          "linkText": "{*restOfPath}"
+        }
       ]
     },
     {
-      "link": "https://dev.fingerprint.com/docs/migrating-from-pro-v3",
+      "link": "https://remix.run/docs/en/v1/guides/constraints#browser-only-code-on-the-server",
       "result": "network error",
       "backlinks": [
-        "https://dev.fingerprint.com/docs/migrating-from-previous-versions"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/understanding-our-995-accuracy",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/protecting-the-javascript-agent-from-adblockers",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/identifying-users-in-hybrid-app-frameworks",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-app-filtering"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/zero-trust-mode",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-app-filtering"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/native-android-integration",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-app-filtering"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/backend-libraries",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-app-filtering"
-      ]
-    },
-    {
-      "link": "https://dashboard.fingerprintjs.com/signup",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/matomo-piwik"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#780b19141d0b381e11161f1d0a080a11160c561b1715",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/billing"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/reference/getvisits",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/reference/pro-server-api"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#3c4f494c4c534e487c5a55525b594e4c4e555248564f125f5351",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/changelog/3-2-0"
-      ]
-    },
-    {
-      "link": "https://github.com/fingerprintjs/fingerprintjs-pro-vue/blob/main/packages/fingerprintjs-pro-vue-v2/README.md#nuxt",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks"
-      ]
-    },
-    {
-      "link": "https://github.com/fingerprintjs/fingerprintjs-pro-vue/blob/main/packages/fingerprintjs-pro-vue-v3/README.md#nuxt",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#0a797f7a7a65787e4a6c63646d6f787a7863647e607924696567",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager"
-      ]
-    },
-    {
-      "link": "https://apps.apple.com/en/app/fingerprint-pro/id1644105278",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/ios"
-      ]
-    },
-    {
-      "link": "https://svelte.dev/docs#run-time-svelte-onmount",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks"
-      ]
-    },
-    {
-      "link": "https://support.google.com/analytics/answer/9682282?hl=en&ref_topic=2919631&sjid=9027453856798034060-EU",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager"
-      ]
-    },
-    {
-      "link": "https://support.google.com/tagmanager/answer/7679219?hl=en",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager"
-      ]
-    },
-    {
-      "link": "https://github.com/fingerprintjs/fingerprintjs-pro-ios/releases/tag/2.4.0",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-app-filtering"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#93e0e6e3e3fce1e7d3f5fafdf4f6e1e3e1fafde7bdf0fcfeace0e6f1f9f6f0e7aedab6a1a3e4f2fde7b6a1a3e7fcb6a1a3f8f6f6e3b6a1a3d9c0b6a1a3d2f4f6fde7b6a1a3f0fcf7f6b6a1a3fcfdb6a1a3feeab6a1a3e0f6e1e5f6e1",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/js-agent"
-      ]
-    },
-    {
-      "link": "https://aspiegel.com/petalbot",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/search-bots-filtering"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/smart-signals-overview#vpn-detection",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/smart-signals-cheat-sheet"
-      ]
-    },
-    {
-      "link": "https://support.google.com/tagmanager/answer/6107167?hl=en#",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager"
-      ]
-    },
-    {
-      "link": "https://support.google.com/tagmanager/answer/7683362?hl=en",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager"
-      ]
-    },
-    {
-      "link": "https://www.researchgate.net/publication/332873650_Browser_Fingerprinting_A_survey",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/understanding-our-995-accuracy"
-      ]
-    },
-    {
-      "link": "https://support.google.com/googleplay/android-developer/answer/10787469?hl=en",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/native-android-integration"
-      ]
-    },
-    {
-      "link": "https://dashboard.fingerprint.comthrough",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/terms-of-service"
-      ]
-    },
-    {
-      "link": "https://support.google.com/tagmanager/answer/6102821",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager"
-      ]
-    },
-    {
-      "link": "https://support.cloudflare.com/hc/en-us/articles/360019093151-Managing-DNS-records-in-Cloudflare",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/custom-subdomain-setup"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#4e3d3b3e3e213c3a0e282720292b3c3e3c27203a602d2123",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/js-agent"
-      ]
-    },
-    {
-      "link": "https://help.dreamhost.com/hc/en-us/articles/360035516812-Adding-custom-DNS-records",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/custom-subdomain-setup"
-      ]
-    },
-    {
-      "link": "https://dash.cloudflare.com/profile/api-tokens",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/cloudflare-integration"
-      ]
-    },
-    {
-      "link": "https://svelte.dev/docs#template-syntax-element-directives-on-eventname",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks"
-      ]
-    },
-    {
-      "link": "http://dropbox.com",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/what-is-fingerprint"
-      ]
-    },
-    {
-      "link": "http://Dropbox.com",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/what-is-fingerprint"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#22515752524d505662444b4c45475052504b4c560c414d4f",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/cloudflare-integration"
-      ]
-    },
-    {
-      "link": "https://my.bluehost.com/hosting/help/resource/714",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/custom-subdomain-setup"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#ff9b8f90bf999691989a8d8f8d96918bd19c9092",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/dpa-gdpr"
-      ]
-    },
-    {
-      "link": "https://segment.com/docs/connections/spec/page/",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/segment"
-      ]
-    },
-    {
-      "link": "https://segment.com/docs/connections/sources/",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/segment"
-      ]
-    },
-    {
-      "link": "https://dash.cloudflare.com/",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/cloudflare-integration"
-      ]
-    },
-    {
-      "link": "https://dash.cloudflare.com/profile/api-tokens?permissionGroupKeys=%5B%7B%22key%22%3A%22workers_routes%22%2C%22type%22%3A%22edit%22%7D%2C%7B%22key%22%3A%22workers_scripts%22%2C%22type%22%3A%22edit%22%7D%5D&name=fingerprint.com",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/cloudflare-integration"
-      ]
-    },
-    {
-      "link": "https://dash.cloudflare.com/?to=/:account/workers",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/cloudflare-integration"
-      ]
-    },
-    {
-      "link": "https://segment.com/docs/connections/spec/identify/",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/segment"
-      ]
-    },
-    {
-      "link": "https://segment.com/docs/connections/destinations/catalog/#security-fraud",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/segment"
+        {
+          "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
+          "linkText": "Module constraints documentation"
+        }
       ]
     },
     {
       "link": "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/",
       "result": "network error",
       "backlinks": [
-        "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2"
-      ]
-    },
-    {
-      "link": "https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ffingerprintjs%2Ffingerprint-pro-azure-integration%2Fmain%2Fazuredeploy.json",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/azure-proxy-integration"
-      ]
-    },
-    {
-      "link": "https://fingerprint-pro-azure-integration-appi4fghxf32z36q.azurewebsites.net/fpjs/%7B*restOfPath%7D",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/azure-proxy-integration"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#d2b6a2bd92b4bbbcb5b7a0a2a0bbbca6fcb1bdbf",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/dpa-gdpr"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#35464045455a474175535c5b52504745475c5b411b565a58",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/terms-of-service"
-      ]
-    },
-    {
-      "link": "https://dash.cloudflare.com/?to=/:account/workers/overview",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/cloudflare-integration"
-      ]
-    },
-    {
-      "link": "https://Segment.com/docs/connections/functions/source-functions/",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/segment"
-      ]
-    },
-    {
-      "link": "https://segment.com/docs/connections/spec/track/",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/segment"
-      ]
-    },
-    {
-      "link": "https://segment.com/docs/connections/spec/",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/segment"
-      ]
-    },
-    {
-      "link": "https://segment.com/docs/connections/spec/group/",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/segment"
-      ]
-    },
-    {
-      "link": "https://segment.com/docs/connections/spec/screen/",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/segment"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/53-verify-the-integration-subdomain",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/azure-proxy-integration"
+        {
+          "page": "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2",
+          "linkText": "Stacks"
+        }
       ]
     },
     {
       "link": "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Fingerprint-Pro-CloudFront-Integration-v2&templateURL=https://fingerprint-pro-cloudfront-integration.s3.amazonaws.com/v2/template.yml",
       "result": "network error",
       "backlinks": [
-        "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#ff8c8a8f8f908d8bbf999691989a8d8f8d96918bd19c9092",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/changelog/3-5-0#content",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/changelog/3-5-0"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/changelog/3-9-0#content",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/changelog/3-9-0"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#91e2e4e1e1fee3e5d1f7f8fff6f4e3e1e3f8ffe5bff2fefc",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/azure-proxy-integration"
-      ]
-    },
-    {
-      "link": "https://developer.chrome.com/docs/extensions/mv3/intro/",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/fingerprintjs-pro-and-chrome-extension"
-      ]
-    },
-    {
-      "link": "https://support.google.com/analytics/answer/6004245",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/privacy-policy"
-      ]
-    },
-    {
-      "link": "https://github.com/fingerprintjs/fingerprint-pro-azure-integration/blob/develop/azuredeploy.json",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/azure-proxy-integration"
-      ]
-    },
-    {
-      "link": "https://support.google.com/chrome/answer/95647?hl=en",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/privacy-policy"
-      ]
-    },
-    {
-      "link": "http://browserify.org",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/js-agent"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#3d4e484d4d524f497d5b54535a584f4d4f545349135e5250",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/privacy-policy"
-      ]
-    },
-    {
-      "link": "https://www.edoeb.admin.ch/edoeb/en/home/the-fdpic/links/data-protection---switzerland.html",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/privacy-policy"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/suggested-edits/64060d15b3c1a7003e79213e/preview#visitorfound",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/useful-timestamps"
-      ]
-    },
-    {
-      "link": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files"
-      ]
-    },
-    {
-      "link": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278393",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files"
-      ]
-    },
-    {
-      "link": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4250555",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files"
-      ]
-    },
-    {
-      "link": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4250556",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files"
-      ]
-    },
-    {
-      "link": "http://support.mozilla.org/en-US/kb/cookies",
-      "result": "broken link",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/privacy-policy"
+        {
+          "page": "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2",
+          "linkText": "CloudFormation installation wizard"
+        }
       ]
     },
     {
       "link": "http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm",
       "result": "network error",
       "backlinks": [
-        "https://dev.fingerprint.com/docs/privacy-policy"
-      ]
-    },
-    {
-      "link": "https://paywall-example.fingerprintjs.com/",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/introduction"
-      ]
-    },
-    {
-      "link": "https://angular.io/guide/universal",
-      "result": "network error",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/js-agent#extendedResult",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/js-agent"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/js-agent#agent-initialization",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/generic-js-agent-wrapper-for-spas"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/server-api#get-visitor-history-identification-only",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/tagging-information"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/azure-proxy-integration#step-6-configure-the-fingerprint-pro-javascript-agent-on-your-website",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/azure-proxy-integration"
-      ]
-    },
-    {
-      "link": "https://github.com/fingerprintjs/fingerprintjs-pro-spa#creating-a-custom-cache",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/caching-visitor-information"
-      ]
-    },
-    {
-      "link": "https://dev.fingerprint.com/docs/server-api#requestid",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/zero-trust-mode"
-      ]
-    },
-    {
-      "link": "https://developer.android.com/tools/releases/platforms#5.0",
-      "result": "hash not found",
-      "backlinks": [
-        "https://dev.fingerprint.com/docs/native-android-integration"
+        {
+          "page": "https://dev.fingerprint.com/docs/privacy-policy",
+          "linkText": "http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm"
+        }
       ]
     },
     {
       "link": "http://eBay.com",
       "result": "network error",
       "backlinks": [
-        "https://dev.fingerprint.com/docs/what-is-fingerprint"
+        {
+          "page": "https://dev.fingerprint.com/docs/what-is-fingerprint",
+          "linkText": "eBay.com"
+        }
+      ]
+    }
+  ],
+  "brokenLinks": [
+    {
+      "link": "https://support.cloudflare.com/hc/en-us/articles/360019093151-Managing-DNS-records-in-Cloudflare",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/custom-subdomain-setup",
+          "linkText": "https://support.cloudflare.com/hc/en-us/articles/360019093151-Managing-DNS-records-in-Cloudflare"
+        }
+      ]
+    },
+    {
+      "link": "https://help.dreamhost.com/hc/en-us/articles/360035516812-Adding-custom-DNS-records",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/custom-subdomain-setup",
+          "linkText": "https://help.dreamhost.com/hc/en-us/articles/360035516812-Adding-custom-DNS-records"
+        }
+      ]
+    },
+    {
+      "link": "https://my.bluehost.com/hosting/help/resource/714",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/custom-subdomain-setup",
+          "linkText": "https://my.bluehost.com/hosting/help/resource/714"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/docs/smart-signals-overview#vpn-detection",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/",
+          "linkText": "VPN detection"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/docs/smart-signals-overview#browser-tamper-detection",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/",
+          "linkText": "Browser tampering"
+        },
+        {
+          "page": "https://dev.fingerprint.com/docs/smart-signals-cheat-sheet",
+          "linkText": "Browser Tamper Detection"
+        },
+        {
+          "page": "https://dev.fingerprint.com/",
+          "linkText": "Browser tampering"
+        },
+        {
+          "page": "https://dev.fingerprint.com/docs/smart-signals-overview",
+          "linkText": ""
+        },
+        {
+          "page": "https://dev.fingerprint.com/docs/smart-signals-overview",
+          "linkText": "Browser Tamper Detection"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#285b49444d5b684e41464f4d5a585a41465c064b4745",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/billing",
+          "linkText": "[email protected]"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/edit/openapi-for-server-api-and-webhooks",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/openapi-for-server-api-and-webhooks",
+          "linkText": "Suggest Edits"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/edit/glossary",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/glossary",
+          "linkText": "Suggest Edits"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/login?redirect_uri=/docs/glossary",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/glossary",
+          "linkText": "Log In"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/edit/identifying-in-app-browsers-for-ios",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/identifying-in-app-browsers-for-ios",
+          "linkText": "Suggest Edits"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/discuss?sorting=open",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/discuss",
+          "linkText": "Unanswered"
+        }
+      ]
+    },
+    {
+      "link": "https://aspiegel.com/petalbot",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/search-bots-filtering",
+          "linkText": "source"
+        }
+      ]
+    },
+    {
+      "link": "https://support.google.com/googleplay/android-developer/answer/10787469?hl=en",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/native-android-integration",
+          "linkText": "Provide information for Google Play's Data safety section"
+        }
+      ]
+    },
+    {
+      "link": "https://www.researchgate.net/publication/332873650_Browser_Fingerprinting_A_survey",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/understanding-our-995-accuracy",
+          "linkText": "Other studies"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/docs/server-api#get-visitor-history-identification-only",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/tagging-information",
+          "linkText": "visit history"
+        }
+      ]
+    },
+    {
+      "link": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4250555",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
+          "linkText": "sensitive data"
+        }
+      ]
+    },
+    {
+      "link": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278393",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
+          "linkText": "File timestamp APIs"
+        }
+      ]
+    },
+    {
+      "link": "https://apps.apple.com/en/app/fingerprint-pro/id1644105278",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/ios",
+          "linkText": "demo app"
+        }
+      ]
+    },
+    {
+      "link": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
+          "linkText": "Create your app's privacy report"
+        }
+      ]
+    },
+    {
+      "link": "https://github.com/fingerprintjs/fingerprintjs-pro-vue/blob/main/packages/fingerprintjs-pro-vue-v2/README.md#nuxt",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
+          "linkText": "Vue 2"
+        }
+      ]
+    },
+    {
+      "link": "https://github.com/fingerprintjs/fingerprintjs-pro-vue/blob/main/packages/fingerprintjs-pro-vue-v3/README.md#nuxt",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
+          "linkText": "SDK Documentation for Vue 3"
+        }
+      ]
+    },
+    {
+      "link": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4250556",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
+          "linkText": "describing data use"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#671412171708151327010e0900021517150e09130d144904080a",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/changelog/3-2-0",
+          "linkText": "Contact support"
+        }
+      ]
+    },
+    {
+      "link": "https://support.google.com/analytics/answer/9682282?hl=en&ref_topic=2919631&sjid=9027453856798034060-EU",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager",
+          "linkText": "policy against using browser fingerprints"
+        }
+      ]
+    },
+    {
+      "link": "https://support.google.com/tagmanager/answer/6102821",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager",
+          "linkText": "Google Tag Manager"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#25565055554a575165434c4b42405755574c4b510b464a48",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/terms-of-service",
+          "linkText": "[email protected]"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#fe8d8b8e8e918c8abe989790999b8c8e8c97908a948dd09d9193",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager",
+          "linkText": "support"
+        }
+      ]
+    },
+    {
+      "link": "https://support.google.com/tagmanager/answer/7679219?hl=en",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager",
+          "linkText": "custom event trigger"
+        }
+      ]
+    },
+    {
+      "link": "https://support.google.com/tagmanager/answer/7683362?hl=en",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager",
+          "linkText": "user-defined variable"
+        }
+      ]
+    },
+    {
+      "link": "https://support.google.com/tagmanager/answer/6107167?hl=en#",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager",
+          "linkText": "Custom HTML tag"
+        }
+      ]
+    },
+    {
+      "link": "https://fingerprint-pro-azure-integration-appi4fghxf32z36q.azurewebsites.net/fpjs/%7B*restOfPath%7D",
+      "result": "network error",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
+          "linkText": "{*restOfPath}"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/docs/53-verify-the-integration-subdomain",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
+          "linkText": "5.3"
+        }
+      ]
+    },
+    {
+      "link": "https://segment.com/docs/connections/spec/identify/",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/segment",
+          "linkText": "Identify Spec"
+        }
+      ]
+    },
+    {
+      "link": "https://segment.com/docs/connections/spec/screen/",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/segment",
+          "linkText": "Screen Spec"
+        }
+      ]
+    },
+    {
+      "link": "https://segment.com/docs/connections/spec/group/",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/segment",
+          "linkText": "Group Spec"
+        }
+      ]
+    },
+    {
+      "link": "https://segment.com/docs/connections/spec/track/",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/segment",
+          "linkText": "Track Spec"
+        }
+      ]
+    },
+    {
+      "link": "https://segment.com/docs/connections/spec/page/",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/segment",
+          "linkText": "Page Spec"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#e2919792928d9096a2848b8c85879092908b8c96cc818d8f",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
+          "linkText": "contact our support"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/suggested-edits/64060d15b3c1a7003e79213e/preview#visitorfound",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/useful-timestamps",
+          "linkText": "visitorFound property"
+        }
+      ]
+    },
+    {
+      "link": "https://remix.run/docs/en/v1/guides/constraints#browser-only-code-on-the-server",
+      "result": "network error",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
+          "linkText": "Module constraints documentation"
+        }
+      ]
+    },
+    {
+      "link": "https://github.com/fingerprintjs/fingerprint-pro-azure-integration/blob/develop/azuredeploy.json",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
+          "linkText": "deployment template"
+        }
+      ]
+    },
+    {
+      "link": "https://svelte.dev/docs#template-syntax-element-directives-on-eventname",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
+          "linkText": "event handlers"
+        }
+      ]
+    },
+    {
+      "link": "https://svelte.dev/docs#run-time-svelte-onmount",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
+          "linkText": "onMount"
+        }
+      ]
+    },
+    {
+      "link": "https://Segment.com/docs/connections/functions/source-functions/",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/segment",
+          "linkText": "Segment Source Function"
+        }
+      ]
+    },
+    {
+      "link": "https://segment.com/docs/connections/destinations/catalog/#security-fraud",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/segment",
+          "linkText": "destinations"
+        }
+      ]
+    },
+    {
+      "link": "https://segment.com/docs/connections/sources/",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/segment",
+          "linkText": "data source"
+        }
+      ]
+    },
+    {
+      "link": "https://segment.com/docs/connections/spec/",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/segment",
+          "linkText": "Segment Specs"
+        }
+      ]
+    },
+    {
+      "link": "https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ffingerprintjs%2Ffingerprint-pro-azure-integration%2Fmain%2Fazuredeploy.json",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
+          "linkText": "Click here to open the template deployment dialog."
+        }
+      ]
+    },
+    {
+      "link": "https://support.google.com/chrome/answer/95647?hl=en",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/privacy-policy",
+          "linkText": "Cookie settings in Chrome"
+        }
+      ]
+    },
+    {
+      "link": "https://support.google.com/analytics/answer/6004245",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/privacy-policy",
+          "linkText": "https://support.google.com/analytics/answer/6004245"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#3c4f494c4c534e487c5a55525b594e4c4e555248125f5351",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/privacy-policy",
+          "linkText": "[email protected]"
+        }
+      ]
+    },
+    {
+      "link": "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/",
+      "result": "network error",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2",
+          "linkText": "Stacks"
+        }
+      ]
+    },
+    {
+      "link": "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Fingerprint-Pro-CloudFront-Integration-v2&templateURL=https://fingerprint-pro-cloudfront-integration.s3.amazonaws.com/v2/template.yml",
+      "result": "network error",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2",
+          "linkText": "CloudFormation installation wizard"
+        }
+      ]
+    },
+    {
+      "link": "http://support.mozilla.org/en-US/kb/cookies",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/privacy-policy",
+          "linkText": "Cookie settings in Firefox"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#e99a9c9999869b9da98f80878e8c9b999b80879dc78a8684",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2",
+          "linkText": "support team"
+        }
+      ]
+    },
+    {
+      "link": "https://www.edoeb.admin.ch/edoeb/en/home/the-fdpic/links/data-protection---switzerland.html",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/privacy-policy",
+          "linkText": "https://www.edoeb.admin.ch/edoeb/en/home/the-fdpic/links/data-protection---switzerland.html"
+        }
+      ]
+    },
+    {
+      "link": "http://Dropbox.com",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/what-is-fingerprint",
+          "linkText": "Dropbox.com"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#bdd9cdd2fddbd4d3dad8cfcdcfd4d3c993ded2d0",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/dpa-gdpr",
+          "linkText": "[email protected]"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#1276627d52747b7c75776062607b7c663c717d7f",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/dpa-gdpr",
+          "linkText": "[email protected]"
+        }
+      ]
+    },
+    {
+      "link": "http://dropbox.com",
+      "result": "broken link",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/what-is-fingerprint",
+          "linkText": "dropbox.com"
+        }
+      ]
+    },
+    {
+      "link": "http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm",
+      "result": "network error",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/privacy-policy",
+          "linkText": "http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#7d0e080d0d120f093d1b14131a180f0d0f141309531e1210420e081f17181e094034584f4d0a1c1309584f4d0912584f4d1618180d584f4d372e584f4d3c1a181309584f4d1e121918584f4d1213584f4d1004584f4d0e180f0b180f",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/js-agent",
+          "linkText": "[email protected]"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#0b787e7b7b64797f4b6d62656c6e797b7962657f25686466",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/js-agent",
+          "linkText": "[email protected]"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/docs/js-agent#agent-initialization",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/generic-js-agent-wrapper-for-spas",
+          "linkText": "https://dev.fingerprint.com/docs/js-agent#agent-initialization"
+        }
+      ]
+    },
+    {
+      "link": "https://github.com/fingerprintjs/fingerprintjs-pro-spa#creating-a-custom-cache",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/caching-visitor-information",
+          "linkText": "your own custom cache implementation"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/docs/server-api#requestid",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/zero-trust-mode",
+          "linkText": "requestId"
+        }
+      ]
+    },
+    {
+      "link": "https://developer.android.com/tools/releases/platforms#5.0",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/native-android-integration",
+          "linkText": "API Level 21"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/docs/azure-proxy-integration#step-6-configure-the-fingerprint-pro-javascript-agent-on-your-website",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
+          "linkText": "Step 6"
+        }
+      ]
+    },
+    {
+      "link": "http://eBay.com",
+      "result": "network error",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/what-is-fingerprint",
+          "linkText": "eBay.com"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2#step-6-connect-your-integration-to-the-fingerprint-dashboard",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2",
+          "linkText": "Step 6"
+        }
+      ]
+    },
+    {
+      "link": "https://dev.fingerprint.com/docs/js-agent#extendedResult",
+      "result": "hash not found",
+      "backlinks": [
+        {
+          "page": "https://dev.fingerprint.com/docs/js-agent",
+          "linkText": "extendedResult"
+        }
       ]
     }
   ]

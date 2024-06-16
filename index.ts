@@ -1,5 +1,5 @@
 import { checkLink } from "./checkLink";
-import { crawlSite } from "./checkSite";
+import { crawlSite } from "./crawlSite";
 import { getPageLinks } from "./getPageLinks";
 
 const linksToCheck = [

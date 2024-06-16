@@ -7,6 +7,7 @@ export type LinkCheckResult =
   | {
       ok: false;
       error: "hash not found" | "broken link" | "network error";
+      errorDetail?: string;
     };
 
 export const checkLink = async (url: string): Promise<LinkCheckResult> => {
@@ -29,6 +30,6 @@ export const checkLink = async (url: string): Promise<LinkCheckResult> => {
     return { ok: true };
   } catch (error) {
     console.error(error);
-    return { ok: false, error: "network error" };
+    return { ok: false, error: `network error`, errorDetail: error };
   }
 };

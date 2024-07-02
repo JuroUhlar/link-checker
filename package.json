@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@supercharge/promise-pool": "^3.2.0",
     "cheerio": "1.0.0-rc.12",
     "linkinator": "^6.0.4",
     "tsx": "^4.9.0"

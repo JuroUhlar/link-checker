@@ -1,8 +1,11 @@
 import * as cheerio from "cheerio";
+import { LinkCheckResult } from "./checkLink";
 
 type Link = {
+  page: string;
   href: string;
   text: string;
+  result?: LinkCheckResult;
 };
 
 export async function getPageLinks(url: string): Promise<Link[]> {
@@ -19,9 +22,13 @@ export async function getPageLinks(url: string): Promise<Link[]> {
     const href = value.attribs.href;
     if (href) {
       if (href.startsWith("http")) {
-        result.push({ href, text: $(value).text() });
+        result.push({ href, text: $(value).text(), page: url });
       } else {
-        result.push({ href: new URL(href, url).href, text: $(value).text() });
+        result.push({
+          href: new URL(href, url).href,
+          text: $(value).text(),
+          page: url,
+        });
       }
     }
   });

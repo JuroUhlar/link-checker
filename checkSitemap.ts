@@ -2,6 +2,7 @@ import { LinkCheckResult, checkLink } from "./checkLink";
 import * as cheerio from "cheerio";
 import { getPageLinks } from "./getPageLinks";
 import { writeFileSync } from "fs";
+import { PromisePool } from "@supercharge/promise-pool";
 
 const getPagesFromSitemap = async (sitemapUrl: string) => {
   const response = await (await fetch(sitemapUrl)).text();
@@ -19,11 +20,11 @@ type HrefSummary = {
   foundIn: { page: string; linkText: string }[];
 };
 
-const checkSitemap = async (url: string) => {
+const checkSitemap = async (sitemapUrl: string) => {
   const startTime = performance.now();
   const checkedLinks = new Map<string, HrefSummary>();
 
-  const pagesToCheck = await getPagesFromSitemap(url);
+  const pagesToCheck = await getPagesFromSitemap(sitemapUrl);
   console.log("Pages to check (from sitemap): ", pagesToCheck.length);
   for (const [index, page] of pagesToCheck.entries()) {
     console.log(

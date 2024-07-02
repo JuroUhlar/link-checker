@@ -1,8 +1,11 @@
 import { LinkCheckResult, checkLink } from "./checkLink";
 import * as cheerio from "cheerio";
-import { getPageLinks } from "./getPageLinks";
+import { Link, getPageLinks } from "./getPageLinks";
 import { writeFileSync } from "fs";
 import { PromisePool } from "@supercharge/promise-pool";
+import * as cliProgress from "cli-progress";
+
+const CONCURRENCY_LIMIT = 30;
 
 const getPagesFromSitemap = async (sitemapUrl: string) => {
   const response = await (await fetch(sitemapUrl)).text();
@@ -22,81 +25,61 @@ type HrefSummary = {
 
 const checkSitemap = async (sitemapUrl: string) => {
   const startTime = performance.now();
-  const checkedLinks = new Map<string, HrefSummary>();
 
-  const pagesToCheck = await getPagesFromSitemap(sitemapUrl);
-  console.log("Pages to check (from sitemap): ", pagesToCheck.length);
-  for (const [index, page] of pagesToCheck.entries()) {
-    console.log(
-      `Checking page ${page}, ${Math.round(
-        ((index + 1) / pagesToCheck.length) * 100
-      )}%`
-    );
-    const linksToCheck = await getPageLinks(page);
+  // Get pages from sitemap
+  const pageURLsToCheck = await getPagesFromSitemap(sitemapUrl);
+  console.log("Pages to check (from sitemap): ", pageURLsToCheck.length);
 
-    await Promise.all(
-      linksToCheck.map(async ({ href, text }) => {
-        if (checkedLinks.has(href)) {
-          // Already checked, just add the backlink
-          const { result, foundIn } = checkedLinks.get(href)!;
-          checkedLinks.set(href, {
-            result,
-            foundIn: [...foundIn, { page, linkText: text }],
-          });
-        } else {
-          // New link, check it
-          const result = await checkLink(href);
-          // console.log(
-          //   "       ",
-          //   href,
-          //   result.ok ? "✅" : "❌",
-          //   !result.ok ? result.error : ""
-          // );
-          checkedLinks.set(href, {
-            result,
-            foundIn: [{ page, linkText: text }],
-          });
-        }
-      })
-    );
-  }
+  // Get links from pages
+  const { results: pagesLinks, errors: pageErrors } =
+    await PromisePool.withConcurrency(CONCURRENCY_LIMIT)
+      .for(pageURLsToCheck)
+      .process(async (page) => getPageLinks(page));
+  const linksToCheck = pagesLinks.flat();
 
-  const brokenLinks = [...checkedLinks.entries()]
-    .filter(([_link, { result }]) => !result.ok)
-    .map(([link, { result, foundIn: backlinks }]) => ({
-      link,
-      result: !result.ok ? result.error : "ok",
-      backlinks,
-    }));
+  console.log("Links to check (from pages)", linksToCheck.length);
+  console.log("Errors while getting links", pageErrors.length, pageErrors);
 
-  const networkErrors = brokenLinks.filter(
-    (link) => link.result === "network error"
-  );
+  // Check links
+  const resultMap = new Map<string, LinkCheckResult>();
+  const progressBar = new cliProgress.SingleBar({});
+  progressBar.start(linksToCheck.length, 0);
 
-  const result = {
-    totalLinks: checkedLinks.size,
-    totalWorkingLinks: checkedLinks.size - brokenLinks.length,
-    totalBrokenLinks: brokenLinks.length,
-    networkErrors,
-    brokenLinks,
-  };
+  const { results, errors } = await PromisePool.withConcurrency(
+    CONCURRENCY_LIMIT
+  )
+    .for(linksToCheck)
+    .process(async (link, index, pool) => {
+      if (resultMap.has(link.href)) {
+        // Already checked, just use the result
+        link.result = resultMap.get(link.href);
+      } else {
+        // New link, check it
+        const result = await checkLink(link.href);
+        link.result = result;
+        resultMap.set(link.href, result);
+      }
+      progressBar.increment();
+      return link;
+    });
+
+  progressBar.stop();
+
+  console.log("Errors while checking links", errors.length, errors);
+  console.log("Results", results.length);
+  const brokenLinks = results.filter((link) => link.result?.ok === false);
+  console.log("Broken links", brokenLinks.length);
 
   // Write result to file
-  writeFileSync(`./result.json`, JSON.stringify(result, null, 2));
-  // console.log(JSON.stringify(result, null, 2));
+  writeFileSync(`./brokenLinks.json`, JSON.stringify(brokenLinks, null, 2));
   console.log(
-    `Checked ${checkedLinks.size} links in ${
+    `Checked ${results.length} links in ${
       (performance.now() - startTime) / 1000
     } seconds.`
   );
-  return result;
+  return;
 };
 
 (async () => {
   await checkSitemap("https://dev.fingerprint.com/sitemap.xml");
-  // console.log(
-  //   await checkLink(
-  //     "https://remix.run/docs/en/v1/guides/constraints#browser-only-code-on-the-server"
-  //   )
-  // );
 })();

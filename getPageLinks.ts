@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
 import { LinkCheckResult } from "./checkLink";
 
-type Link = {
+export type Link = {
   page: string;
   href: string;
   text: string;

@@ -14,6 +14,9 @@ importers:
       cheerio:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
+      cli-progress:
+        specifier: ^3.12.0
+        version: 3.12.0
       linkinator:
         specifier: ^6.0.4
         version: 6.0.4
@@ -21,6 +24,9 @@ importers:
         specifier: ^4.9.0
         version: 4.9.0
     devDependencies:
+      '@types/cli-progress':
+        specifier: ^3.11.5
+        version: 3.11.5
       '@types/node':
         specifier: ^20.12.12
         version: 20.12.12
@@ -177,6 +183,9 @@ packages:
     resolution: {integrity: sha512-pj0cAALblTZBPtMltWOlZTQSLT07jIaFNeM8TWoJD1cQMgDB9mcMlVMoetiB35OzNJpqQ2b+QEtwiR9f20mADg==}
     engines: {node: '>=8'}
 
+  '@types/cli-progress@3.11.5':
+    resolution: {integrity: sha512-D4PbNRbviKyppS5ivBGyFO29POlySLmA2HyUFE4p5QGazAMM3CwkKWcvTl8gvElSuxRh6FPKL8XmidX873ou4g==}
+
   '@types/node@20.12.12':
     resolution: {integrity: sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==}
 
@@ -219,6 +228,10 @@ packages:
   cheerio@1.0.0-rc.12:
     resolution: {integrity: sha512-VqR8m68vM46BNnuZ5NtnGBKIE/DfN0cRIzg9n40EIq9NOv90ayxLBXA8fXC5gquFRGJSTRqBq25Jt2ECLR431Q==}
     engines: {node: '>= 6'}
+
+  cli-progress@3.12.0:
+    resolution: {integrity: sha512-tRkV3HJ1ASwm19THiiLIXLO7Im7wlTuKnvkYaTkyoAPefqjNg7W7DHKUlGRxy9vxDvbyCYQkQozvptuMkGCg8A==}
+    engines: {node: '>=4'}
 
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -547,6 +560,10 @@ snapshots:
 
   '@supercharge/promise-pool@3.2.0': {}
 
+  '@types/cli-progress@3.11.5':
+    dependencies:
+      '@types/node': 20.12.12
+
   '@types/node@20.12.12':
     dependencies:
       undici-types: 5.26.5
@@ -595,6 +612,10 @@ snapshots:
       htmlparser2: 8.0.2
       parse5: 7.1.2
       parse5-htmlparser2-tree-adapter: 7.0.0
+
+  cli-progress@3.12.0:
+    dependencies:
+      string-width: 4.2.3
 
   color-convert@2.0.1:
     dependencies:

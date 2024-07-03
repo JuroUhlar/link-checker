@@ -1,13 +1,15 @@
-import { LinkCheckResult, checkLink } from "./checkLink";
+import { checkLink } from "./checkLink";
 import * as cheerio from "cheerio";
-import { Link, getPageLinks } from "./getPageLinks";
+import { getPageLinks } from "./getPageLinks";
 import { writeFileSync } from "fs";
 import { PromisePool } from "@supercharge/promise-pool";
 import * as cliProgress from "cli-progress";
+import { Link, LinkCheckResult, LinkWithResult } from "./types";
 
 const CONCURRENCY_LIMIT = 30;
+const progressBar = new cliProgress.SingleBar({});
 
-const getPagesFromSitemap = async (sitemapUrl: string) => {
+const getPagesFromSitemap = async (sitemapUrl: string, verbose = false) => {
   const response = await (await fetch(sitemapUrl)).text();
   const $ = cheerio.load(response, { xmlMode: true });
   const pages: string[] = [];
@@ -15,69 +17,107 @@ const getPagesFromSitemap = async (sitemapUrl: string) => {
     const location = $(urlElem).find("loc").text();
     pages.push(location);
   });
+
+  console.log(`Retrieved ${pages.length} pages from ${sitemapUrl} sitemap:`);
+  if (verbose) {
+    console.log(pages);
+  }
+
   return pages;
 };
 
-type HrefSummary = {
-  result: LinkCheckResult;
-  foundIn: { page: string; linkText: string }[];
+const getLinksFromPages = async (pages: string[], verbose = false) => {
+  progressBar.start(pages.length, 0);
+  const { results, errors } = await PromisePool.withConcurrency(
+    CONCURRENCY_LIMIT
+  )
+    .for(pages)
+    .process(async (page) => {
+      progressBar.increment();
+      return getPageLinks(page);
+    });
+  progressBar.stop;
+  const links = results.flat();
+  console.log(
+    `\nRetrieved ${links.length} links from ${results.length} pages.`
+  );
+  if (errors.length > 0) {
+    console.log(`Retrieving links failed for ${errors.length} pages.`);
+  }
+  if (verbose) {
+    console.log(errors);
+  }
+  return { links, errors };
+};
+
+const checkLinks = async (links: Link[], verbose = false) => {
+  const resultMap = new Map<string, LinkCheckResult>();
+  progressBar.start(links.length, 0);
+  const { results, errors } = await PromisePool.withConcurrency(
+    CONCURRENCY_LIMIT
+  )
+    .for(links)
+    .process(async (link, index, pool): Promise<LinkWithResult> => {
+      const existingResult = resultMap.get(link.href);
+      let result: LinkCheckResult;
+      if (existingResult) {
+        // Already checked, just use the result
+        result = existingResult;
+      } else {
+        // New link, check it
+        const newResult = await checkLink(link.href);
+        resultMap.set(link.href, newResult);
+        result = newResult;
+      }
+      progressBar.increment();
+      return { ...link, result };
+    });
+  progressBar.stop();
+
+  console.log(`Checked ${results.length} links.`);
+  console.log(`Unexpected errors ocurred for ${errors.length} links`);
+  if (verbose) {
+    console.log(errors);
+  }
+  return { results, errors };
+};
+
+const getReport = (links: LinkWithResult[]) => {
+  const brokenLinks = links.filter(
+    (link) => link.result.ok === false && link.result.error === "broken link"
+  );
+  const hashNotFound = links.filter(
+    (link) => link.result.ok === false && link.result.error === "hash not found"
+  );
+  const networkErrors = links.filter(
+    (link) => link.result.ok === false && link.result.error === "network error"
+  );
+
+  return {
+    summmary: {
+      totalLinksToFix:
+        brokenLinks.length + hashNotFound.length + networkErrors.length,
+      brokenLinks: brokenLinks.length,
+      hashNotFound: hashNotFound.length,
+      networkErrors: networkErrors.length,
+    },
+    brokenLinks,
+    hashNotFound,
+    networkErrors,
+  };
 };
 
 const checkSitemap = async (sitemapUrl: string) => {
   const startTime = performance.now();
 
-  // Get pages from sitemap
-  const pageURLsToCheck = await getPagesFromSitemap(sitemapUrl);
-  console.log("Pages to check (from sitemap): ", pageURLsToCheck.length);
+  const pages = await getPagesFromSitemap(sitemapUrl);
+  const { links } = await getLinksFromPages(pages);
+  const { results } = await checkLinks(links);
+  const report = getReport(results);
+  console.log(report);
 
-  // Get links from pages
-  const { results: pagesLinks, errors: pageErrors } =
-    await PromisePool.withConcurrency(CONCURRENCY_LIMIT)
-      .for(pageURLsToCheck)
-      .process(async (page) => getPageLinks(page));
-  const linksToCheck = pagesLinks.flat();
-
-  console.log("Links to check (from pages)", linksToCheck.length);
-  console.log("Errors while getting links", pageErrors.length, pageErrors);
-
-  // Check links
-  const resultMap = new Map<string, LinkCheckResult>();
-  const progressBar = new cliProgress.SingleBar({});
-  progressBar.start(linksToCheck.length, 0);
-
-  const { results, errors } = await PromisePool.withConcurrency(
-    CONCURRENCY_LIMIT
-  )
-    .for(linksToCheck)
-    .process(async (link, index, pool) => {
-      if (resultMap.has(link.href)) {
-        // Already checked, just use the result
-        link.result = resultMap.get(link.href);
-      } else {
-        // New link, check it
-        const result = await checkLink(link.href);
-        link.result = result;
-        resultMap.set(link.href, result);
-      }
-      progressBar.increment();
-      return link;
-    });
-
-  progressBar.stop();
-
-  console.log("Errors while checking links", errors.length, errors);
-  console.log("Results", results.length);
-  const brokenLinks = results.filter((link) => link.result?.ok === false);
-  console.log("Broken links", brokenLinks.length);
-
-  // Write result to file
-  writeFileSync(`./brokenLinks.json`, JSON.stringify(brokenLinks, null, 2));
-  console.log(
-    `Checked ${results.length} links in ${
-      (performance.now() - startTime) / 1000
-    } seconds.`
-  );
-  return;
+  writeFileSync(`./brokenLinks.json`, JSON.stringify(report, null, 2));
+  console.log(`Finished in ${(performance.now() - startTime) / 1000} seconds.`);
 };
 
 (async () => {

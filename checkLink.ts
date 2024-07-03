@@ -1,15 +1,8 @@
 import * as cheerio from "cheerio";
 import { chromium } from "playwright";
+import { LinkCheckResult } from "./types";
 
-export type LinkCheckResult =
-  | {
-      ok: true;
-    }
-  | {
-      ok: false;
-      error: "hash not found" | "broken link" | "network error";
-      errorDetail?: string;
-    };
+const okayStatusCodes = [200, 301, 302, 303, 307, 308];
 
 /**
  *
@@ -23,28 +16,28 @@ export const checkLink = async (url: string): Promise<LinkCheckResult> => {
     method: hash ? "GET" : "HEAD",
     redirect: "follow",
   });
-  if (response.status !== 200) {
+  if (okayStatusCodes.includes(response.status) === false) {
     return { ok: false, error: "broken link" };
   }
   if (hash) {
     var $ = cheerio.load(await response.text());
     var element = $(hash);
     if (element.length === 0) {
-      return await checkLinkWithPlaywright(url);
+      return { ok: false, error: "hash not found" };
+      // return await checkLinkWithPlaywright(url);
     }
   }
   return { ok: true };
 };
 
 async function checkLinkWithPlaywright(url: string): Promise<LinkCheckResult> {
-  console.log("Checking link with Playwright to make sure");
   const browser = await chromium.launch();
   const page = await browser.newPage();
   const hash = new URL(url).hash;
 
   try {
     // Navigate to the URL
-    await page.goto(url, { waitUntil: "networkidle" });
+    await page.goto(url);
 
     // Check if the current URL matches the given URL
     if (page.url() !== url) {

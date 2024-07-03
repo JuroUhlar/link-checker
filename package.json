@@ -15,7 +15,8 @@
     "cli-progress": "^3.12.0",
     "linkinator": "^6.0.4",
     "playwright": "^1.45.1",
-    "tsx": "^4.9.0"
+    "tsx": "^4.9.0",
+    "typescript": "^5.5.3"
   },
   "devDependencies": {
     "@types/cli-progress": "^3.11.5",

@@ -1,12 +1,5 @@
 import * as cheerio from "cheerio";
-import { LinkCheckResult } from "./checkLink";
-
-export type Link = {
-  page: string;
-  href: string;
-  text: string;
-  result?: LinkCheckResult;
-};
+import { Link } from "./types";
 
 function filterLinks(links: Link[]): Link[] {
   return links.filter((link) => !link.href.startsWith("mailto:"));

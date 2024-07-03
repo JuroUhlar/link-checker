@@ -8,6 +8,10 @@ export type Link = {
   result?: LinkCheckResult;
 };
 
+function filterLinks(links: Link[]): Link[] {
+  return links.filter((link) => !link.href.startsWith("mailto:"));
+}
+
 export async function getPageLinks(url: string): Promise<Link[]> {
   const response = await fetch(url);
   if (!response.ok) {
@@ -33,5 +37,5 @@ export async function getPageLinks(url: string): Promise<Link[]> {
     }
   });
 
-  return result;
+  return filterLinks(result);
 }

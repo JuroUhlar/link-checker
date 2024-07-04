@@ -1,4 +1,4 @@
-import { checkLink } from "./checkLink";
+import { checkLink, checkLinkWithPlaywright } from "./checkLink";
 import * as cheerio from "cheerio";
 import { getPageLinks } from "./getPageLinks";
 import { writeFileSync } from "fs";
@@ -62,15 +62,15 @@ const checkLinks = async (links: Link[], verbose = false) => {
       let result: LinkCheckResult;
       if (existingResult) {
         // Already checked, just use the result
-        result = existingResult;
+        link.result = existingResult;
       } else {
         // New link, check it
         const newResult = await checkLink(link.href);
         resultMap.set(link.href, newResult);
-        result = newResult;
+        link.result = newResult;
       }
       progressBar.increment();
-      return { ...link, result };
+      return link as LinkWithResult;
     });
   progressBar.stop();
 
@@ -94,7 +94,7 @@ const getReport = (links: LinkWithResult[]) => {
   );
 
   return {
-    summmary: {
+    summary: {
       totalLinksToFix:
         brokenLinks.length + hashNotFound.length + networkErrors.length,
       brokenLinks: brokenLinks.length,
@@ -114,7 +114,7 @@ const checkSitemap = async (sitemapUrl: string) => {
   const { links } = await getLinksFromPages(pages);
   const { results } = await checkLinks(links);
   const report = getReport(results);
-  console.log(report);
+  console.log(report.summary);
 
   writeFileSync(`./brokenLinks.json`, JSON.stringify(report, null, 2));
   console.log(`Finished in ${(performance.now() - startTime) / 1000} seconds.`);
@@ -122,4 +122,10 @@ const checkSitemap = async (sitemapUrl: string) => {
 
 (async () => {
   await checkSitemap("https://dev.fingerprint.com/sitemap.xml");
+  // console.log(
+  //   await checkLinkWithPlaywright(
+  //     "https://my.bluehost.com/hosting/help/resource/714",
+  //     true
+  //   )
+  // );
 })();

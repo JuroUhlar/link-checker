@@ -10,37 +10,58 @@ const okayStatusCodes = [200, 301, 302, 303, 307, 308];
  * @returns LinkCheckResult
  * @throws {Error} - network can fail or something
  */
-export const checkLink = async (url: string): Promise<LinkCheckResult> => {
+export const checkLink = async (
+  url: string,
+  verbose = false
+): Promise<LinkCheckResult> => {
   const hash = new URL(url).hash;
   const response = await fetch(url, {
     method: hash ? "GET" : "HEAD",
     redirect: "follow",
   });
   if (okayStatusCodes.includes(response.status) === false) {
-    return { ok: false, error: "broken link" };
+    if (verbose) {
+      console.log("Responded with", response.status);
+    }
+    // return { ok: false, error: "broken link" };
+    return await checkLinkWithPlaywright(url, verbose);
   }
   if (hash) {
     var $ = cheerio.load(await response.text());
     var element = $(hash);
     if (element.length === 0) {
-      return { ok: false, error: "hash not found" };
-      // return await checkLinkWithPlaywright(url);
+      // return { ok: false, error: "hash not found" };
+      if (verbose) {
+        console.log("Hash not found at first, checking with Playwright");
+      }
+      return await checkLinkWithPlaywright(url, verbose);
     }
+  }
+  if (verbose) {
+    console.log("OK");
   }
   return { ok: true };
 };
 
-async function checkLinkWithPlaywright(url: string): Promise<LinkCheckResult> {
+export async function checkLinkWithPlaywright(
+  url: string,
+  verbose = false
+): Promise<LinkCheckResult> {
   const browser = await chromium.launch();
   const page = await browser.newPage();
   const hash = new URL(url).hash;
 
   try {
     // Navigate to the URL
-    await page.goto(url);
+    const response = await Promise.race([
+      page.goto(url),
+      page.waitForResponse(
+        (response) => response.url() === url && response.status() > 99
+      ),
+    ]);
 
     // Check if the current URL matches the given URL
-    if (page.url() !== url) {
+    if (!response || !okayStatusCodes.includes(response.status())) {
       return { ok: false, error: "broken link" };
     }
 

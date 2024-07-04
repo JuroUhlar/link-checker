@@ -2,6 +2,7 @@ export type Link = {
   page: string;
   href: string;
   text: string;
+  result?: LinkCheckResult;
 };
 
 export type LinkWithResult = Link & { result: LinkCheckResult };

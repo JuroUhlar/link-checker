@@ -123,8 +123,14 @@ const checkSitemap = async (sitemapUrl: string) => {
 (async () => {
   await checkSitemap("https://dev.fingerprint.com/sitemap.xml");
   // console.log(
-  //   await checkLinkWithPlaywright(
-  //     "https://my.bluehost.com/hosting/help/resource/714",
+  //   await checkLink(
+  //     "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278393",
+  //     true
+  //   )
+  // );
+  // console.log(
+  //   await checkLink(
+  //     "https://dev.fingerprint.com/docs/what-is-fingerprint#terms-and-concepts",
   //     true
   //   )
   // );

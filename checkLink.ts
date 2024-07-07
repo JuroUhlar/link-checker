@@ -2,7 +2,10 @@ import * as cheerio from "cheerio";
 import { chromium } from "playwright";
 import { LinkCheckResult } from "./types";
 
-const okayStatusCodes = [200, 301, 302, 303, 307, 308];
+const OKAY_STATUS_CODES = [200, 301, 302, 303, 307, 308];
+// Some sites (Segment docs for example) respond with 403 forbidden to simple fetch requests, must add a user agent to prevent this
+const USER_AGENT =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.142.86 Safari/537.36";
 
 /**
  *
@@ -18,14 +21,18 @@ export const checkLink = async (
   const response = await fetch(url, {
     method: hash ? "GET" : "HEAD",
     redirect: "follow",
+    headers: {
+      "User-Agent": USER_AGENT,
+    },
   });
-  if (okayStatusCodes.includes(response.status) === false) {
+  if (OKAY_STATUS_CODES.includes(response.status) === false) {
     if (verbose) {
       console.log("Responded with", response.status);
     }
     // return { ok: false, error: "broken link" };
     return await checkLinkWithPlaywright(url, verbose);
   }
+
   if (hash) {
     var $ = cheerio.load(await response.text());
     var element = $(hash);
@@ -48,9 +55,12 @@ export async function checkLinkWithPlaywright(
   verbose = false
 ): Promise<LinkCheckResult> {
   const browser = await chromium.launch();
-  const page = await browser.newPage();
-  const hash = new URL(url).hash;
+  const context = await browser.newContext({
+    userAgent: USER_AGENT,
+  });
+  const page = await context.newPage();
 
+  const hash = new URL(url).hash.replace("#", "");
   try {
     // Navigate to the URL
     const response = await Promise.race([
@@ -59,9 +69,12 @@ export async function checkLinkWithPlaywright(
         (response) => response.url() === url && response.status() > 99
       ),
     ]);
+    if (verbose) {
+      console.log(response?.status());
+    }
 
     // Check if the current URL matches the given URL
-    if (!response || !okayStatusCodes.includes(response.status())) {
+    if (!response || !OKAY_STATUS_CODES.includes(response.status())) {
       return { ok: false, error: "broken link" };
     }
 

@@ -2,7 +2,17 @@ import * as cheerio from "cheerio";
 import { Link } from "./types";
 
 function filterLinks(links: Link[]): Link[] {
-  return links.filter((link) => !link.href.startsWith("mailto:"));
+  const patternsToFilterOut = [
+    // Starts with mailto:
+    /^mailto:/,
+    // Starts with https://apps.apple.com/ (gives 500 and redirects to native app store)
+    /^https:\/\/apps\.apple\.com/,
+    // https://portal.azure.com (Requires login)
+    /^https:\/\/portal\.azure\.com/,
+  ];
+  return links.filter(
+    (link) => !patternsToFilterOut.some((pattern) => pattern.test(link.href))
+  );
 }
 
 export async function getPageLinks(url: string): Promise<Link[]> {

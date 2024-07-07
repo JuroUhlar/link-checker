@@ -4,8 +4,16 @@ import { LinkCheckResult } from "./types";
 
 export const OKAY_STATUS_CODES = [200, 301, 302, 303, 307, 308];
 // Some sites (Segment docs for example) respond with 403 forbidden to simple fetch requests, must add a user agent to prevent this
-export const USER_AGENT =
+export const BROWSER_USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.142.86 Safari/537.36";
+
+function getUserAgent(url: string) {
+  // Android docs get stuck in infinate loop if user agent is spoofed
+  if (url.includes("android.com")) {
+    return "Link checker";
+  }
+  return BROWSER_USER_AGENT;
+}
 
 /**
  *
@@ -22,7 +30,7 @@ export const checkLink = async (
     method: hash ? "GET" : "HEAD",
     redirect: "follow",
     headers: {
-      "User-Agent": USER_AGENT,
+      "User-Agent": getUserAgent(url),
     },
   });
   if (OKAY_STATUS_CODES.includes(response.status) === false) {
@@ -59,7 +67,7 @@ export async function checkLinkWithPlaywright(
 ): Promise<LinkCheckResult> {
   const browser = await chromium.launch();
   const context = await browser.newContext({
-    userAgent: USER_AGENT,
+    userAgent: getUserAgent(url),
   });
   const page = await context.newPage();
 
@@ -83,9 +91,9 @@ export async function checkLinkWithPlaywright(
     const hash = new URL(url).hash.replace("#", "");
     if (hash) {
       // Check if the element with `id` of `href`  equal to hash is present
-      await page.waitForLoadState("networkidle");
       const isHashElementPresent = await page
         .locator(`[id="${hash}"], [href="#${hash}"]`)
+        .first()
         .isVisible();
       if (!isHashElementPresent) {
         return { ok: false, error: "hash not found" };

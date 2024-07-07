@@ -112,7 +112,8 @@ const checkSitemap = async (sitemapUrl: string) => {
 
   const pages = await getPagesFromSitemap(sitemapUrl);
   const { links } = await getLinksFromPages(pages);
-  const { results } = await checkLinks(links);
+  const { results, errors } = await checkLinks(links);
+  console.log(errors);
   const report = getReport(results);
   console.log(report.summary);
 
@@ -122,12 +123,7 @@ const checkSitemap = async (sitemapUrl: string) => {
 
 (async () => {
   await checkSitemap("https://dev.fingerprint.com/sitemap.xml");
-  // console.log(
-  //   await checkLink(
-  //     "https://github.com/fingerprintjs/fingerprintjs-pro-spa#creating-a-custom-cache",
-  //     true
-  //   )
-  // );
+  // console.log(await checkLink("https://fingerprint.com/", true));
   // console.log(
   //   await checkLink(
   //     "https://dev.fingerprint.com/docs/what-is-fingerprint#terms-and-concepts",

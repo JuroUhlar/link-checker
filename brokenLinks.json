@@ -1,14 +1,14 @@
 {
   "summary": {
     "totalLinksToFix": 12,
-    "brokenLinks": 6,
-    "hashNotFound": 6,
+    "brokenLinks": 5,
+    "hashNotFound": 7,
     "networkErrors": 0
   },
   "brokenLinks": [
     {
-      "href": "https://github.com/fingerprintjs/fingerprintjs-pro-vue/blob/main/packages/fingerprintjs-pro-vue-v3/README.md#nuxt",
-      "text": "SDK Documentation for Vue 3",
+      "href": "https://github.com/fingerprintjs/fingerprintjs-pro-vue/blob/main/packages/fingerprintjs-pro-vue-v2/README.md#nuxt",
+      "text": "Vue 2",
       "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
       "result": {
         "ok": false,
@@ -16,8 +16,8 @@
       }
     },
     {
-      "href": "https://github.com/fingerprintjs/fingerprintjs-pro-vue/blob/main/packages/fingerprintjs-pro-vue-v2/README.md#nuxt",
-      "text": "Vue 2",
+      "href": "https://github.com/fingerprintjs/fingerprintjs-pro-vue/blob/main/packages/fingerprintjs-pro-vue-v3/README.md#nuxt",
+      "text": "SDK Documentation for Vue 3",
       "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
       "result": {
         "ok": false,
@@ -50,23 +50,13 @@
         "ok": false,
         "error": "broken link"
       }
-    },
-    {
-      "href": "https://dev.fingerprint.com/suggested-edits/64060d15b3c1a7003e79213e/preview#visitorfound",
-      "text": "visitorFound property",
-      "page": "https://dev.fingerprint.com/docs/useful-timestamps",
-      "result": {
-        "ok": false,
-        "error": "broken link",
-        "errorDetail": "TimeoutError: page.waitForLoadState: Timeout 30000ms exceeded."
-      }
     }
   ],
   "hashNotFound": [
     {
-      "href": "https://svelte.dev/docs#run-time-svelte-onmount",
-      "text": "onMount",
-      "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
+      "href": "https://dev.fingerprint.com/docs/server-api#get-visitor-history-identification-only",
+      "text": "visit history",
+      "page": "https://dev.fingerprint.com/docs/tagging-information",
       "result": {
         "ok": false,
         "error": "hash not found"
@@ -82,9 +72,9 @@
       }
     },
     {
-      "href": "https://dev.fingerprint.com/docs/server-api#get-visitor-history-identification-only",
-      "text": "visit history",
-      "page": "https://dev.fingerprint.com/docs/tagging-information",
+      "href": "https://svelte.dev/docs#run-time-svelte-onmount",
+      "text": "onMount",
+      "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
       "result": {
         "ok": false,
         "error": "hash not found"
@@ -100,9 +90,18 @@
       }
     },
     {
-      "href": "https://dev.fingerprint.com/docs/js-agent#agent-initialization",
-      "text": "https://dev.fingerprint.com/docs/js-agent#agent-initialization",
-      "page": "https://dev.fingerprint.com/docs/generic-js-agent-wrapper-for-spas",
+      "href": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187",
+      "text": "Create your app's privacy report",
+      "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/suggested-edits/64060d15b3c1a7003e79213e/preview#visitorfound",
+      "text": "visitorFound property",
+      "page": "https://dev.fingerprint.com/docs/useful-timestamps",
       "result": {
         "ok": false,
         "error": "hash not found"
@@ -110,8 +109,8 @@
     },
     {
       "href": "https://dev.fingerprint.com/docs/js-agent#agent-initialization",
-      "text": "JS agent guide",
-      "page": "https://dev.fingerprint.com/changelog/3-6-0",
+      "text": "https://dev.fingerprint.com/docs/js-agent#agent-initialization",
+      "page": "https://dev.fingerprint.com/docs/generic-js-agent-wrapper-for-spas",
       "result": {
         "ok": false,
         "error": "hash not found"

@@ -6,7 +6,7 @@ import { PromisePool } from "@supercharge/promise-pool";
 import * as cliProgress from "cli-progress";
 import { Link, LinkCheckResult, LinkWithResult } from "./types";
 
-const CONCURRENCY_LIMIT = 30;
+const CONCURRENCY_LIMIT = 25;
 const progressBar = new cliProgress.SingleBar({});
 
 const getPagesFromSitemap = async (sitemapUrl: string, verbose = false) => {
@@ -124,7 +124,7 @@ const checkSitemap = async (sitemapUrl: string) => {
   await checkSitemap("https://dev.fingerprint.com/sitemap.xml");
   // console.log(
   //   await checkLink(
-  //     "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278393",
+  //     "https://github.com/fingerprintjs/fingerprintjs-pro-spa#creating-a-custom-cache",
   //     true
   //   )
   // );

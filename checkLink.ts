@@ -2,9 +2,9 @@ import * as cheerio from "cheerio";
 import { chromium } from "playwright";
 import { LinkCheckResult } from "./types";
 
-const OKAY_STATUS_CODES = [200, 301, 302, 303, 307, 308];
+export const OKAY_STATUS_CODES = [200, 301, 302, 303, 307, 308];
 // Some sites (Segment docs for example) respond with 403 forbidden to simple fetch requests, must add a user agent to prevent this
-const USER_AGENT =
+export const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.142.86 Safari/537.36";
 
 /**
@@ -35,7 +35,10 @@ export const checkLink = async (
 
   if (hash) {
     var $ = cheerio.load(await response.text());
-    var element = $(hash);
+    /**
+     * GitHub readmes put the hash into the `href` attribute instead of `id`
+     */
+    var element = $(`${hash}, [href="${hash}"]`).first();
     if (element.length === 0) {
       // return { ok: false, error: "hash not found" };
       if (verbose) {
@@ -60,7 +63,6 @@ export async function checkLinkWithPlaywright(
   });
   const page = await context.newPage();
 
-  const hash = new URL(url).hash.replace("#", "");
   try {
     // Navigate to the URL
     const response = await Promise.race([
@@ -78,12 +80,13 @@ export async function checkLinkWithPlaywright(
       return { ok: false, error: "broken link" };
     }
 
+    const hash = new URL(url).hash.replace("#", "");
     if (hash) {
-      // Check if the element with id equal to hash is present
-      const isHashElementPresent = await page.evaluate((hash) => {
-        const element = document.getElementById(hash);
-        return Boolean(element);
-      }, hash);
+      // Check if the element with `id` of `href`  equal to hash is present
+      await page.waitForLoadState("networkidle");
+      const isHashElementPresent = await page
+        .locator(`[id="${hash}"], [href="#${hash}"]`)
+        .isVisible();
       if (!isHashElementPresent) {
         return { ok: false, error: "hash not found" };
       }

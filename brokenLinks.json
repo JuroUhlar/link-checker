@@ -1,8 +1,8 @@
 {
   "summary": {
-    "totalLinksToFix": 35,
+    "totalLinksToFix": 12,
     "brokenLinks": 6,
-    "hashNotFound": 29,
+    "hashNotFound": 6,
     "networkErrors": 0
   },
   "brokenLinks": [
@@ -25,15 +25,6 @@
       }
     },
     {
-      "href": "https://github.com/fingerprintjs/fingerprint-pro-azure-integration/blob/develop/azuredeploy.json",
-      "text": "deployment template",
-      "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
-      "result": {
-        "ok": false,
-        "error": "broken link"
-      }
-    },
-    {
       "href": "https://dev.fingerprint.com/docs/53-verify-the-integration-subdomain",
       "text": "5.3",
       "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
@@ -43,13 +34,12 @@
       }
     },
     {
-      "href": "https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ffingerprintjs%2Ffingerprint-pro-azure-integration%2Fmain%2Fazuredeploy.json",
-      "text": "Click here to open the template deployment dialog.",
+      "href": "https://github.com/fingerprintjs/fingerprint-pro-azure-integration/blob/develop/azuredeploy.json",
+      "text": "deployment template",
       "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
       "result": {
         "ok": false,
-        "error": "broken link",
-        "errorDetail": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+        "error": "broken link"
       }
     },
     {
@@ -60,40 +50,23 @@
         "ok": false,
         "error": "broken link"
       }
+    },
+    {
+      "href": "https://dev.fingerprint.com/suggested-edits/64060d15b3c1a7003e79213e/preview#visitorfound",
+      "text": "visitorFound property",
+      "page": "https://dev.fingerprint.com/docs/useful-timestamps",
+      "result": {
+        "ok": false,
+        "error": "broken link",
+        "errorDetail": "TimeoutError: page.waitForLoadState: Timeout 30000ms exceeded."
+      }
     }
   ],
   "hashNotFound": [
     {
-      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#vpn-detection",
-      "text": "VPN detection",
-      "page": "https://dev.fingerprint.com/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#vpn-detection",
-      "text": "VPN detection",
-      "page": "https://dev.fingerprint.com/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#vpn-detection",
-      "text": "Mobile signals",
-      "page": "https://dev.fingerprint.com/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#vpn-detection",
-      "text": "Mobile signals",
-      "page": "https://dev.fingerprint.com/",
+      "href": "https://svelte.dev/docs#run-time-svelte-onmount",
+      "text": "onMount",
+      "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
       "result": {
         "ok": false,
         "error": "hash not found"
@@ -118,126 +91,9 @@
       }
     },
     {
-      "href": "https://svelte.dev/docs#run-time-svelte-onmount",
-      "text": "onMount",
-      "page": "https://dev.fingerprint.com/docs/usage-with-server-side-rendering-frameworks",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#deadabaeaeb1acaa9eb8b7b0b9bbacaeacb7b0aaf0bdb1b3e1adabbcb4bbbdaae397fbeceea9bfb0aafbeceeaab1fbeceeb5bbbbaefbecee948dfbecee9fb9bbb0aafbeceebdb1babbfbeceeb1b0fbeceeb3a7fbeceeadbbaca8bbac",
-      "text": "[email protected]",
-      "page": "https://dev.fingerprint.com/docs/js-agent",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278393",
-      "text": "File timestamp APIs",
-      "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://github.com/fingerprintjs/fingerprintjs-pro-spa#creating-a-custom-cache",
-      "text": "your own custom cache implementation",
-      "page": "https://dev.fingerprint.com/docs/caching-visitor-information",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4250555",
-      "text": "sensitive data",
-      "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4250556",
-      "text": "describing data use",
-      "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4250555",
-      "text": "a list of data types",
-      "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#9ae9efeaeaf5e8eedafcf3f4fdffe8eae8f3f4eeb4f9f5f7",
-      "text": "[email protected]",
-      "page": "https://dev.fingerprint.com/docs/js-agent",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187",
-      "text": "Create your app's privacy report",
-      "page": "https://dev.fingerprint.com/docs/mobile-devices-understanding-privacy-manifest-files",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
       "href": "https://dev.fingerprint.com/docs/server-api#requestid",
       "text": "requestId",
       "page": "https://dev.fingerprint.com/docs/zero-trust-mode",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/suggested-edits/64060d15b3c1a7003e79213e/preview#visitorfound",
-      "text": "visitorFound property",
-      "page": "https://dev.fingerprint.com/docs/useful-timestamps",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#53202623233c212713353a3d34362123213a3d2739207d303c3e",
-      "text": "support",
-      "page": "https://dev.fingerprint.com/docs/fingerprintjs-pro-google-tag-manager",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#2c5f595c5c435e586c4a45424b495e5c5e454258024f4341",
-      "text": "[email protected]",
-      "page": "https://dev.fingerprint.com/docs/cloudflare-integration",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#05767075756a777145636c6b62607775776c6b712b666a68",
-      "text": "contact our support",
-      "page": "https://dev.fingerprint.com/docs/azure-proxy-integration",
       "result": {
         "ok": false,
         "error": "hash not found"
@@ -253,72 +109,9 @@
       }
     },
     {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#f784828787988583b7919e9990928587859e9983d994989a",
-      "text": "[email protected]",
-      "page": "https://dev.fingerprint.com/docs/privacy-policy",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#463533363629343206202f2821233436342f28326825292b",
-      "text": "support team",
-      "page": "https://dev.fingerprint.com/docs/cloudfront-proxy-integration-v2",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#d4a7a1a4a4bba6a094b2bdbab3b1a6a4a6bdbaa0fab7bbb9",
-      "text": "[email protected]",
-      "page": "https://dev.fingerprint.com/docs/terms-of-service",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#0b786a676e784b6d62656c6e797b7962657f25686466",
-      "text": "[email protected]",
-      "page": "https://dev.fingerprint.com/docs/billing",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
       "href": "https://dev.fingerprint.com/docs/js-agent#agent-initialization",
       "text": "JS agent guide",
       "page": "https://dev.fingerprint.com/changelog/3-6-0",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#6703170827010e0900021517150e09134904080a",
-      "text": "[email protected]",
-      "page": "https://dev.fingerprint.com/docs/dpa-gdpr",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#5b3f2b341b3d32353c3e292b2932352f75383436",
-      "text": "[email protected]",
-      "page": "https://dev.fingerprint.com/docs/dpa-gdpr",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://dev.fingerprint.com/cdn-cgi/l/email-protection#9feceaefeff0edebdff9f6f1f8faedefedf6f1ebf5ecb1fcf0f2",
-      "text": "Contact support",
-      "page": "https://dev.fingerprint.com/changelog/3-2-0",
       "result": {
         "ok": false,
         "error": "hash not found"

@@ -8,3 +8,4 @@ My utility for checking broken links, including #anchors
 [x] Playwright to check hashes in client rendered sites
 [x] Filter mailto links
 [x] Accept redirects
+[ ] Get page links using Playwright to get email addresses

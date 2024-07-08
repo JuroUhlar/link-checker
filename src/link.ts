@@ -16,6 +16,7 @@ export const checkLinks = async (links: Link[], verbose = false) => {
   const { results, errors } = await PromisePool.withConcurrency(
     CONCURRENCY_LIMIT
   )
+    .withTaskTimeout(20000)
     .for(links)
     .process(async (link): Promise<LinkWithResult> => {
       const existingResult = resultMap.get(link.href);
@@ -84,17 +85,16 @@ export const checkLink = async (
       return await checkLinkWithPlaywright(url, verbose);
     }
   }
-  if (verbose) {
-    console.log("OK");
-  }
+  log(`OK`, verbose);
   return { ok: true };
 };
 
 export async function checkLinkWithPlaywright(
   url: string,
-  verbose = false
+  verbose = false,
+  headless = true
 ): Promise<LinkCheckResult> {
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({ headless });
   const context = await browser.newContext({
     userAgent: getUserAgent(url),
   });
@@ -114,21 +114,31 @@ export async function checkLinkWithPlaywright(
 
     // Check if the current URL matches the given URL
     if (!response || !OKAY_STATUS_CODES.includes(response.status())) {
-      return { ok: false, error: "broken link" };
+      return {
+        ok: false,
+        error: "broken link",
+        errorDetail: response?.status().toString(),
+      };
     }
 
     const hash = new URL(url).hash.replace("#", "");
+
     if (hash) {
       // Check if the element with `id` of `href`  equal to hash is present
       const isHashElementPresent = await page
         .locator(`[id="${hash}"], [href="#${hash}"]`)
-        .first()
-        .isVisible();
+        .first();
       if (!isHashElementPresent) {
-        return { ok: false, error: "hash not found" };
+        log(`Hash not found`, verbose);
+        return {
+          ok: false,
+          error: "hash not found",
+          errorDetail: `hash: ${hash}`,
+        };
       }
     }
 
+    log(`OK`, verbose);
     return { ok: true };
   } catch (error) {
     console.error("An error occurred:", error);

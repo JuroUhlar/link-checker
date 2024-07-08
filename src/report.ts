@@ -1,15 +1,23 @@
-import { LinkWithResult } from "./types";
+import { PromisePoolError } from "@supercharge/promise-pool";
+import { Link, LinkWithResult } from "./types";
 
-export const getReport = (links: LinkWithResult[]) => {
+export const getReport = (
+  links: LinkWithResult[],
+  errors: PromisePoolError<Link>[]
+) => {
   const brokenLinks = links.filter(
     (link) => link.result.ok === false && link.result.error === "broken link"
   );
   const hashNotFound = links.filter(
     (link) => link.result.ok === false && link.result.error === "hash not found"
   );
-  const networkErrors = links.filter(
-    (link) => link.result.ok === false && link.result.error === "network error"
-  );
+  const networkErrors = [
+    ...links.filter(
+      (link) =>
+        link.result.ok === false && link.result.error === "network error"
+    ),
+    ...errors.map((error) => ({ ...error.item, result: error.message })),
+  ];
 
   return {
     summary: {

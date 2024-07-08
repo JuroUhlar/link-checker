@@ -1,9 +1,9 @@
 {
   "summary": {
-    "totalLinksToFix": 91,
-    "brokenLinks": 39,
-    "hashNotFound": 52,
-    "networkErrors": 0
+    "totalLinksToFix": 164,
+    "brokenLinks": 40,
+    "hashNotFound": 0,
+    "networkErrors": 124
   },
   "brokenLinks": [
     {
@@ -43,6 +43,15 @@
       }
     },
     {
+      "href": "https://www.reuters.com/markets/deals/australias-openpay-strikes-bnpl-partnership-deal-with-american-express-2021-12-01/",
+      "text": "partnership deal",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
       "href": "https://www.crunchbase.com/organization/zilch-technology-limited",
       "text": "over $339 million",
       "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
@@ -54,15 +63,6 @@
     {
       "href": "https://www.crunchbase.com/organization/rely-265a",
       "text": "$75 million",
-      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
-      "result": {
-        "ok": false,
-        "error": "broken link"
-      }
-    },
-    {
-      "href": "https://www.reuters.com/markets/deals/australias-openpay-strikes-bnpl-partnership-deal-with-american-express-2021-12-01/",
-      "text": "partnership deal",
       "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
       "result": {
         "ok": false,
@@ -223,6 +223,15 @@
       }
     },
     {
+      "href": "https://www.varomoney.com/",
+      "text": "Varo",
+      "page": "https://fingerprint.com/blog/neobank-benefits-risks/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
       "href": "https://www.bai.org/banking-strategies/fraud-trends-and-fighting-back/",
       "text": "$343 billion globally",
       "page": "https://fingerprint.com/blog/definitive-guide-real-cost-online-fraud/",
@@ -277,18 +286,18 @@
       }
     },
     {
-      "href": "https://deloitte.wsj.com/riskandcompliance/using-biometrics-to-combat-synthetic-identity-fraud-d2e30d4f",
-      "text": "synthetic identity fraud",
-      "page": "https://fingerprint.com/blog/transaction-fraud-detection/",
+      "href": "https://www.fintechnexus.com/fintech-nexus-newsletter-december-18-2023-consumers-using-bnpl-to-bypass-credit-bureaus/",
+      "text": "the Wall Street Journal reported",
+      "page": "https://fingerprint.com/blog/the-top-fintech-trends/",
       "result": {
         "ok": false,
         "error": "broken link"
       }
     },
     {
-      "href": "https://www.fintechnexus.com/fintech-nexus-newsletter-december-18-2023-consumers-using-bnpl-to-bypass-credit-bureaus/",
-      "text": "the Wall Street Journal reported",
-      "page": "https://fingerprint.com/blog/the-top-fintech-trends/",
+      "href": "https://deloitte.wsj.com/riskandcompliance/using-biometrics-to-combat-synthetic-identity-fraud-d2e30d4f",
+      "text": "synthetic identity fraud",
+      "page": "https://fingerprint.com/blog/transaction-fraud-detection/",
       "result": {
         "ok": false,
         "error": "broken link"
@@ -358,475 +367,751 @@
       }
     }
   ],
-  "hashNotFound": [
+  "hashNotFound": [],
+  "networkErrors": [
     {
-      "href": "https://www.gsma.com/mobileeconomy/sub-saharan-africa/#:~:text=By%20the%20end%20of%202020,almost%2020%20million%20on%202019.",
-      "text": "around half",
+      "href": "https://fraud.net/d/pagejacking/#:~:text=Pagejacking%20is%20the%20process%20of,site%20to%20cloned%20Web%20pages",
+      "text": "Pagejacking",
+      "page": "https://fingerprint.com/blog/types-of-payment-fraud-prevention-tips-ecommerce/",
+      "result": "Expected name, found #:~:text=Pagejacking%20is%20the%20process%20of,site%20to%20cloned%20Web%20pages, [href=\"#:~:text=Pagejacking%20is%20the%20process%20of,site%20to%20cloned%20Web%20pages\"]"
+    },
+    {
+      "href": "https://www.microsoft.com/en-us/security/business/security-101/what-is-two-factor-authentication-2fa#:~:text=Two%2Dfactor%20authentication%20(2FA),most%20vulnerable%20information%20and%20networks.",
+      "text": "two-factor authentication",
+      "page": "https://fingerprint.com/blog/financial-fraud-detection-software/",
+      "result": "Expected name, found #:~:text=Two%2Dfactor%20authentication%20(2FA),most%20vulnerable%20information%20and%20networks., [href=\"#:~:text=Two%2Dfactor%20authentication%20(2FA),most%20vulnerable%20information%20and%20networks.\"]"
+    },
+    {
+      "href": "https://www.shopify.com/retail/card-not-present#:~:text=Card%2Dnot%2Dpresent%20transactions%20are,inserting%2C%20or%20tapping%20the%20card.",
+      "text": "card-not-present (CNP)",
+      "page": "https://fingerprint.com/blog/financial-fraud-detection-software/",
+      "result": "Expected name, found #:~:text=Card%2Dnot%2Dpresent%20transactions%20are,inserting%2C%20or%20tapping%20the%20card., [href=\"#:~:text=Card%2Dnot%2Dpresent%20transactions%20are,inserting%2C%20or%20tapping%20the%20card.\"]"
+    },
+    {
+      "href": "https://time.com/personal-finance/article/credit-card-scams-to-know/#:~:text=The%20U.S.%20is%20awash%20in,in%20preventing%20credit%20card%20fraud.",
+      "text": "$8.8 billion lost because of fraud in 2022",
+      "page": "https://fingerprint.com/blog/credit-card-fraud-detection-software/",
+      "result": "Expected name, found #:~:text=The%20U.S.%20is%20awash%20in,in%20preventing%20credit%20card%20fraud., [href=\"#:~:text=The%20U.S.%20is%20awash%20in,in%20preventing%20credit%20card%20fraud.\"]"
+    },
+    {
+      "href": "https://www.businesswire.com/news/home/20200511005666/en/Global-eCommerce-Retail-Sales-Up-209-Percent-in-April-ACI-Worldwide-Research-Reveals",
+      "text": "209% growth",
+      "page": "https://fingerprint.com/blog/ecommerce-fraud-types/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.forbes.com/sites/garydrenik/2023/11/16/future-proofing-fraud-prevention-how-device-intelligence-is-revolutionizing-security/#:~:text=Device%20intelligence%20identifies%20trusted%20users,conversion%20points%20without%20compromising%20safety.",
+      "text": "Device intelligence",
+      "page": "https://fingerprint.com/blog/fraud-prevention-strategies/",
+      "result": "Expected name, found #:~:text=Device%20intelligence%20identifies%20trusted%20users,conversion%20points%20without%20compromising%20safety., [href=\"#:~:text=Device%20intelligence%20identifies%20trusted%20users,conversion%20points%20without%20compromising%20safety.\"]"
+    },
+    {
+      "href": "https://www.microsoft.com/en-us/security/business/security-101/what-is-business-email-compromise-bec#:~:text=The%20dangers%20of%20BEC,confidential%20data%20like%20intellectual%20property.",
+      "text": "business email compromise (BEC)",
+      "page": "https://fingerprint.com/blog/fraud-prevention-strategies/",
+      "result": "Expected name, found #:~:text=The%20dangers%20of%20BEC,confidential%20data%20like%20intellectual%20property., [href=\"#:~:text=The%20dangers%20of%20BEC,confidential%20data%20like%20intellectual%20property.\"]"
+    },
+    {
+      "href": "https://www.forbes.com/uk/advisor/personal-finance/what-is-app-fraud/#:~:text=These%20scams%20are%20called%20'authorised,(more%20on%20this%20below).",
+      "text": "authorized push payment (APP)",
+      "page": "https://fingerprint.com/blog/fraud-prevention-strategies/",
+      "result": "Expected name, found #:~:text=These%20scams%20are%20called%20'authorised,(more%20on%20this%20below)., [href=\"#:~:text=These%20scams%20are%20called%20'authorised,(more%20on%20this%20below).\"]"
+    },
+    {
+      "href": "https://www.statista.com/statistics/1273177/ecommerce-payment-fraud-losses-globally/#:~:text=According%20to%20estimates%2C%20e%2Dcommerce,billion%20U.S.%20dollars%20by%202023.",
+      "text": "lost 41 billion",
+      "page": "https://fingerprint.com/blog/guide-to-ecommerce-merchant-fraud-protection/",
+      "result": "Expected name, found #:~:text=According%20to%20estimates%2C%20e%2Dcommerce,billion%20U.S.%20dollars%20by%202023., [href=\"#:~:text=According%20to%20estimates%2C%20e%2Dcommerce,billion%20U.S.%20dollars%20by%202023.\"]"
+    },
+    {
+      "href": "https://www.cnbc.com/2022/02/22/consumers-lost-5point8-billion-to-fraud-last-year-up-70percent-over-2020.html#:~:text=Investing%20Club-,Consumers%20lost%20%245.8%20billion%20to,year%20%E2%80%94%20up%2070%25%20over%202020&text=Consumers%20reported%20losing%20more%20than,Federal%20Trade%20Commission%20said%20Tuesday",
+      "text": "spiked after 2021",
+      "page": "https://fingerprint.com/blog/prevent-return-fraud-ecommerce/",
+      "result": "Expected name, found #:~:text=Investing%20Club-,Consumers%20lost%20%245.8%20billion%20to,year%20%E2%80%94%20up%2070%25%20over%202020&text=Consumers%20reported%20losing%20more%20than,Federal%20Trade%20Commission%20said%20Tuesday, [href=\"#:~:text=Investing%20Club-,Consumers%20lost%20%245.8%20billion%20to,year%20%E2%80%94%20up%2070%25%20over%202020&text=Consumers%20reported%20losing%20more%20than,Federal%20Trade%20Commission%20said%20Tuesday\"]"
+    },
+    {
+      "href": "https://nrf.com/media-center/press-releases/2022-retail-returns-rate-remains-flat-816-billion#:~:text=Of%20the%20approximately%20%24212%20billion,%25",
+      "text": "reports",
+      "page": "https://fingerprint.com/blog/prevent-return-fraud-ecommerce/",
+      "result": "Expected name, found #:~:text=Of%20the%20approximately%20%24212%20billion,%25, [href=\"#:~:text=Of%20the%20approximately%20%24212%20billion,%25\"]"
+    },
+    {
+      "href": "https://downloadfreewpplugins.com/wordpress/feenban/",
+      "text": "FreeBan",
+      "page": "https://fingerprint.com/blog/permanently-ban-users/",
+      "result": "fetch failed"
+    },
+    {
+      "href": "https://www.f5.com/glossary/web-application-firewall-waf#:~:text=A%20web%20application%20firewall%20(WAF)%20protects%20web%20applications%20from%20a,and%20cookie%20poisoning%2C%20among%20others.",
+      "text": "Web Application Firewalls (WAFs)",
+      "page": "https://fingerprint.com/blog/account-takeover-indicators/",
+      "result": "Expected name, found #:~:text=A%20web%20application%20firewall%20(WAF)%20protects%20web%20applications%20from%20a,and%20cookie%20poisoning%2C%20among%20others., [href=\"#:~:text=A%20web%20application%20firewall%20(WAF)%20protects%20web%20applications%20from%20a,and%20cookie%20poisoning%2C%20among%20others.\"]"
+    },
+    {
+      "href": "https://techbeacon.com/security/how-prevent-api-abuse-your-mobile-apps",
+      "text": "account takeover situation",
+      "page": "https://fingerprint.com/blog/account-takeover-indicators/",
+      "result": "fetch failed"
+    },
+    {
+      "href": "https://www.akamai.com/",
+      "text": "Akamai",
+      "page": "https://fingerprint.com/blog/akamai-proxy-integration-announcement/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.adweek.com/performance-marketing/report-fake-user-accounts-cost-businesses-millions-of-dollars-a-year/#:~:text=These%20attacks%20cost%20companies%20an,as%20dents%20to%20your%20reputation.",
+      "text": "One statistic claims",
+      "page": "https://fingerprint.com/blog/software-development-efficient-cost-savings/",
+      "result": "Expected name, found #:~:text=These%20attacks%20cost%20companies%20an,as%20dents%20to%20your%20reputation., [href=\"#:~:text=These%20attacks%20cost%20companies%20an,as%20dents%20to%20your%20reputation.\"]"
+    },
+    {
+      "href": "https://www.businesswire.com/news/home/20221108005314/en/Fingerprint-Achieves-SOC-2-Type-II-Certification",
+      "text": "here",
+      "page": "https://fingerprint.com/blog/soc-2-type-2/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.hoxhunt.com/blog/what-are-the-top-10-costs-of-phishing#:~:text=The%20indirect%20cost%20of%20lost,company%20on%20average%20in%202021.",
+      "text": "$3.2 million",
+      "page": "https://fingerprint.com/blog/what-are-bots-how-to-detect-bots/",
+      "result": "Expected name, found #:~:text=The%20indirect%20cost%20of%20lost,company%20on%20average%20in%202021., [href=\"#:~:text=The%20indirect%20cost%20of%20lost,company%20on%20average%20in%202021.\"]"
+    },
+    {
+      "href": "https://www.f5.com/company/news/features/phishing-attacks-soar-220--during-covid-19-peak-as-cybercriminal#:~:text=COVID%2D19%20continues%20to%20significantly,compared%20to%20the%20yearly%20average.",
+      "text": "rose by 220%",
+      "page": "https://fingerprint.com/blog/what-are-bots-how-to-detect-bots/",
+      "result": "Expected name, found #:~:text=COVID%2D19%20continues%20to%20significantly,compared%20to%20the%20yearly%20average., [href=\"#:~:text=COVID%2D19%20continues%20to%20significantly,compared%20to%20the%20yearly%20average.\"]"
+    },
+    {
+      "href": "https://www.citiesalliance.org/newsroom/news/cities-alliance-news/%C2%A0burgeoning-africa-youth-population-potential-or-challenge%C2%A0#:~:text=Almost%2060%25%20of%20Africa's%20population,Africa%20the%20world's%20youngest%20continent.",
+      "text": "60%",
       "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Expected name, found #:~:text=Almost%2060%25%20of%20Africa's%20population,Africa%20the%20world's%20youngest%20continent., [href=\"#:~:text=Almost%2060%25%20of%20Africa's%20population,Africa%20the%20world's%20youngest%20continent.\"]"
     },
     {
-      "href": "https://developers.google.com/people/v1/how-tos/authorizing#profile-scopes",
-      "text": "People API",
-      "page": "https://fingerprint.com/blog/indexeddb-api-browser-vulnerability-safari-15/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.butter.co.uk/",
+      "text": "Butter",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": "fetch failed"
     },
     {
-      "href": "https://gs.statcounter.com/browser-market-share#monthly-202103-202103-bar",
-      "text": "64.19% market share",
-      "page": "https://fingerprint.com/blog/browser-fingerprinting-privacy/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.rely.sg/",
+      "text": "Rely",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": "fetch failed"
     },
     {
-      "href": "https://www.gartner.com/en/newsroom/press-releases/2022-12-12-govt-it-spending-forecast-2023#:~:text=Worldwide%20government%20IT%20spending%20is%20forecast%20to%20total,of%206.8%25%20from%202022%2C%20according%20to%20Gartner%2C%20Inc.",
-      "text": "$500 billion in IT",
+      "href": "https://www.ibef.org/industry/retail-india.aspx#:~:text=%2C%20and%20Italy).-,Market%20Size,US%24%201.8%20trillion%20by%202030.",
+      "text": "$1.4 trillion",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": "Expected name, found #:~:text=%2C%20and%20Italy).-,Market%20Size,US%24%201.8%20trillion%20by%202030., [href=\"#:~:text=%2C%20and%20Italy).-,Market%20Size,US%24%201.8%20trillion%20by%202030.\"]"
+    },
+    {
+      "href": "https://thefintechtimes.com/top-african-challenger-banks-helping-the-unbanked-through-mobile-services/#:~:text=Around%2057%25%20of%20the%20population,options%20to%20serve%20its%20citizens.",
+      "text": "57%",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.opy.com/",
+      "text": "Openpay",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.businesswire.com/news/home/20150804007054/en/Global-Card-Fraud-Losses-Reach-16.31-Billion-%E2%80%94-Will-Exceed-35-Billion-in-2020-According-to-The-Nilson-Report",
+      "text": "It’s estimated that CNP fraud could be worth nearly US$35 billion globally in 2022.",
+      "page": "https://fingerprint.com/blog/cnp-fraud-prevention-to-protect-chargebacks/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW",
+      "text": "SYSTEM_ALERT_WINDOW",
+      "page": "https://fingerprint.com/blog/android-14-clipboard-security-leak/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.merchantsavvy.co.uk/payment-fraud-statistics/#:~:text=Losses%20from%20online%20payment%20fraud,merchants%20reported%20increased%20identity%20theft.",
+      "text": "expected to total $343 billion between 2023 and 2027",
+      "page": "https://fingerprint.com/blog/press-release-fingerprint-oscilar-partnership/",
+      "result": "Expected name, found #:~:text=Losses%20from%20online%20payment%20fraud,merchants%20reported%20increased%20identity%20theft., [href=\"#:~:text=Losses%20from%20online%20payment%20fraud,merchants%20reported%20increased%20identity%20theft.\"]"
+    },
+    {
+      "href": "https://frida.re/news/#:~:text=oleavr-,This,-release%20improves%20frida",
+      "text": "was released in 2014",
+      "page": "https://fingerprint.com/blog/exploring-frida-dynamic-instrumentation-tool-kit/",
+      "result": "Expected name, found #:~:text=oleavr-,This,-release%20improves%20frida, [href=\"#:~:text=oleavr-,This,-release%20improves%20frida\"]"
+    },
+    {
+      "href": "https://frida.re/docs/android/#:~:text=Older%20ROMs%20may%20work%20too%2C%20but%20if%20you%E2%80%99re%20running%20into%20basic%20issues%20like%20Frida%20crashing%20the%20system%20when%20launching%20an%20app%2C%20this%20is%20due%20to%20ROM%2Dspecific%20quirks",
+      "text": "older Android versions",
+      "page": "https://fingerprint.com/blog/exploring-frida-dynamic-instrumentation-tool-kit/",
+      "result": "Expected name, found #:~:text=Older%20ROMs%20may%20work%20too%2C%20but%20if%20you%E2%80%99re%20running%20into%20basic%20issues%20like%20Frida%20crashing%20the%20system%20when%20launching%20an%20app%2C%20this%20is%20due%20to%20ROM%2Dspecific%20quirks, [href=\"#:~:text=Older%20ROMs%20may%20work%20too%2C%20but%20if%20you%E2%80%99re%20running%20into%20basic%20issues%20like%20Frida%20crashing%20the%20system%20when%20launching%20an%20app%2C%20this%20is%20due%20to%20ROM%2Dspecific%20quirks\"]"
+    },
+    {
+      "href": "https://www.securitymagazine.com/articles/98536-over-255m-phishing-attacks-in-2022-so-far#:~:text=SlashNext%20analyzed%20billions%20of%20link,phishing%20attacks%20compared%20to%202021.",
+      "text": "over 255 million phishing attacks",
+      "page": "https://fingerprint.com/blog/four-fraud-threats-2023/",
+      "result": "Expected name, found #:~:text=SlashNext%20analyzed%20billions%20of%20link,phishing%20attacks%20compared%20to%202021., [href=\"#:~:text=SlashNext%20analyzed%20billions%20of%20link,phishing%20attacks%20compared%20to%202021.\"]"
+    },
+    {
+      "href": "https://www.juniperresearch.com/press/ai-enabled-financial-fraud-detection-spend/#:~:text=Providing%20a%20genuine%20return%20on,from%20%242.7%20billion%20in%202022.",
+      "text": "$10.4 billion globally in 2027",
+      "page": "https://fingerprint.com/blog/fraud-analytics/",
+      "result": "Expected name, found #:~:text=Providing%20a%20genuine%20return%20on,from%20%242.7%20billion%20in%202022., [href=\"#:~:text=Providing%20a%20genuine%20return%20on,from%20%242.7%20billion%20in%202022.\"]"
+    },
+    {
+      "href": "https://www.precedenceresearch.com/online-gaming-market#:~:text=The%20global%20online%20gaming%20market,largest%20revenue%20share%20in%202022.",
+      "text": "$204 billion in revenue",
       "page": "https://fingerprint.com/blog/large-language-models-llm-fraud-malware-guide/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Expected name, found #:~:text=The%20global%20online%20gaming%20market,largest%20revenue%20share%20in%202022., [href=\"#:~:text=The%20global%20online%20gaming%20market,largest%20revenue%20share%20in%202022.\"]"
     },
     {
-      "href": "https://woocommerce.com/document/payments/managing-disputes-with-woocommerce-payments/#section-28",
-      "text": "\"Disputes\" page",
+      "href": "https://trustmary.com/reviews/online-reviews-statistics-that-will-blow-your-mind/#:~:text=93%25%20of%20consumers%20read%20online%20reviews%20before%20making,videos%20have%20an%20even%20greater%20impact%20on%20shoppers.",
+      "text": "93%",
+      "page": "https://fingerprint.com/blog/large-language-models-llm-fraud-malware-guide/",
+      "result": "Expected name, found #:~:text=93%25%20of%20consumers%20read%20online%20reviews%20before%20making,videos%20have%20an%20even%20greater%20impact%20on%20shoppers., [href=\"#:~:text=93%25%20of%20consumers%20read%20online%20reviews%20before%20making,videos%20have%20an%20even%20greater%20impact%20on%20shoppers.\"]"
+    },
+    {
+      "href": "https://www.analyticsinsight.net/record-casino-and-gambling-revenues-in-2022-prove-player-interest/#:~:text=The%20industry%20is%20thriving%20and,from%20%2453%20billion%20in%202021.",
+      "text": "$60 billion",
+      "page": "https://fingerprint.com/blog/large-language-models-llm-fraud-malware-guide/",
+      "result": "Expected name, found #:~:text=The%20industry%20is%20thriving%20and,from%20%2453%20billion%20in%202021., [href=\"#:~:text=The%20industry%20is%20thriving%20and,from%20%2453%20billion%20in%202021.\"]"
+    },
+    {
+      "href": "https://www.akamai.com/",
+      "text": "Akamai",
+      "page": "https://fingerprint.com/blog/enhancing-visitor-detection-fingerprint-akamai-proxy-integration/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://developer.android.com/reference/android/app/WallpaperManager#getDrawable()",
+      "text": "getDrawable()",
+      "page": "https://fingerprint.com/blog/how-android-wallpaper-images-threaten-privacy/",
+      "result": "Unmatched selector: (), [href=\"#getDrawable()\"]"
+    },
+    {
+      "href": "https://developer.android.com/reference/android/app/WallpaperManager#getDrawable()",
+      "text": "getDrawable()",
+      "page": "https://fingerprint.com/blog/how-android-wallpaper-images-threaten-privacy/",
+      "result": "Unmatched selector: (), [href=\"#getDrawable()\"]"
+    },
+    {
+      "href": "https://developer.android.com/reference/android/app/WallpaperManager#getWallpaperColors(int)",
+      "text": "getWallpaperColors(int which)",
+      "page": "https://fingerprint.com/blog/how-android-wallpaper-images-threaten-privacy/",
+      "result": "Unmatched selector: ), [href=\"#getWallpaperColors(int)\"]"
+    },
+    {
+      "href": "https://www.paypal.com/dm/webapps/mpp/security/resolve-disputes#:~:text=Buyers%20can%20file%20chargebacks%20180,or%20more%20in%20some%20instances.",
+      "text": "dispute resolution services",
       "page": "https://fingerprint.com/blog/how-major-payment-processors-handle-chargebacks/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Expected name, found #:~:text=Buyers%20can%20file%20chargebacks%20180,or%20more%20in%20some%20instances., [href=\"#:~:text=Buyers%20can%20file%20chargebacks%20180,or%20more%20in%20some%20instances.\"]"
     },
     {
-      "href": "https://github.com/fingerprintjs/fingerprintjs-pro-use-cases/blob/ca434ebd567f852030906b00c6c6b1ef74edf318/src/server/botd-firewall/cloudflareApiHelper.ts#L43",
-      "text": "find it",
-      "page": "https://fingerprint.com/blog/bot-detection-powered-application-firewall/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://stripe.com/docs/disputes#:~:text=To%20process%20a%20chargeback%2C%20the,payment%20amount%20and%20dispute%20fee.",
+      "text": "disputes a charge",
+      "page": "https://fingerprint.com/blog/how-major-payment-processors-handle-chargebacks/",
+      "result": "Expected name, found #:~:text=To%20process%20a%20chargeback%2C%20the,payment%20amount%20and%20dispute%20fee., [href=\"#:~:text=To%20process%20a%20chargeback%2C%20the,payment%20amount%20and%20dispute%20fee.\"]"
     },
     {
-      "href": "https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/dynamics_compressor_kernel.cc#L202",
-      "text": "dynamics compressor",
-      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.globaldata.com/data-insights/fnnilsrie/total-payment-volume-on-paypal-global/#:~:text=PayPal%3A%20Total%20Payment%20Volume%20(Q3,%E2%80%93%20Q1%202022%2C%20%24%20billion)&text=Whereas%20for%20FY2021%20PayPal's,TPV)%20of%20USD%201.25%20trillion.",
+      "text": "volume exceeds $1 trillion",
+      "page": "https://fingerprint.com/blog/how-major-payment-processors-handle-chargebacks/",
+      "result": "Expected name, found #:~:text=PayPal%3A%20Total%20Payment%20Volume%20(Q3,%E2%80%93%20Q1%202022%2C%20%24%20billion)&text=Whereas%20for%20FY2021%20PayPal's,TPV)%20of%20USD%201.25%20trillion., [href=\"#:~:text=PayPal%3A%20Total%20Payment%20Volume%20(Q3,%E2%80%93%20Q1%202022%2C%20%24%20billion)&text=Whereas%20for%20FY2021%20PayPal's,TPV)%20of%20USD%201.25%20trillion.\"]"
     },
     {
-      "href": "https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/PeriodicWave.cpp#L286",
-      "text": "oscillator",
-      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://blog.hubspot.com/website/wordpress-stats#:~:text=(W3Techs%2C%202022),every%20five%20websites%20use%20WordPress.",
+      "text": "Forty-three percent",
+      "page": "https://fingerprint.com/blog/how-major-payment-processors-handle-chargebacks/",
+      "result": "Expected name, found #:~:text=(W3Techs%2C%202022),every%20five%20websites%20use%20WordPress., [href=\"#:~:text=(W3Techs%2C%202022),every%20five%20websites%20use%20WordPress.\"]"
     },
     {
-      "href": "https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/platform/audio/DynamicsCompressorKernel.cpp#L188",
-      "text": "dynamics compressor",
-      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.ebay.com/help/policies/selling-policies/selling-practices-policy/shill-bidding-policy?id=4353",
+      "text": "bid shilling",
+      "page": "https://fingerprint.com/blog/avoid-online-auction-fraud/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://github.com/chromium/chromium/blob/9841ee86b710dc649cf41772f560600324cadf45/third_party/blink/renderer/modules/webaudio/periodic_wave.cc#L468",
-      "text": "oscillator",
-      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.akamai.com/products/web-application-protector",
+      "text": "Akamai Web Application Protector",
+      "page": "https://fingerprint.com/blog/common-cyberattacks/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/DynamicsCompressorKernel.cpp#L213",
-      "text": "dynamics compressor",
-      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://fingerprint.com/blog/browser-fingerprinting-techniques/#:~:text=What%20information%20is%20gathered%3F",
+      "text": "such as device model, operating system, browser type and version, screen resolution, and CPU specifications",
+      "page": "https://fingerprint.com/blog/browser-fingerprinting-node/",
+      "result": "Expected name, found #:~:text=What%20information%20is%20gathered%3F, [href=\"#:~:text=What%20information%20is%20gathered%3F\"]"
     },
     {
-      "href": "https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/Modules/webaudio/PeriodicWave.cpp#L250",
-      "text": "oscillator",
-      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "http://localhost:8080/register",
+      "text": "/register",
+      "page": "https://fingerprint.com/blog/browser-fingerprinting-vue/",
+      "result": "fetch failed"
     },
     {
-      "href": "https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/modules/webaudio/audio_buffer.cc#L16",
-      "text": "modifies",
-      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://fingerprint.com/blog/device-fingerprinting-accuracy/#:~:text=Fingerprint%20Pro%20incorporates%20over%20100,stable%20for%20months%2C%20not%20days.",
+      "text": "with up to 99.5 percent accuracy",
+      "page": "https://fingerprint.com/blog/browser-fingerprinting-react/",
+      "result": "Expected name, found #:~:text=Fingerprint%20Pro%20incorporates%20over%20100,stable%20for%20months%2C%20not%20days., [href=\"#:~:text=Fingerprint%20Pro%20incorporates%20over%20100,stable%20for%20months%2C%20not%20days.\"]"
     },
     {
-      "href": "https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/core/execution_context/execution_context.cc#L133",
-      "text": "transforming",
-      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioWorkletNode.cpp#L219",
-      "text": "source code",
-      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "http://localhost:3002/signup",
+      "text": "localhost:3002/signup",
+      "page": "https://fingerprint.com/blog/fingerprint-prevent-bot-attacks/",
+      "result": "fetch failed"
     },
     {
       "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/platform/audio/AudioUtilities.cpp#L80",
       "text": "implemented in Safari",
       "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/c411aff111e5c79cdc37608d42632d4a66a8c1dc/src/sources/audio.ts#L244",
-      "text": "GitHub",
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioWorkletNode.cpp#L219",
+      "text": "source code",
       "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
       "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioBuffer.cpp#L167",
-      "text": "add noise",
-      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioBuffer.cpp#L336",
-      "text": "applied once per",
-      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/a555410e925e0d6a4d548aa555b6945bd713e9cd/src/sources/audio.ts#L41",
-      "text": "our fingerprinting algorithm",
-      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/RealtimeAnalyser.cpp#L181",
       "text": "source code",
       "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/a555410e925e0d6a4d548aa555b6945bd713e9cd/src/sources/audio.ts#L77",
-      "text": "calling",
-      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
-    },
-    {
-      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/a555410e925e0d6a4d548aa555b6945bd713e9cd/src/sources/audio.ts#L41",
-      "text": "fingerprinting algorithm",
-      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
       "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioBuffer.cpp#L227",
       "text": "source code",
       "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/RealtimeAnalyser.cpp#L181",
+      "text": "source code",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/a555410e925e0d6a4d548aa555b6945bd713e9cd/src/sources/audio.ts#L41",
+      "text": "our fingerprinting algorithm",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/a555410e925e0d6a4d548aa555b6945bd713e9cd/src/sources/audio.ts#L41",
+      "text": "fingerprinting algorithm",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/#getting-many-noised-copies-of-the-same-audio-sample",
+      "text": "",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/a555410e925e0d6a4d548aa555b6945bd713e9cd/src/sources/audio.ts#L77",
+      "text": "calling",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioBuffer.cpp#L336",
+      "text": "applied once per",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
       "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioBuffer.cpp#L167",
-      "text": "source code",
+      "text": "add noise",
       "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/c411aff111e5c79cdc37608d42632d4a66a8c1dc/src/sources/audio.ts#L244",
+      "text": "GitHub",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
       "href": "https://dev.fingerprint.com/docs/browser-support#old-browsers-requirements",
       "text": "Promise polyfill",
       "page": "https://fingerprint.com/blog/incognito-mode-detection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://dev.fingerprint.com/docs/js-agent#ecmascript-module",
-      "text": "NPM",
-      "page": "https://fingerprint.com/blog/incognito-mode-detection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.globaldata.com/store/report/buy-now-pay-later-market-analysis/#:~:text=The%20Buy%20Now%20Pay%20Later%20%28BNPL%29%20market%20size,rate%20%28CAGR%29%20of%2025.5%25%20over%20the%20forecast%20period.",
+      "text": "over $300 billion",
+      "page": "https://fingerprint.com/blog/aml-money-laundering-fraud-research-guide/",
+      "result": "Expected name, found #:~:text=The%20Buy%20Now%20Pay%20Later%20%28BNPL%29%20market%20size,rate%20%28CAGR%29%20of%2025.5%25%20over%20the%20forecast%20period., [href=\"#:~:text=The%20Buy%20Now%20Pay%20Later%20%28BNPL%29%20market%20size,rate%20%28CAGR%29%20of%2025.5%25%20over%20the%20forecast%20period.\"]"
     },
     {
-      "href": "https://dev.fingerprint.com/docs/js-agent#umd",
-      "text": "RequireJS",
-      "page": "https://fingerprint.com/blog/incognito-mode-detection/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.imf.org/en/Publications/fandd/issues/2019/09/tackling-global-tax-havens-shaxon",
+      "text": "$2.6 trillion offshore",
+      "page": "https://fingerprint.com/blog/aml-money-laundering-fraud-research-guide/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://github.com/fingerprintjs/blog-private-relay-ip-leak-demo/blob/master/src/main_page.ts#L127",
-      "text": "our GitHub repository",
-      "page": "https://fingerprint.com/blog/ios15-icloud-private-relay-vulnerability/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.investor.gov/introduction-investing/investing-basics/glossary/pump-and-dump-schemes",
+      "text": "\"pump and dump\" schemes",
+      "page": "https://fingerprint.com/blog/aml-money-laundering-fraud-research-guide/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://informaconnect.com/finovatespring/agenda/3/#future-payments_special-address-how-device-identification-can-combat-account-takeovers-payment-fraud_1-55pm",
-      "text": "session details",
-      "page": "https://fingerprint.com/blog/finovate-spring-2023/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.imf.org/en/Publications/fandd/issues/2018/12/imf-anti-money-laundering-and-economic-stability-straight",
+      "text": "2-5% of global GDP",
+      "page": "https://fingerprint.com/blog/aml-money-laundering-fraud-research-guide/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://dev.fingerprint.com/reference/pro-server-api#linkedid-adding-a-custom-identifier-to-events",
-      "text": "LinkedID",
-      "page": "https://fingerprint.com/blog/fingerprint-ios-version-2/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.missioncriticalmagazine.com/articles/94142-a-close-look-into-the-173-million-worth-dark-web-market#:~:text=Prices%20for%20American%20data%20vary%20from%2099%20cents%20to%20more%20than%20%24300&text=A%20new%20study%20by%20NordVPN,from%2099%20cents%20to%20%24342.",
+      "text": "eight-figure payout",
+      "page": "https://fingerprint.com/blog/online-insurance-fraud/",
+      "result": "Expected name, found #:~:text=Prices%20for%20American%20data%20vary%20from%2099%20cents%20to%20more%20than%20%24300&text=A%20new%20study%20by%20NordVPN,from%2099%20cents%20to%20%24342., [href=\"#:~:text=Prices%20for%20American%20data%20vary%20from%2099%20cents%20to%20more%20than%20%24300&text=A%20new%20study%20by%20NordVPN,from%2099%20cents%20to%20%24342.\"]"
     },
     {
-      "href": "https://dev.fingerprint.com/docs/ios#extended-result",
-      "text": "documentation",
-      "page": "https://fingerprint.com/blog/fingerprint-ios-version-2/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.forbes.com/advisor/money-transfer/what-is-zelle-how-does-it-work/#:~:text=Zelle%20uses%20the%20Automated%20Clearing,take%20three%20days%20to%20process.",
+      "text": "ACH-backed system",
+      "page": "https://fingerprint.com/blog/peer-to-peer-fraud-research-guide/",
+      "result": "Expected name, found #:~:text=Zelle%20uses%20the%20Automated%20Clearing,take%20three%20days%20to%20process., [href=\"#:~:text=Zelle%20uses%20the%20Automated%20Clearing,take%20three%20days%20to%20process.\"]"
     },
     {
-      "href": "https://www.cloudflare.com/learning/ssl/why-use-tls-1.3/#:~:text=TLS%201.3%20is%20the%20latest,TLS%20handshakes%2C%20among%20other%20improvements.",
-      "text": "TLS versions 1.3",
-      "page": "https://fingerprint.com/blog/security-obstacles-super-apps/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.gov.uk/government/publications/retail-banking-market-investigation-order-2017",
+      "text": "the CMA",
+      "page": "https://fingerprint.com/blog/open-banking-benefits-risks-fraud-prevention/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://thefinancialbrand.com/news/fintech-banking/how-varo-bank-will-survive-despite-recent-banking-collapses-160043/#:~:text=Varo%20Bank%20has%20grown%20exponentially,are%20small%2Ddollar%20deposit%20customers.",
-      "text": "over 7 million accounts",
+      "href": "https://www.oberlo.com/statistics/us-mobile-payment-market#:~:text=The%20total%20transaction%20value%20from,more%20consumers%20to%20adopt%20it.",
+      "text": "nearly $1 trillion",
+      "page": "https://fingerprint.com/blog/peer-to-peer-fraud-research-guide/",
+      "result": "Expected name, found #:~:text=The%20total%20transaction%20value%20from,more%20consumers%20to%20adopt%20it., [href=\"#:~:text=The%20total%20transaction%20value%20from,more%20consumers%20to%20adopt%20it.\"]"
+    },
+    {
+      "href": "https://www.apple.com/apple-pay/#:~:text=Apple%20Pay%20is%20built%20into,Watch%2C%20Mac%2C%20and%20iPad.",
+      "text": "Apple Pay",
+      "page": "https://fingerprint.com/blog/peer-to-peer-fraud-research-guide/",
+      "result": "Expected name, found #:~:text=Apple%20Pay%20is%20built%20into,Watch%2C%20Mac%2C%20and%20iPad., [href=\"#:~:text=Apple%20Pay%20is%20built%20into,Watch%2C%20Mac%2C%20and%20iPad.\"]"
+    },
+    {
+      "href": "https://www.aura.com/learn/i-got-scammed-on-apple-pay#:~:text=But%20if%20you%20used%20Apple,Merchant%20Category%20or%20Other%20Issue.",
+      "text": "Apple Cash fraud",
+      "page": "https://fingerprint.com/blog/peer-to-peer-fraud-research-guide/",
+      "result": "Expected name, found #:~:text=But%20if%20you%20used%20Apple,Merchant%20Category%20or%20Other%20Issue., [href=\"#:~:text=But%20if%20you%20used%20Apple,Merchant%20Category%20or%20Other%20Issue.\"]"
+    },
+    {
+      "href": "https://www.financialdataexchange.org/FDX/About/OFX-Work-Group.aspx",
+      "text": "protocol OFX",
+      "page": "https://fingerprint.com/blog/open-banking-benefits-risks-fraud-prevention/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.identityiq.com/articles/what-is-shoulder-surfing/#:~:text=Shoulder%20surfing%20is%20a%20type,spying%20over%20their%20target's%20shoulder",
+      "text": "shoulder surfing",
+      "page": "https://fingerprint.com/blog/synthetic-identity-fraud/",
+      "result": "Expected name, found #:~:text=Shoulder%20surfing%20is%20a%20type,spying%20over%20their%20target's%20shoulder, [href=\"#:~:text=Shoulder%20surfing%20is%20a%20type,spying%20over%20their%20target's%20shoulder\"]"
+    },
+    {
+      "href": "https://www.techtarget.com/searchsecurity/definition/dumpster-diving#:~:text=Dumpster%20diving%20is%20a%20way,be%20used%20by%20an%20attacker",
+      "text": "dumpster diving",
+      "page": "https://fingerprint.com/blog/synthetic-identity-fraud/",
+      "result": "Expected name, found #:~:text=Dumpster%20diving%20is%20a%20way,be%20used%20by%20an%20attacker, [href=\"#:~:text=Dumpster%20diving%20is%20a%20way,be%20used%20by%20an%20attacker\"]"
+    },
+    {
+      "href": "https://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2022/04/07/thieves-hit-on-a-new-scam-synthetic-identity-fraud#:~:text=Another%20challenge%20has%20been%20how,or%20financial%20gain.%E2%80%9D%20Law%20enforcement",
+      "text": "reported",
+      "page": "https://fingerprint.com/blog/synthetic-identity-fraud/",
+      "result": "Expected name, found #:~:text=Another%20challenge%20has%20been%20how,or%20financial%20gain.%E2%80%9D%20Law%20enforcement, [href=\"#:~:text=Another%20challenge%20has%20been%20how,or%20financial%20gain.%E2%80%9D%20Law%20enforcement\"]"
+    },
+    {
+      "href": "https://www.irs.gov/businesses/small-businesses-self-employed/bank-secrecy-act#:~:text=Congress%20passed%20the%20Bank%20Secrecy,%2C%20tax%2C%20and%20regulatory%20matters.",
+      "text": "the Bank Secrecy Act of 1970",
+      "page": "https://fingerprint.com/blog/kyc-know-your-customer-financial-fraud/",
+      "result": "Expected name, found #:~:text=Congress%20passed%20the%20Bank%20Secrecy,%2C%20tax%2C%20and%20regulatory%20matters., [href=\"#:~:text=Congress%20passed%20the%20Bank%20Secrecy,%2C%20tax%2C%20and%20regulatory%20matters.\"]"
+    },
+    {
+      "href": "https://www.dowjones.com/professional/risk/glossary/know-your-customer/#:~:text=KYC%20regulations%20originated%20from%20years,and%202008%20global%20financial%20crisis.",
+      "text": "Regulations continued to increase",
+      "page": "https://fingerprint.com/blog/kyc-know-your-customer-financial-fraud/",
+      "result": "Expected name, found #:~:text=KYC%20regulations%20originated%20from%20years,and%202008%20global%20financial%20crisis., [href=\"#:~:text=KYC%20regulations%20originated%20from%20years,and%202008%20global%20financial%20crisis.\"]"
+    },
+    {
+      "href": "https://www.statista.com/statistics/1239713/most-valued-independent-neobanks-worldwide/#:~:text=The%20most%20valued%20independent%20neobank,independent%20digital%20bank%20in%202020.",
+      "text": "most valued independent neobank in 2021",
       "page": "https://fingerprint.com/blog/neobank-benefits-risks/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Expected name, found #:~:text=The%20most%20valued%20independent%20neobank,independent%20digital%20bank%20in%202020., [href=\"#:~:text=The%20most%20valued%20independent%20neobank,independent%20digital%20bank%20in%202020.\"]"
     },
     {
-      "href": "https://gs.statcounter.com/browser-market-share#monthly-200901-202310",
-      "text": "taking over the lead position from Microsoft's Internet Explorer",
-      "page": "https://fingerprint.com/blog/chrome-privacy-security-guide/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.businessofapps.com/data/chime-statistics/#:~:text=Sacra%2C%20The%20Information-,Chime%20users,it%20as%20their%20primary%20bank.",
+      "text": "14.5 million users",
+      "page": "https://fingerprint.com/blog/neobank-benefits-risks/",
+      "result": "Expected name, found #:~:text=Sacra%2C%20The%20Information-,Chime%20users,it%20as%20their%20primary%20bank., [href=\"#:~:text=Sacra%2C%20The%20Information-,Chime%20users,it%20as%20their%20primary%20bank.\"]"
     },
     {
-      "href": "https://github.com/fingerprintjs/fingerprintjs#install-from-cdn",
-      "text": "installing from CDN",
+      "href": "https://www.acuant.com/blog/digital-banking-open-banking-neobanks-challenger-banks-kyc-aml-api/#:~:text=Neobanks%20offer%20a%20range%20of,rented%20from%20an%20incumbent%20bank.",
+      "text": "challenge",
+      "page": "https://fingerprint.com/blog/neobank-benefits-risks/",
+      "result": "Expected name, found #:~:text=Neobanks%20offer%20a%20range%20of,rented%20from%20an%20incumbent%20bank., [href=\"#:~:text=Neobanks%20offer%20a%20range%20of,rented%20from%20an%20incumbent%20bank.\"]"
+    },
+    {
+      "href": "https://clientjs.org",
+      "text": "their website",
       "page": "https://fingerprint.com/blog/best-npm-packages-browser-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "fetch failed"
+    },
+    {
+      "href": "https://developer.chrome.com/docs/webstore/program-policies/#:~:text=a%20Safe%20Ecosystem-,The%20Chrome%20Web%20Store%20is%20committed%20to%20providing%20a%20safe,at%20risk%20are%20strictly%20prohibited.",
+      "text": "Chrome Web Store",
+      "page": "https://fingerprint.com/blog/edge-privacy-security-guide/",
+      "result": "Expected name, found #:~:text=a%20Safe%20Ecosystem-,The%20Chrome%20Web%20Store%20is%20committed%20to%20providing%20a%20safe,at%20risk%20are%20strictly%20prohibited., [href=\"#:~:text=a%20Safe%20Ecosystem-,The%20Chrome%20Web%20Store%20is%20committed%20to%20providing%20a%20safe,at%20risk%20are%20strictly%20prohibited.\"]"
+    },
+    {
+      "href": "https://www.top10vpn.com/guides/is-opera-vpn-safe/#:~:text=It%20doesn%27t%20use%20a,the%20web%20safely%20and%20securely.",
+      "text": "concerns remain",
+      "page": "https://fingerprint.com/blog/opera-privacy-security-guide/",
+      "result": "Expected name, found #:~:text=It%20doesn%27t%20use%20a,the%20web%20safely%20and%20securely., [href=\"#:~:text=It%20doesn%27t%20use%20a,the%20web%20safely%20and%20securely.\"]"
+    },
+    {
+      "href": "https://security.opera.com/en/website-is-incorrectly-blocked-as-dangerous/#:~:text=You%20are%20seeing%20the%20%E2%80%9CFraud,fraud%2C%20and%20Yandex%20for%20malware.",
+      "text": "by partnering with security entities",
+      "page": "https://fingerprint.com/blog/opera-privacy-security-guide/",
+      "result": "Expected name, found #:~:text=You%20are%20seeing%20the%20%E2%80%9CFraud,fraud%2C%20and%20Yandex%20for%20malware., [href=\"#:~:text=You%20are%20seeing%20the%20%E2%80%9CFraud,fraud%2C%20and%20Yandex%20for%20malware.\"]"
     },
     {
       "href": "https://dev.fingerprint.com/docs/understanding-your-confidence-score#pro-vs-open-source",
       "text": "more accurate than for the open-source version",
       "page": "https://fingerprint.com/blog/best-npm-packages-browser-fingerprinting/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://cybernews.com/best-password-managers/password-managers-for-opera/#:~:text=Is%20Opera%20password%20manager%20safe,passwords%20and%20other%20data%20safe.",
-      "text": "keeps your passwords and other data safe",
+      "href": "https://www.makeuseof.com/opera-gx-fake-my-history/#:~:text=What%20Is%20Opera%20GX%27s%20Fake,set%20of%20clean%20browsing%20entries.",
+      "text": "Fake My History",
       "page": "https://fingerprint.com/blog/opera-privacy-security-guide/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Expected name, found #:~:text=What%20Is%20Opera%20GX%27s%20Fake,set%20of%20clean%20browsing%20entries., [href=\"#:~:text=What%20Is%20Opera%20GX%27s%20Fake,set%20of%20clean%20browsing%20entries.\"]"
     },
     {
-      "href": "https://www.itsecurityguru.org/2018/08/03/wannabe-fraudsters-can-buy-hacking-tools-dark-web-cost-cup-coffee/#:~:text=Wannabe%20hackers%20looking%20to%20dip%20their%20toes%20into,by%20Virtual%20Private%20Network%20%28VPN%29%20comparison%20service%20Top10VPN.com.",
-      "text": "as a cup of coffee",
+      "href": "https://www.upguard.com/blog/what-is-psd2#:~:text=Penalties%20For%20Non%2DCompliance,-Given%20that%20PSD2&text=Institutions%20that%20fail%20to%20meet,4%25%20of%20their%20annual%20returns.",
+      "text": "up to 4% of annual revenue",
+      "page": "https://fingerprint.com/blog/psd2-sca-compliance-checklist-for-businesses/",
+      "result": "Expected name, found #:~:text=Penalties%20For%20Non%2DCompliance,-Given%20that%20PSD2&text=Institutions%20that%20fail%20to%20meet,4%25%20of%20their%20annual%20returns., [href=\"#:~:text=Penalties%20For%20Non%2DCompliance,-Given%20that%20PSD2&text=Institutions%20that%20fail%20to%20meet,4%25%20of%20their%20annual%20returns.\"]"
+    },
+    {
+      "href": "https://www.refinitiv.com/en/risk-and-compliance/eu-anti-money-laundering-directive#:~:text=6th%20AML%20Directive%20The%20EU%E2%80%99s%206%20AML%20Directive,responsibility%20on%20regulated%20entities%20to%20fight%20financial%20crime.",
+      "text": "6th Anti-Money Laundering Directive",
       "page": "https://fingerprint.com/blog/definitive-guide-real-cost-online-fraud/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Expected name, found #:~:text=6th%20AML%20Directive%20The%20EU%E2%80%99s%206%20AML%20Directive,responsibility%20on%20regulated%20entities%20to%20fight%20financial%20crime., [href=\"#:~:text=6th%20AML%20Directive%20The%20EU%E2%80%99s%206%20AML%20Directive,responsibility%20on%20regulated%20entities%20to%20fight%20financial%20crime.\"]"
     },
     {
-      "href": "https://www.digitaltveurope.com/2020/01/09/more-than-three-quarters-of-young-people-engage-in-streaming-password-sharing/#:~:text=Password%20sharing%20has%20long%20served,doesn't%20live%20with%20them.",
-      "text": "over 30 percent",
+      "href": "https://www.sanctions.io/blog/aml-guide-for-the-gaming-and-gambling-industry#:~:text=Although%20casinos%20are%20not%20banks%2C%20FinCen%20has%20published,through%20their%20name%2C%20address%2C%20and%20Social%20Security%20number",
+      "text": "requires casinos",
+      "page": "https://fingerprint.com/blog/definitive-guide-real-cost-online-fraud/",
+      "result": "Expected name, found #:~:text=Although%20casinos%20are%20not%20banks%2C%20FinCen%20has%20published,through%20their%20name%2C%20address%2C%20and%20Social%20Security%20number, [href=\"#:~:text=Although%20casinos%20are%20not%20banks%2C%20FinCen%20has%20published,through%20their%20name%2C%20address%2C%20and%20Social%20Security%20number\"]"
+    },
+    {
+      "href": "https://www.comparitech.com/blog/information-security/password-statistics/#:~:text=Only%2035%20percent%20use%20a%20different%20password%20for%20every%20account.&text=This%20is%20corroborated%20by%20other,passwords%20for%20their%20personal%20accounts.",
+      "text": "72 percent of people reuse passwords",
       "page": "https://fingerprint.com/blog/ultimate-account-sharing-prevention-guide-netflix-amazon/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Expected name, found #:~:text=Only%2035%20percent%20use%20a%20different%20password%20for%20every%20account.&text=This%20is%20corroborated%20by%20other,passwords%20for%20their%20personal%20accounts., [href=\"#:~:text=Only%2035%20percent%20use%20a%20different%20password%20for%20every%20account.&text=This%20is%20corroborated%20by%20other,passwords%20for%20their%20personal%20accounts.\"]"
     },
     {
-      "href": "https://gitlab.torproject.org/legacy/trac/-/wikis/doc/TorPlusVPN#you-tor-vpnssh",
-      "text": "VPN through Tor",
-      "page": "https://fingerprint.com/blog/using-vpn-and-tor-benefits-risks-and-browser-fingerprints/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.itpro.com/security/cyber-attacks/361074/account-takeovers-rise-nearly-threefold-during-pandemic#:~:text=The%20rise%20is%20ongoing%2C%20the,well%2Dknown%20target%20for%20scammers.",
+      "text": "850% increase",
+      "page": "https://fingerprint.com/blog/ultimate-account-sharing-prevention-guide-netflix-amazon/",
+      "result": "Expected name, found #:~:text=The%20rise%20is%20ongoing%2C%20the,well%2Dknown%20target%20for%20scammers., [href=\"#:~:text=The%20rise%20is%20ongoing%2C%20the,well%2Dknown%20target%20for%20scammers.\"]"
     },
     {
-      "href": "https://github.com/chromium/chromium/blob/main/components/lookalikes/core/lookalike_url_util.cc#L593",
-      "text": "generated",
-      "page": "https://fingerprint.com/blog/potential-privacy-implications-lookalike-warnings-chromium/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.akamai.com/newsroom/press-release/the-cost-of-credential-stuffing-in-asia-pacific-could-go-up-to-28.5-million-a-year-per-organization",
+      "text": "$28.5 million per organization annually",
+      "page": "https://fingerprint.com/blog/definitive-guide-real-cost-online-fraud/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://github.com/chromium/chromium/blob/main/components/lookalikes/core/lookalike_url_util.cc#L107",
-      "text": "list",
-      "page": "https://fingerprint.com/blog/potential-privacy-implications-lookalike-warnings-chromium/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.statista.com/statistics/672747/amazons-consolidated-net-revenue-by-segment/#:~:text=In%202020%2C%20Amazon's%20net%20revenue,U.S.%20dollars%20in%20annual%20sales.",
+      "text": "over $25 billion annually",
+      "page": "https://fingerprint.com/blog/ultimate-account-sharing-prevention-guide-netflix-amazon/",
+      "result": "Expected name, found #:~:text=In%202020%2C%20Amazon's%20net%20revenue,U.S.%20dollars%20in%20annual%20sales., [href=\"#:~:text=In%202020%2C%20Amazon's%20net%20revenue,U.S.%20dollars%20in%20annual%20sales.\"]"
     },
     {
-      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#vpn-detection",
-      "text": "VPN",
+      "href": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GXULX24SE2RD7EXS#:~:text=To%20share%20Prime%20benefits%20and,teen%20to%20your%20Amazon%20Household.",
+      "text": "Amazon Prime’s policy states",
+      "page": "https://fingerprint.com/blog/ultimate-account-sharing-prevention-guide-netflix-amazon/",
+      "result": "Expected name, found #:~:text=To%20share%20Prime%20benefits%20and,teen%20to%20your%20Amazon%20Household., [href=\"#:~:text=To%20share%20Prime%20benefits%20and,teen%20to%20your%20Amazon%20Household.\"]"
+    },
+    {
+      "href": "https://www.forbes.com/advisor/banking/digital-wallets-payment-apps/#:~:text=For%20consumers%20using%20digital%20wallet,and%20Samsung%20Pay%20(52%25).",
+      "text": "over half of America's most-used payment method",
+      "page": "https://fingerprint.com/blog/the-top-fintech-trends/",
+      "result": "Expected name, found #:~:text=For%20consumers%20using%20digital%20wallet,and%20Samsung%20Pay%20(52%25)., [href=\"#:~:text=For%20consumers%20using%20digital%20wallet,and%20Samsung%20Pay%20(52%25).\"]"
+    },
+    {
+      "href": "https://news.cardnotpresent.com/news/triangulation-fraud-what-is-it-and-what-can-you-do-about-it",
+      "text": "Popular choices",
+      "page": "https://fingerprint.com/blog/triangulation-fraud/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.washingtonpost.com/business/2022/04/21/netflix-password-sharing-faq",
+      "text": "100 million households",
+      "page": "https://fingerprint.com/blog/ultimate-account-sharing-prevention-guide-netflix-amazon/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.businesswire.com/news/home/20210429005126/en/Global-Gaming-Industry-Value-Now-Exceeds-300-Billion-New-Accenture-Report-Finds",
+      "text": "$300 billion in revenue",
+      "page": "https://fingerprint.com/blog/ultimate-account-sharing-prevention-guide-netflix-amazon/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://fingerprint.com/blog/stop-credential-stuffing/#:~:text=Credential%20Stuffing%20is%20a%20method,many%20customer%20accounts%20as%20possible.",
+      "text": "credential stuffing",
+      "page": "https://fingerprint.com/blog/device-intelligence-explainer/",
+      "result": "Expected name, found #:~:text=Credential%20Stuffing%20is%20a%20method,many%20customer%20accounts%20as%20possible., [href=\"#:~:text=Credential%20Stuffing%20is%20a%20method,many%20customer%20accounts%20as%20possible.\"]"
+    },
+    {
+      "href": "https://www.paymentsjournal.com/javelins-identity-fraud-study-highlights-the-changing-nature-of-fraud/#:~:text=One%20positive%20surprise%20in%20the,account%20fraud%2C%E2%80%9D%20Buzzard%20said.",
+      "text": "billions of yearly losses",
+      "page": "https://fingerprint.com/blog/new-account-fraud-guide/",
+      "result": "Expected name, found #:~:text=One%20positive%20surprise%20in%20the,account%20fraud%2C%E2%80%9D%20Buzzard%20said., [href=\"#:~:text=One%20positive%20surprise%20in%20the,account%20fraud%2C%E2%80%9D%20Buzzard%20said.\"]"
+    },
+    {
+      "href": "https://www.fortinet.com/resources/cyberglossary/how-does-vpn-work#:~:text=A%20VPN%20works%20by%20routing,by%20hiding%20their%20IP%20address.",
+      "text": "through the VPN",
       "page": "https://fingerprint.com/blog/vpn-detection-how-it-works/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Expected name, found #:~:text=A%20VPN%20works%20by%20routing,by%20hiding%20their%20IP%20address., [href=\"#:~:text=A%20VPN%20works%20by%20routing,by%20hiding%20their%20IP%20address.\"]"
     },
     {
-      "href": "https://www.usa.gov/common-scams-frauds#item-36617",
-      "text": "variety of scams",
-      "page": "https://fingerprint.com/blog/bank-drop-scams/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.forbes.com/advisor/business/software/why-use-a-vpn/#:~:text=In%20basic%20terms%2C%20a%20VPN,from%20any%20prying%20internet%20eyes.",
+      "text": "most common reasons",
+      "page": "https://fingerprint.com/blog/vpn-detection-how-it-works/",
+      "result": "Expected name, found #:~:text=In%20basic%20terms%2C%20a%20VPN,from%20any%20prying%20internet%20eyes., [href=\"#:~:text=In%20basic%20terms%2C%20a%20VPN,from%20any%20prying%20internet%20eyes.\"]"
     },
     {
-      "href": "https://web.dev/persistent-storage/#chrome-and-other-chromium-based-browsers",
-      "text": "handle some permission requests automatically",
-      "page": "https://fingerprint.com/blog/browser-anti-fingerprinting-techniques/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.zonealarm.com/resources/top-whaling-attacks-exposed#:~:text=When%20Snap%20suffered%20a%20data,exchange%20with%20the%20HR%20department",
+      "text": "Snap suffered a data breach back in 2016",
+      "page": "https://fingerprint.com/blog/whale-phishing-ceo-fraud-prevention/",
+      "result": "Expected name, found #:~:text=When%20Snap%20suffered%20a%20data,exchange%20with%20the%20HR%20department, [href=\"#:~:text=When%20Snap%20suffered%20a%20data,exchange%20with%20the%20HR%20department\"]"
     },
     {
-      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#mobile-only-smart-signals",
-      "text": "mobile-specific smart signals.",
-      "page": "https://fingerprint.com/payment-fraud/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.wireguard.com/",
+      "text": "WireGuard",
+      "page": "https://fingerprint.com/blog/using-vpn-and-tor-benefits-risks-and-browser-fingerprints/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#mobile-only-smart-signals",
-      "text": "mobile-specific smart signals.",
-      "page": "https://fingerprint.com/sms-fraud/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://www.wireguard.com/",
+      "text": "WireGuard",
+      "page": "https://fingerprint.com/blog/vpn-detection-how-it-works/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
-      "href": "https://dev.fingerprint.com/docs#server-api",
-      "text": "server API.",
-      "page": "https://fingerprint.com/products/fingerprint-pro/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://dev.fingerprint.com/docs/understanding-our-995-accuracy#:~:text=Other%20studies%20from%20the%20Electronic,other%20service%20on%20the%20market.",
+      "text": "99.5% accuracy",
+      "page": "https://fingerprint.com/blog/what-is-fraud-management/",
+      "result": "Expected name, found #:~:text=Other%20studies%20from%20the%20Electronic,other%20service%20on%20the%20market., [href=\"#:~:text=Other%20studies%20from%20the%20Electronic,other%20service%20on%20the%20market.\"]"
     },
     {
-      "href": "https://dev.fingerprint.com/docs#custom-subdomain-setup",
-      "text": "Set up a custom subdomain",
-      "page": "https://fingerprint.com/products/fingerprint-pro/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "href": "https://risk.lexisnexis.com/about-us/press-room/press-release/20220106-annual-true-cost-of-fraud-study#:~:text=The%20cost%20of%20fraud%20for,2019%20and%20%243.64%20in%202020.",
+      "text": "most significant channel",
+      "page": "https://fingerprint.com/blog/what-is-loan-fraud/",
+      "result": "Expected name, found #:~:text=The%20cost%20of%20fraud%20for,2019%20and%20%243.64%20in%202020., [href=\"#:~:text=The%20cost%20of%20fraud%20for,2019%20and%20%243.64%20in%202020.\"]"
+    },
+    {
+      "href": "https://afterpay-corporate.yourcreative.com.au/wp-content/uploads/2021/10/Economic-Impact-of-BNPL-in-the-US-vF.pdf",
+      "text": "to a report by Afterpay",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-trends-2022-bnpl/",
+      "result": "fetch failed"
+    },
+    {
+      "href": "https://afterpay-corporate.yourcreative.com.au/wp-content/uploads/2021/10/Economic-Impact-of-BNPL-in-the-US-vF.pdf",
+      "text": "data shows",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-trends-2022-bnpl/",
+      "result": "fetch failed"
+    },
+    {
+      "href": "https://wwwdisc.chimica.unipd.it/luigino.feltre/pubblica/unix/winnt_doc/pppt/understanding_pptp.html#:~:text=Summary%3A%20Point%2Dto%2DPoint,%2FIP%2Dbased%20data%20networks.",
+      "text": "PPTP",
+      "page": "https://fingerprint.com/blog/why-vpns-are-ineffective-against-browser-fingerprinting/",
+      "result": "fetch failed"
+    },
+    {
+      "href": "https://www.akamai.com/blog/security/bots-tampering-with-tls-to-avoid-detection",
+      "text": "Akamai describes as cipher stunting",
+      "page": "https://fingerprint.com/blog/what-is-tls-fingerprinting-transport-layer-security/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://aviatrix.com/learn-center/glossary/ipsec/#:~:text=IPsec%20(Internet%20Protocol%20Security)%20is,against%20replay%20and%20data%20confidentiality.",
+      "text": "Internet Protocol Security",
+      "page": "https://fingerprint.com/blog/why-vpns-are-ineffective-against-browser-fingerprinting/",
+      "result": "Expected name, found #:~:text=IPsec%20(Internet%20Protocol%20Security)%20is,against%20replay%20and%20data%20confidentiality., [href=\"#:~:text=IPsec%20(Internet%20Protocol%20Security)%20is,against%20replay%20and%20data%20confidentiality.\"]"
+    },
+    {
+      "href": "https://professionalbettingonline.com/are-betting-bots-illegal/",
+      "text": "are legal",
+      "page": "https://fingerprint.com/blog/betting-bots/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://openvpn.net/faq/what-is-openvpn/#:~:text=The%20OpenVPN%20Community%20Edition%20(CE,supported%20by%20many%20OpenVPN%20Inc.",
+      "text": "open-source VPN",
+      "page": "https://fingerprint.com/blog/why-vpns-are-ineffective-against-browser-fingerprinting/",
+      "result": "Expected name, found #:~:text=The%20OpenVPN%20Community%20Edition%20(CE,supported%20by%20many%20OpenVPN%20Inc., [href=\"#:~:text=The%20OpenVPN%20Community%20Edition%20(CE,supported%20by%20many%20OpenVPN%20Inc.\"]"
+    },
+    {
+      "href": "https://www.techtarget.com/searchnetworking/definition/Layer-Two-Tunneling-Protocol-L2TP#:~:text=Layer%20Two%20Tunneling%20Protocol%20(L2TP)%20is%20an%20extension%20of%20the,to%20pass%20within%20the%20tunnel.",
+      "text": "L2TP",
+      "page": "https://fingerprint.com/blog/why-vpns-are-ineffective-against-browser-fingerprinting/",
+      "result": "Expected name, found #:~:text=Layer%20Two%20Tunneling%20Protocol%20(L2TP)%20is%20an%20extension%20of%20the,to%20pass%20within%20the%20tunnel., [href=\"#:~:text=Layer%20Two%20Tunneling%20Protocol%20(L2TP)%20is%20an%20extension%20of%20the,to%20pass%20within%20the%20tunnel.\"]"
+    },
+    {
+      "href": "https://nordvpn.com/blog/sstp/#:~:text=SSTP%20(also%20known%20as%20Secure,protect%20native%20Windows%20VPN%20connections.",
+      "text": "SSTP",
+      "page": "https://fingerprint.com/blog/why-vpns-are-ineffective-against-browser-fingerprinting/",
+      "result": "Expected name, found #:~:text=SSTP%20(also%20known%20as%20Secure,protect%20native%20Windows%20VPN%20connections., [href=\"#:~:text=SSTP%20(also%20known%20as%20Secure,protect%20native%20Windows%20VPN%20connections.\"]"
+    },
+    {
+      "href": "https://www.gpc.com/",
+      "text": "With Fingerprint, we have managed to 2x the relative revenue. It also allows us to analyze and optimize web performance — without the use of any other third-party tools.Tim ShuvaloffChief Analytics Officer",
+      "page": "https://fingerprint.com/case-studies/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.gpc.com/",
+      "text": "With Fingerprint, we have managed to 2x the relative revenue. It also allows us to analyze and optimize web performance — without the use of any other third-party tools.Tim ShuvaloffChief Analytics Officer",
+      "page": "https://fingerprint.com/case-studies/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
       "href": "https://dev.fingerprint.com/docs#js-agent",
       "text": "JavaScript snippet.",
       "page": "https://fingerprint.com/products/fingerprint-pro/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs#custom-subdomain-setup",
+      "text": "Set up a custom subdomain",
+      "page": "https://fingerprint.com/products/fingerprint-pro/",
+      "result": "Task in promise pool timed out after 10000ms"
     },
     {
       "href": "https://dev.fingerprint.com/docs#webhooks",
       "text": "webhooks",
       "page": "https://fingerprint.com/products/fingerprint-pro/",
-      "result": {
-        "ok": false,
-        "error": "hash not found"
-      }
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.gpc.com/",
+      "text": "With Fingerprint, we have managed to 2x the relative revenue. It also allows us to analyze and optimize web performance — without the use of any other third-party tools.Tim ShuvaloffChief Analytics Officer",
+      "page": "https://fingerprint.com/",
+      "result": "Task in promise pool timed out after 10000ms"
+    },
+    {
+      "href": "https://www.gpc.com/",
+      "text": "With Fingerprint, we have managed to 2x the relative revenue. It also allows us to analyze and optimize web performance — without the use of any other third-party tools.Tim ShuvaloffChief Analytics Officer",
+      "page": "https://fingerprint.com/",
+      "result": "Task in promise pool timed out after 10000ms"
     }
-  ],
-  "networkErrors": []
+  ]
 }

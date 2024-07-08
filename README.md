@@ -9,6 +9,6 @@ My utility for checking broken links, including #anchors
 [x] Filter mailto links
 [x] Accept redirects
 [ ] Get page links using Playwright to get email addresses
-[ ] Read sitemap index
+[x] Read sitemap index
 [ ] Include errors in results
 [ ]

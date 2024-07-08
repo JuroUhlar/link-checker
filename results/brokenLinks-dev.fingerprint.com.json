@@ -1,0 +1,24 @@
+{
+  "summary": {
+    "totalLinksToFix": 1,
+    "brokenLinks": 0,
+    "hashNotFound": 0,
+    "networkErrors": 1
+  },
+  "brokenLinks": [],
+  "hashNotFound": [],
+  "networkErrors": [
+    {
+      "raw": {
+        "cause": {}
+      },
+      "item": {
+        "href": "http://eBay.com",
+        "text": "eBay.com",
+        "page": "https://dev.fingerprint.com/docs/what-is-fingerprint"
+      },
+      "name": "PromisePoolError",
+      "message": "fetch failed"
+    }
+  ]
+}

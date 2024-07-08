@@ -1,6 +1,8 @@
 import * as cheerio from "cheerio";
 import { Link } from "./types";
-import { BROWSER_USER_AGENT } from "./checkLink";
+
+import { BROWSER_USER_AGENT, CONCURRENCY_LIMIT, progressBar } from "./utils";
+import { PromisePool } from "@supercharge/promise-pool";
 
 function filterLinks(links: Link[]): Link[] {
   const patternsToFilterOut = [
@@ -20,7 +22,7 @@ function filterLinks(links: Link[]): Link[] {
   );
 }
 
-export async function getPageLinks(url: string): Promise<Link[]> {
+export async function parseLinksFromPage(url: string): Promise<Link[]> {
   const response = await fetch(url, {
     headers: { "User-Agent": BROWSER_USER_AGENT },
   });
@@ -49,3 +51,27 @@ export async function getPageLinks(url: string): Promise<Link[]> {
 
   return filterLinks(result);
 }
+
+export const getLinksFromPages = async (pages: string[], verbose = false) => {
+  progressBar.start(pages.length, 0);
+  const { results, errors } = await PromisePool.withConcurrency(
+    CONCURRENCY_LIMIT
+  )
+    .for(pages)
+    .process(async (page) => {
+      progressBar.increment();
+      return parseLinksFromPage(page);
+    });
+  progressBar.stop;
+  const links = results.flat();
+  console.log(
+    `\nRetrieved ${links.length} links from ${results.length} pages.`
+  );
+  if (errors.length > 0) {
+    console.log(`Retrieving links failed for ${errors.length} pages.`);
+  }
+  if (verbose) {
+    console.log(errors);
+  }
+  return { links, errors };
+};

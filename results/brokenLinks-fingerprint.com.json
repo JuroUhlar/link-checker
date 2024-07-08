@@ -1,0 +1,832 @@
+{
+  "summary": {
+    "totalLinksToFix": 91,
+    "brokenLinks": 39,
+    "hashNotFound": 52,
+    "networkErrors": 0
+  },
+  "brokenLinks": [
+    {
+      "href": "https://www.reuters.com/article/us-health-coronavirus-usa-fraud-idUSKCN251025",
+      "text": "Reuters",
+      "page": "https://fingerprint.com/blog/anti-fraud-technology-post-pandemic/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.synovus.com/business/resource-center/commercial-middle-market-insights/three-ways-the-pandemic-has-changed-business-fraud/",
+      "text": "Two-thirds of consumers",
+      "page": "https://fingerprint.com/blog/anti-fraud-technology-post-pandemic/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.capterra.com/payment-processing-software/",
+      "text": "Capterra",
+      "page": "https://fingerprint.com/blog/choosing-buy-now-pay-later-ecommerce-bnpl/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.reuters.com/article/us-australia-bnpl-fraud-exclusive-idUSKBN2A906Q",
+      "text": "doubled",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.crunchbase.com/organization/zilch-technology-limited",
+      "text": "over $339 million",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.crunchbase.com/organization/rely-265a",
+      "text": "$75 million",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.reuters.com/markets/deals/australias-openpay-strikes-bnpl-partnership-deal-with-american-express-2021-12-01/",
+      "text": "partnership deal",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.inc.com/teresa-xie/square-afterpay-buy-now-pay-later.html",
+      "text": "$29 billion",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.sciencedirect.com/topics/computer-science/rainbow-table#:~:text=Rainbow%20tables%20are%20tables%20of,it%20to%20the%20stored%20hash.",
+      "text": "rainbow tables",
+      "page": "https://fingerprint.com/blog/five-mistakes-login-page-security-how-to-fix/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.bancopan.com.br/",
+      "text": "Banco PAN",
+      "page": "https://fingerprint.com/blog/banco-pan-case-study/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.bancopan.com.br/",
+      "text": "Banco PAN",
+      "page": "https://fingerprint.com/blog/banco-pan-case-study/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.getbankcard.com/blog/chargeback-ratio-limit-high-risk-merchant/#:~:text=VISA's%20chargeback%20thresholds&text=It%20categorizes%20accounts%20into%20two,chargeback%20ratio%20of%201.8%20percent",
+      "text": "excessive",
+      "page": "https://fingerprint.com/blog/how-major-payment-processors-handle-chargebacks/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.drupal.org/",
+      "text": "Drupal",
+      "page": "https://fingerprint.com/blog/common-cyberattacks/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.reuters.com/technology/musk-says-twitter-applies-temporary-limit-address-data-scraping-system-2023-07-01/",
+      "text": "scraped by browsing plugins for generative AI models",
+      "page": "https://fingerprint.com/blog/preventing-content-scraping/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://go.recordedfuture.com/hubfs/reports/cta-2019-0425.pdf",
+      "text": "one to three percent range",
+      "page": "https://fingerprint.com/blog/stop-credential-stuffing/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.ey.com/en_gl/financial-services/cybercrime-what-does-the-most-damage-losing-data-or-trust",
+      "text": "EY Global research",
+      "page": "https://fingerprint.com/blog/stop-credential-stuffing/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.reuters.com/world/china/apples-new-private-relay-feature-will-not-be-available-china-2021-06-07/",
+      "text": "several countries",
+      "page": "https://fingerprint.com/blog/ios15-icloud-private-relay-vulnerability/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.fintechnexus.com/ffc-usa-2023/",
+      "text": "Fraud Fight Club",
+      "page": "https://fingerprint.com/blog/fintech-nexus-2023/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.fintechnexus.com/usa/2023/",
+      "text": "Fintech Nexus 2023",
+      "page": "https://fingerprint.com/blog/fintech-nexus-2023/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.reuters.com/business/finance/fed-fines-deutsche-bank-186-mln-insufficient-progress-addressing-anti-money-2023-07-19/",
+      "text": "HSBC and Deutsche Bank",
+      "page": "https://fingerprint.com/blog/aml-money-laundering-fraud-research-guide/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.pwc.com/mt/en/publications/financial-crime-news/highlights-of-the-6th-anti-money-laundering-directive.html",
+      "text": "Sixth Anti-Money Laundering Directive (6AMLD)",
+      "page": "https://fingerprint.com/blog/aml-money-laundering-fraud-research-guide/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://globalinvestigationsreview.com/guide/the-guide-anti-money-laundering/first-edition/article/recent-trends-in-asia-pacific-anti-money-laundering",
+      "text": "Singapore and Hong Kong",
+      "page": "https://fingerprint.com/blog/aml-money-laundering-fraud-research-guide/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.wcvb.com/article/more-victims-emerge-after-ben-has-your-back-report-about-scam-on-venmo/38987933",
+      "text": "accidentally",
+      "page": "https://fingerprint.com/blog/peer-to-peer-fraud-research-guide/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.swift.com/your-needs/banking/how-long-do-wire-transfers-take#:~:text=Wire%20transfers%20can%20take%20several%20days%20to%20arrive,friction%20in%20the%20payments%20process.",
+      "text": "explains",
+      "page": "https://fingerprint.com/blog/peer-to-peer-fraud-research-guide/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.bai.org/banking-strategies/fraud-trends-and-fighting-back/",
+      "text": "$343 billion globally",
+      "page": "https://fingerprint.com/blog/definitive-guide-real-cost-online-fraud/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.wsj.com/articles/u-k-gambling-company-fined-7-6-million-over-alleged-money-laundering-control-issues-11674683325",
+      "text": "fined",
+      "page": "https://fingerprint.com/blog/definitive-guide-real-cost-online-fraud/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://wallethub.com/edu/cc/credit-debit-card-fraud-statistics/25725",
+      "text": "$1.3 billion",
+      "page": "https://fingerprint.com/blog/definitive-guide-real-cost-online-fraud/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://wallethub.com/edu/cc/credit-debit-card-fraud-statistics/25725",
+      "text": "$1.3 billion",
+      "page": "https://fingerprint.com/blog/definitive-guide-real-cost-online-fraud/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.inc.com/jason-aten/the-most-important-piece-of-tech-for-working-from-home-isnt-what-you-think.html",
+      "text": "calls a good pair of headphones",
+      "page": "https://fingerprint.com/blog/top-five-work-from-home-essentials/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.thestreet.com/investing/netflix-stop-password-sharing",
+      "text": "one statistic estimates",
+      "page": "https://fingerprint.com/blog/ultimate-account-sharing-prevention-guide-netflix-amazon/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://deloitte.wsj.com/riskandcompliance/using-biometrics-to-combat-synthetic-identity-fraud-d2e30d4f",
+      "text": "synthetic identity fraud",
+      "page": "https://fingerprint.com/blog/transaction-fraud-detection/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.fintechnexus.com/fintech-nexus-newsletter-december-18-2023-consumers-using-bnpl-to-bypass-credit-bureaus/",
+      "text": "the Wall Street Journal reported",
+      "page": "https://fingerprint.com/blog/the-top-fintech-trends/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://datadome.co/learning-center/fight-content-theft/",
+      "text": "Datadome mentions",
+      "page": "https://fingerprint.com/blog/website-content-scraping-prevention/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.vmware.com/topics/glossary/content/virtual-machine.htm",
+      "text": "run any Java application as if it were native",
+      "page": "https://fingerprint.com/blog/virtual-machine-fraud-detection/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.reuters.com/world/europe/russian-hacktivists-briefly-knock-german-websites-offline-2023-01-25/",
+      "text": "government sites",
+      "page": "https://fingerprint.com/blog/what-is-ddos-attack/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.reuters.com/article/idUSKCN0YA0CG/",
+      "text": "threatens financial systems",
+      "page": "https://fingerprint.com/blog/bot-driven-wire-transfer-fraud-prevention/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.delta.com/us/en/delta-vacations/affirm-public",
+      "text": "Delta Vacations",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-trends-2022-bnpl/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_2_English/filter.txt",
+      "text": "base filter",
+      "page": "https://fingerprint.com/blog/ad-blocker-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    },
+    {
+      "href": "https://www.crunchbase.com/organization/fingerprintjs",
+      "text": "We have raised $77M ",
+      "page": "https://fingerprint.com/careers/jobs/",
+      "result": {
+        "ok": false,
+        "error": "broken link"
+      }
+    }
+  ],
+  "hashNotFound": [
+    {
+      "href": "https://www.gsma.com/mobileeconomy/sub-saharan-africa/#:~:text=By%20the%20end%20of%202020,almost%2020%20million%20on%202019.",
+      "text": "around half",
+      "page": "https://fingerprint.com/blog/buy-now-pay-later-bnpl/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://developers.google.com/people/v1/how-tos/authorizing#profile-scopes",
+      "text": "People API",
+      "page": "https://fingerprint.com/blog/indexeddb-api-browser-vulnerability-safari-15/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://gs.statcounter.com/browser-market-share#monthly-202103-202103-bar",
+      "text": "64.19% market share",
+      "page": "https://fingerprint.com/blog/browser-fingerprinting-privacy/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://www.gartner.com/en/newsroom/press-releases/2022-12-12-govt-it-spending-forecast-2023#:~:text=Worldwide%20government%20IT%20spending%20is%20forecast%20to%20total,of%206.8%25%20from%202022%2C%20according%20to%20Gartner%2C%20Inc.",
+      "text": "$500 billion in IT",
+      "page": "https://fingerprint.com/blog/large-language-models-llm-fraud-malware-guide/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://woocommerce.com/document/payments/managing-disputes-with-woocommerce-payments/#section-28",
+      "text": "\"Disputes\" page",
+      "page": "https://fingerprint.com/blog/how-major-payment-processors-handle-chargebacks/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs-pro-use-cases/blob/ca434ebd567f852030906b00c6c6b1ef74edf318/src/server/botd-firewall/cloudflareApiHelper.ts#L43",
+      "text": "find it",
+      "page": "https://fingerprint.com/blog/bot-detection-powered-application-firewall/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/chromium/chromium/blob/3e914531a360b766bfd8468f59259b3ab29118d7/third_party/blink/renderer/platform/audio/dynamics_compressor_kernel.cc#L202",
+      "text": "dynamics compressor",
+      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/PeriodicWave.cpp#L286",
+      "text": "oscillator",
+      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/platform/audio/DynamicsCompressorKernel.cpp#L188",
+      "text": "dynamics compressor",
+      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/chromium/chromium/blob/9841ee86b710dc649cf41772f560600324cadf45/third_party/blink/renderer/modules/webaudio/periodic_wave.cc#L468",
+      "text": "oscillator",
+      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/mozilla/gecko-dev/blob/9ae77e4ce3378bd683ac9a86b729ea6b6bd22cb8/dom/media/webaudio/blink/DynamicsCompressorKernel.cpp#L213",
+      "text": "dynamics compressor",
+      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/010d252ab89d2c867efcba547e879c11968eebe7/Source/WebCore/Modules/webaudio/PeriodicWave.cpp#L250",
+      "text": "oscillator",
+      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/modules/webaudio/audio_buffer.cc#L16",
+      "text": "modifies",
+      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/brave/brave-core/blob/680b0d872e0a295ef94602fb5dc1907358d6a3ba/chromium_src/third_party/blink/renderer/core/execution_context/execution_context.cc#L133",
+      "text": "transforming",
+      "page": "https://fingerprint.com/blog/audio-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioWorkletNode.cpp#L219",
+      "text": "source code",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/platform/audio/AudioUtilities.cpp#L80",
+      "text": "implemented in Safari",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/c411aff111e5c79cdc37608d42632d4a66a8c1dc/src/sources/audio.ts#L244",
+      "text": "GitHub",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioBuffer.cpp#L167",
+      "text": "add noise",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioBuffer.cpp#L336",
+      "text": "applied once per",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/a555410e925e0d6a4d548aa555b6945bd713e9cd/src/sources/audio.ts#L41",
+      "text": "our fingerprinting algorithm",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/RealtimeAnalyser.cpp#L181",
+      "text": "source code",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/a555410e925e0d6a4d548aa555b6945bd713e9cd/src/sources/audio.ts#L77",
+      "text": "calling",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs/blob/a555410e925e0d6a4d548aa555b6945bd713e9cd/src/sources/audio.ts#L41",
+      "text": "fingerprinting algorithm",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioBuffer.cpp#L227",
+      "text": "source code",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/WebKit/WebKit/blob/167dc5118a3f6228a19df40e673ea0a6d03b9bec/Source/WebCore/Modules/webaudio/AudioBuffer.cpp#L167",
+      "text": "source code",
+      "page": "https://fingerprint.com/blog/bypassing-safari-17-audio-fingerprinting-protection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/browser-support#old-browsers-requirements",
+      "text": "Promise polyfill",
+      "page": "https://fingerprint.com/blog/incognito-mode-detection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/js-agent#ecmascript-module",
+      "text": "NPM",
+      "page": "https://fingerprint.com/blog/incognito-mode-detection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/js-agent#umd",
+      "text": "RequireJS",
+      "page": "https://fingerprint.com/blog/incognito-mode-detection/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/blog-private-relay-ip-leak-demo/blob/master/src/main_page.ts#L127",
+      "text": "our GitHub repository",
+      "page": "https://fingerprint.com/blog/ios15-icloud-private-relay-vulnerability/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://informaconnect.com/finovatespring/agenda/3/#future-payments_special-address-how-device-identification-can-combat-account-takeovers-payment-fraud_1-55pm",
+      "text": "session details",
+      "page": "https://fingerprint.com/blog/finovate-spring-2023/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/reference/pro-server-api#linkedid-adding-a-custom-identifier-to-events",
+      "text": "LinkedID",
+      "page": "https://fingerprint.com/blog/fingerprint-ios-version-2/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/ios#extended-result",
+      "text": "documentation",
+      "page": "https://fingerprint.com/blog/fingerprint-ios-version-2/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://www.cloudflare.com/learning/ssl/why-use-tls-1.3/#:~:text=TLS%201.3%20is%20the%20latest,TLS%20handshakes%2C%20among%20other%20improvements.",
+      "text": "TLS versions 1.3",
+      "page": "https://fingerprint.com/blog/security-obstacles-super-apps/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://thefinancialbrand.com/news/fintech-banking/how-varo-bank-will-survive-despite-recent-banking-collapses-160043/#:~:text=Varo%20Bank%20has%20grown%20exponentially,are%20small%2Ddollar%20deposit%20customers.",
+      "text": "over 7 million accounts",
+      "page": "https://fingerprint.com/blog/neobank-benefits-risks/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://gs.statcounter.com/browser-market-share#monthly-200901-202310",
+      "text": "taking over the lead position from Microsoft's Internet Explorer",
+      "page": "https://fingerprint.com/blog/chrome-privacy-security-guide/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs#install-from-cdn",
+      "text": "installing from CDN",
+      "page": "https://fingerprint.com/blog/best-npm-packages-browser-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/understanding-your-confidence-score#pro-vs-open-source",
+      "text": "more accurate than for the open-source version",
+      "page": "https://fingerprint.com/blog/best-npm-packages-browser-fingerprinting/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://cybernews.com/best-password-managers/password-managers-for-opera/#:~:text=Is%20Opera%20password%20manager%20safe,passwords%20and%20other%20data%20safe.",
+      "text": "keeps your passwords and other data safe",
+      "page": "https://fingerprint.com/blog/opera-privacy-security-guide/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://www.itsecurityguru.org/2018/08/03/wannabe-fraudsters-can-buy-hacking-tools-dark-web-cost-cup-coffee/#:~:text=Wannabe%20hackers%20looking%20to%20dip%20their%20toes%20into,by%20Virtual%20Private%20Network%20%28VPN%29%20comparison%20service%20Top10VPN.com.",
+      "text": "as a cup of coffee",
+      "page": "https://fingerprint.com/blog/definitive-guide-real-cost-online-fraud/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://www.digitaltveurope.com/2020/01/09/more-than-three-quarters-of-young-people-engage-in-streaming-password-sharing/#:~:text=Password%20sharing%20has%20long%20served,doesn't%20live%20with%20them.",
+      "text": "over 30 percent",
+      "page": "https://fingerprint.com/blog/ultimate-account-sharing-prevention-guide-netflix-amazon/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://gitlab.torproject.org/legacy/trac/-/wikis/doc/TorPlusVPN#you-tor-vpnssh",
+      "text": "VPN through Tor",
+      "page": "https://fingerprint.com/blog/using-vpn-and-tor-benefits-risks-and-browser-fingerprints/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/chromium/chromium/blob/main/components/lookalikes/core/lookalike_url_util.cc#L593",
+      "text": "generated",
+      "page": "https://fingerprint.com/blog/potential-privacy-implications-lookalike-warnings-chromium/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://github.com/chromium/chromium/blob/main/components/lookalikes/core/lookalike_url_util.cc#L107",
+      "text": "list",
+      "page": "https://fingerprint.com/blog/potential-privacy-implications-lookalike-warnings-chromium/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#vpn-detection",
+      "text": "VPN",
+      "page": "https://fingerprint.com/blog/vpn-detection-how-it-works/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://www.usa.gov/common-scams-frauds#item-36617",
+      "text": "variety of scams",
+      "page": "https://fingerprint.com/blog/bank-drop-scams/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://web.dev/persistent-storage/#chrome-and-other-chromium-based-browsers",
+      "text": "handle some permission requests automatically",
+      "page": "https://fingerprint.com/blog/browser-anti-fingerprinting-techniques/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#mobile-only-smart-signals",
+      "text": "mobile-specific smart signals.",
+      "page": "https://fingerprint.com/payment-fraud/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/smart-signals-overview#mobile-only-smart-signals",
+      "text": "mobile-specific smart signals.",
+      "page": "https://fingerprint.com/sms-fraud/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs#server-api",
+      "text": "server API.",
+      "page": "https://fingerprint.com/products/fingerprint-pro/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs#custom-subdomain-setup",
+      "text": "Set up a custom subdomain",
+      "page": "https://fingerprint.com/products/fingerprint-pro/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs#js-agent",
+      "text": "JavaScript snippet.",
+      "page": "https://fingerprint.com/products/fingerprint-pro/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs#webhooks",
+      "text": "webhooks",
+      "page": "https://fingerprint.com/products/fingerprint-pro/",
+      "result": {
+        "ok": false,
+        "error": "hash not found"
+      }
+    }
+  ],
+  "networkErrors": []
+}

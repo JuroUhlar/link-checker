@@ -1,16 +1,13 @@
-import { checkLink } from "./checkLink";
-import { crawlSite } from "./crawlSite";
-import { getPageLinks } from "./getPageLinks";
+import results from "./results/brokenLinks-fingerprint.com.json";
+import { getReport } from "./src/report";
+import { checkLinks } from "./src/link";
 
-const linksToCheck = [
-  "https://dev.fingerprint.com/docs/quick-start-guide",
-  "https://dev.fingerprint.com/docs/does-not-exist",
-  "https://dev.fingerprint.com/docs/quick-start-guide#hash-does-not-exist",
-  "https://dev.fingerprint.com/docs/quick-start-guide#get-your-api-key",
-];
-
-async function main() {
-  crawlSite("https://dev.fingerprint.com");
-}
-
-main();
+(async () => {
+  const brokenLinks = results.brokenLinks.map((link) => ({
+    ...link,
+    result: undefined,
+  }));
+  const again = await checkLinks(brokenLinks, true);
+  const report = getReport(again.results);
+  console.log(report);
+})();

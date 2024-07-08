@@ -1,14 +1,46 @@
 import * as cheerio from "cheerio";
 import { chromium } from "playwright";
-import { LinkCheckResult } from "./types";
+import {
+  BROWSER_USER_AGENT,
+  CONCURRENCY_LIMIT,
+  OKAY_STATUS_CODES,
+  log,
+  progressBar,
+} from "./utils";
+import { Link, LinkCheckResult, LinkWithResult } from "./types";
+import PromisePool from "@supercharge/promise-pool";
 
-export const OKAY_STATUS_CODES = [200, 301, 302, 303, 307, 308];
-// Some sites (Segment docs for example) respond with 403 forbidden to simple fetch requests, must add a user agent to prevent this
-export const BROWSER_USER_AGENT =
-  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.142.86 Safari/537.36";
+export const checkLinks = async (links: Link[], verbose = false) => {
+  const resultMap = new Map<string, LinkCheckResult>();
+  progressBar.start(links.length, 0);
+  const { results, errors } = await PromisePool.withConcurrency(
+    CONCURRENCY_LIMIT
+  )
+    .for(links)
+    .process(async (link): Promise<LinkWithResult> => {
+      const existingResult = resultMap.get(link.href);
+      if (existingResult) {
+        // Already checked, just use the result
+        link.result = existingResult;
+      } else {
+        // New link, check it
+        const newResult = await checkLink(link.href);
+        resultMap.set(link.href, newResult);
+        link.result = newResult;
+      }
+      progressBar.increment();
+      return link as LinkWithResult;
+    });
+  progressBar.stop();
+
+  console.log(`Checked ${results.length} links.`);
+  console.log(`Unexpected errors ocurred for ${errors.length} links`);
+  log(errors, verbose);
+  return { results, errors };
+};
 
 function getUserAgent(url: string) {
-  // Android docs get stuck in infinate loop if user agent is spoofed
+  // Android website gets stuck in an infinite loop if user agent is spoofed
   if (url.includes("android.com")) {
     return "Link checker";
   }
@@ -34,10 +66,7 @@ export const checkLink = async (
     },
   });
   if (OKAY_STATUS_CODES.includes(response.status) === false) {
-    if (verbose) {
-      console.log("Responded with", response.status);
-    }
-    // return { ok: false, error: "broken link" };
+    log(`Responded with ${response.status}`, verbose);
     return await checkLinkWithPlaywright(url, verbose);
   }
 

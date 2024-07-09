@@ -19,6 +19,11 @@ export const getReport = (
     ...errors.map((error) => ({ ...error.item, result: error.message })),
   ];
 
+  const couldNotCheck = links.filter(
+    (link) =>
+      link.result.ok === false && link.result.error === "could not check"
+  );
+
   return {
     summary: {
       totalLinksToFix:
@@ -26,9 +31,11 @@ export const getReport = (
       brokenLinks: brokenLinks.length,
       hashNotFound: hashNotFound.length,
       networkErrors: networkErrors.length,
+      couldNotCheck: couldNotCheck.length,
     },
     brokenLinks,
     hashNotFound,
     networkErrors,
+    couldNotCheck,
   };
 };

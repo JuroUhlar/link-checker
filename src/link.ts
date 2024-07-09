@@ -3,7 +3,9 @@ import { chromium } from "playwright";
 import {
   BROWSER_USER_AGENT,
   CONCURRENCY_LIMIT,
+  FORBIDDEN_STATUS_CODES,
   OKAY_STATUS_CODES,
+  TASK_TIMEOUT,
   log,
   progressBar,
 } from "./utils";
@@ -12,11 +14,12 @@ import PromisePool from "@supercharge/promise-pool";
 
 export const checkLinks = async (links: Link[], verbose = false) => {
   const resultMap = new Map<string, LinkCheckResult>();
+
   progressBar.start(links.length, 0);
   const { results, errors } = await PromisePool.withConcurrency(
     CONCURRENCY_LIMIT
   )
-    .withTaskTimeout(20000)
+    .withTaskTimeout(TASK_TIMEOUT)
     .for(links)
     .process(async (link): Promise<LinkWithResult> => {
       const existingResult = resultMap.get(link.href);
@@ -59,33 +62,52 @@ export const checkLink = async (
   verbose = false
 ): Promise<LinkCheckResult> => {
   const hash = new URL(url).hash;
-  const response = await fetch(url, {
-    method: hash ? "GET" : "HEAD",
-    redirect: "follow",
-    headers: {
-      "User-Agent": getUserAgent(url),
-    },
-  });
-  if (OKAY_STATUS_CODES.includes(response.status) === false) {
-    log(`Responded with ${response.status}`, verbose);
-    return await checkLinkWithPlaywright(url, verbose);
-  }
+  try {
+    const response = await fetch(url, {
+      method: hash ? "GET" : "HEAD",
+      redirect: "follow",
+      headers: {
+        "User-Agent": getUserAgent(url),
+      },
+    });
 
-  if (hash) {
-    var $ = cheerio.load(await response.text());
-    /**
-     * GitHub readmes put the hash into the `href` attribute instead of `id`
-     */
-    var element = $(`${hash}, [href="${hash}"]`).first();
-    if (element.length === 0) {
-      // return { ok: false, error: "hash not found" };
-      if (verbose) {
-        console.log("Hash not found at first, checking with Playwright");
-      }
+    if (OKAY_STATUS_CODES.includes(response.status) === false) {
+      log(
+        `Responded with ${response.status}, ${response.statusText}, trying with Playwright`,
+        verbose
+      );
       return await checkLinkWithPlaywright(url, verbose);
     }
+
+    if (!hash) {
+      log(`OK`, verbose);
+      return { ok: true };
+    }
+
+    if (hash.includes(":~:")) {
+      /**
+       * The link includes a [Text Fragment](https://developer.mozilla.org/en-US/docs/Web/Text_fragments)
+       * Checking this properly is not trivial, let's ignore them for now
+       **/
+      return { ok: true, note: "Text Fragment" };
+    }
+
+    var $ = cheerio.load(await response.text());
+
+    // Some websites put the hash into the `href="#hash"` attribute instead of `id="hash"`
+    var element = $(`${hash}, [href="${hash}"]`).first();
+    if (element.length === 0) {
+      log(`Hash ${hash} not found at first, trying with Playwright`, verbose);
+      return await checkLinkWithPlaywright(url, verbose);
+    }
+
+    log(`OK`, verbose);
+  } catch (error) {
+    log(`Something went wrong: ${error}`, verbose);
+    log("Checking with Playwright", verbose);
+    const result = await checkLinkWithPlaywright(url, verbose);
   }
-  log(`OK`, verbose);
+
   return { ok: true };
 };
 
@@ -94,7 +116,11 @@ export async function checkLinkWithPlaywright(
   verbose = false,
   headless = true
 ): Promise<LinkCheckResult> {
-  const browser = await chromium.launch({ headless });
+  const browser = await chromium.launch({
+    headless,
+    // Potentially helps avoid some bot detection checks
+    args: ["--disable-blink-features=AutomationControlled"],
+  });
   const context = await browser.newContext({
     userAgent: getUserAgent(url),
   });
@@ -112,6 +138,14 @@ export async function checkLinkWithPlaywright(
       console.log(response?.status());
     }
 
+    if (response && FORBIDDEN_STATUS_CODES.includes(response.status())) {
+      return {
+        ok: false,
+        error: "could not check",
+        errorDetail: `Status ${response.status()}, ${response.statusText()}`,
+      };
+    }
+
     // Check if the current URL matches the given URL
     if (!response || !OKAY_STATUS_CODES.includes(response.status())) {
       return {
@@ -124,6 +158,9 @@ export async function checkLinkWithPlaywright(
     const hash = new URL(url).hash.replace("#", "");
 
     if (hash) {
+      if (hash.includes(":~:")) {
+        return { ok: true, note: "Text Fragment" };
+      }
       // Check if the element with `id` of `href`  equal to hash is present
       const isHashElementPresent = await page
         .locator(`[id="${hash}"], [href="#${hash}"]`)
@@ -148,6 +185,8 @@ export async function checkLinkWithPlaywright(
       errorDetail: error.toString(),
     };
   } finally {
-    await browser.close();
+    if (headless) {
+      await browser.close();
+    }
   }
 }

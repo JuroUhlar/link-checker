@@ -4,12 +4,21 @@ import { writeFileSync } from "fs";
 import { checkLinks } from "./link";
 import { getReport } from "./report";
 import { getWebsitePages } from "./sitemap";
+import { Link } from "./types";
 
-export const checkWebsite = async (websiteUrl: string) => {
+type CheckWebsiteArgs = {
+  websiteUrl: string;
+  linkFilter?: (link: Link) => boolean;
+};
+
+export const checkWebsite = async ({
+  websiteUrl,
+  linkFilter,
+}: CheckWebsiteArgs) => {
   const startTime = performance.now();
 
   const pages = await getWebsitePages(websiteUrl);
-  const { links } = await getLinksFromPages(pages);
+  const { links } = await getLinksFromPages({ pages, linkFilter });
   const { results, errors } = await checkLinks(links);
   const report = getReport(results, errors);
   console.log(report.summary);

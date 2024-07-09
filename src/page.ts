@@ -6,6 +6,8 @@ import { PromisePool } from "@supercharge/promise-pool";
 
 function filterLinks(links: Link[]): Link[] {
   const patternsToFilterOut = [
+    // Localhost
+    /^http:\/\/localhost/,
     // Starts with mailto:
     /^mailto:/,
     // Starts with https://apps.apple.com/ (gives 500 and redirects to native app store)
@@ -16,6 +18,8 @@ function filterLinks(links: Link[]): Link[] {
     /^https:\/\/portal\.azure\.com/,
     // Included Cloudflare email link protection pattern like cdn-cgi/l/email-protection#1e6d6b6e6e716c6a5e787770797b6c6e6c77706a307d7173216d6b7c747b7d6a23573b2c2e697f706a3b2c2e6a713b2c2e757b7b6e3b2c2e544d3b2c2e5f797b706a3b2c2e7d717a7b3b2c2e71703b2c2e73673b2c2e6d7b6c687b6c
     /cdn-cgi\/l\/email\-protection/,
+    // Reuters links are protected by Captcha, cannot check those
+    /^https:\/\/www.reuters.com/,
   ];
   return links.filter(
     (link) => !patternsToFilterOut.some((pattern) => pattern.test(link.href))
@@ -52,7 +56,15 @@ export async function parseLinksFromPage(url: string): Promise<Link[]> {
   return filterLinks(result);
 }
 
-export const getLinksFromPages = async (pages: string[], verbose = false) => {
+export const getLinksFromPages = async ({
+  pages,
+  verbose = false,
+  linkFilter,
+}: {
+  pages: string[];
+  verbose?: boolean;
+  linkFilter?: (link: Link) => boolean;
+}) => {
   progressBar.start(pages.length, 0);
   const { results, errors } = await PromisePool.withConcurrency(
     CONCURRENCY_LIMIT
@@ -63,7 +75,8 @@ export const getLinksFromPages = async (pages: string[], verbose = false) => {
       return parseLinksFromPage(page);
     });
   progressBar.stop;
-  const links = results.flat();
+  const links = linkFilter ? results.flat().filter(linkFilter) : results.flat();
+
   console.log(
     `\nRetrieved ${links.length} links from ${results.length} pages.`
   );
@@ -73,5 +86,6 @@ export const getLinksFromPages = async (pages: string[], verbose = false) => {
   if (verbose) {
     console.log(errors);
   }
+
   return { links, errors };
 };

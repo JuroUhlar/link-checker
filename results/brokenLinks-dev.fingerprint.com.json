@@ -1,24 +1,55 @@
 {
   "summary": {
-    "totalLinksToFix": 1,
-    "brokenLinks": 0,
-    "hashNotFound": 0,
-    "networkErrors": 1
+    "totalLinksToFix": 4,
+    "brokenLinks": 2,
+    "hashNotFound": 2,
+    "networkErrors": 0,
+    "couldNotCheck": 0
   },
-  "brokenLinks": [],
-  "hashNotFound": [],
-  "networkErrors": [
+  "brokenLinks": [
     {
-      "raw": {
-        "cause": {}
-      },
-      "item": {
-        "href": "http://eBay.com",
-        "text": "eBay.com",
-        "page": "https://dev.fingerprint.com/docs/what-is-fingerprint"
-      },
-      "name": "PromisePoolError",
-      "message": "fetch failed"
+      "href": "https://github.com/fingerprintjs/fingerprint-pro-fastly-vcl-integration/releases/latest",
+      "text": "GitHub",
+      "page": "https://dev.fingerprint.com/docs/fastly-vcl-proxy-integration",
+      "result": {
+        "ok": false,
+        "error": "broken link",
+        "errorDetail": "404"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprint-pro-fastly-vcl-integration/releases/latest",
+      "text": "the latest integration release on GitHub",
+      "page": "https://dev.fingerprint.com/docs/fastly-vcl-proxy-integration",
+      "result": {
+        "ok": false,
+        "error": "broken link",
+        "errorDetail": "404"
+      }
     }
-  ]
+  ],
+  "hashNotFound": [
+    {
+      "href": "https://dev.fingerprint.com/suggested-edits/64060d15b3c1a7003e79213e/preview#visitorfound",
+      "text": "visitorFound property",
+      "page": "https://dev.fingerprint.com/docs/useful-timestamps",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: visitorfound"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/suggested-edits/6685646834a166004a80da6d/preview#remotecontrol",
+      "text": "flag",
+      "page": "https://dev.fingerprint.com/docs/smart-signals-overview",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: remotecontrol"
+      }
+    }
+  ],
+  "networkErrors": [],
+  "couldNotCheck": []
 }

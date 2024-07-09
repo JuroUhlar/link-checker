@@ -111,6 +111,23 @@ export const checkLink = async (
   return { ok: true };
 };
 
+async function isHashPresent(page, hash, timeout = 5000) {
+  const locator = page.locator(`[id="${hash}"], [href="#${hash}"]`).first();
+
+  try {
+    // Wait for the locator to be visible with a custom timeout
+    await locator.waitFor({ state: "visible", timeout: timeout });
+    return true;
+  } catch (error) {
+    // If the timeout is reached, return false instead of throwing an error
+    if (error.name === "TimeoutError") {
+      return false;
+    }
+    // Re-throw any other errors
+    throw error;
+  }
+}
+
 export async function checkLinkWithPlaywright(
   url: string,
   verbose = false,
@@ -134,10 +151,8 @@ export async function checkLinkWithPlaywright(
         (response) => response.url() === url && response.status() > 99
       ),
     ]);
-    if (verbose) {
-      console.log(response?.status());
-    }
 
+    log(`Navigation response: ${response?.status()}`, verbose);
     if (response && FORBIDDEN_STATUS_CODES.includes(response.status())) {
       return {
         ok: false,
@@ -157,22 +172,17 @@ export async function checkLinkWithPlaywright(
 
     const hash = new URL(url).hash.replace("#", "");
 
-    if (hash) {
-      if (hash.includes(":~:")) {
-        return { ok: true, note: "Text Fragment" };
-      }
-      // Check if the element with `id` of `href`  equal to hash is present
-      const isHashElementPresent = await page
-        .locator(`[id="${hash}"], [href="#${hash}"]`)
-        .first();
-      if (!isHashElementPresent) {
-        log(`Hash not found`, verbose);
-        return {
-          ok: false,
-          error: "hash not found",
-          errorDetail: `hash: ${hash}`,
-        };
-      }
+    if (hash.includes(":~:")) {
+      return { ok: true, note: "Text Fragment" };
+    }
+
+    if (hash && !(await isHashPresent(page, hash))) {
+      log(`Hash not found`, verbose);
+      return {
+        ok: false,
+        error: "hash not found",
+        errorDetail: `hash: ${hash}`,
+      };
     }
 
     log(`OK`, verbose);

@@ -24,15 +24,18 @@ function filterLinks(links: Link[]): Link[] {
   );
 }
 
-export async function parseLinksFromPage(url: string): Promise<Link[]> {
-  const response = await fetch(url, {
-    headers: { "User-Agent": BROWSER_USER_AGENT },
-  });
-  if (!response.ok) {
-    return [];
-  }
+export async function parseLinksFromPage(
+  url: string,
+  pageHTML: string
+): Promise<Link[]> {
+  // const response = await fetch(url, {
+  //   headers: { "User-Agent": BROWSER_USER_AGENT },
+  // });
+  // if (!response.ok) {
+  //   return [];
+  // }
 
-  const $ = cheerio.load(await response.text(), { baseURI: url });
+  const $ = cheerio.load(pageHTML, { baseURI: url });
   const links = $("a");
 
   const result: Link[] = [];

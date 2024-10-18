@@ -1,6 +1,6 @@
 import * as cliProgress from "cli-progress";
 
-export const progressBar = new cliProgress.SingleBar({});
+export const progressBar = new cliProgress.SingleBar({ stopOnComplete: true });
 
 export const log = (message: any, verbose = false) => {
   if (verbose) {

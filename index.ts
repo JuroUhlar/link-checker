@@ -1,7 +1,7 @@
-import results from "./results/brokenLinks-fingerprint.com.json";
 import { getReport } from "./src/report";
 import { checkLink, checkLinkWithPlaywright, checkLinks } from "./src/link";
 import { checkWebsite } from "./src/website";
+import { getWebsitePages, getWebsiteSitemaps } from "./src/sitemap";
 
 const checkDocsLinksFromFingerprintWebsite = async () => {
   await checkWebsite({
@@ -14,8 +14,10 @@ const checkDocsLinksFromFingerprintWebsite = async () => {
   // checkDocsLinksFromFingerprintWebsite();
 
   checkWebsite({
-    websiteUrl: "https://fingerprint.com",
+    websiteUrl: "https://dev.fingerprint.com",
   });
+
+  // await getWebsiteSitemaps("https://dev.fingerprint.com", true);
 
   // const brokenLinks = results.brokenLinks.map((link) => ({
   //   ...link,

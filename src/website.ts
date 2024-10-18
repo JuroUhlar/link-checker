@@ -17,7 +17,7 @@ export const checkWebsite = async ({
 }: CheckWebsiteArgs) => {
   const startTime = performance.now();
 
-  const pages = await getWebsitePages(websiteUrl);
+  const pages = await getWebsitePages(websiteUrl, true);
   const { links } = await getLinksFromPages({ pages, linkFilter });
   const { results, errors } = await checkLinks(links);
   const report = getReport(results, errors);

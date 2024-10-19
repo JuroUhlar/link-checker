@@ -12,14 +12,18 @@ import {
 import { Link, LinkCheckResult, LinkWithResult } from "./types";
 import PromisePool from "@supercharge/promise-pool";
 
-export const checkLinks = async (links: Link[], verbose = false) => {
+type CheckLinksArgs = {
+  links: Link[];
+  verbose?: boolean;
+  concurrencyLimit?: number;
+};
+
+export const checkLinks = async ({ links, verbose, concurrencyLimit }: CheckLinksArgs) => {
   console.log(`Checking ${links.length} links...`);
   const resultMap = new Map<string, LinkCheckResult>();
 
   progressBar.start(links.length, 0);
-  const { results, errors } = await PromisePool.withConcurrency(
-    CONCURRENCY_LIMIT
-  )
+  const { results, errors } = await PromisePool.withConcurrency(concurrencyLimit ?? CONCURRENCY_LIMIT)
     .withTaskTimeout(TASK_TIMEOUT)
     .for(links)
     .process(async (link): Promise<LinkWithResult> => {

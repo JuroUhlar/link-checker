@@ -48,16 +48,17 @@ type PageItem = {
 type PageData = {
   slug: string;
   body_html: string;
+  type: "basic" | "link";
 };
 
 const flattenNestedPages = (pages: PageItem[]): PageItem[] => {
   return [...pages.map((page) => page), ...pages.flatMap((page) => flattenNestedPages(page.children))];
 };
 
-const getPageSlugsFromCategories = async (categorySlugs: string[]) => {
+const getPageSlugsFromCategories = async (categorySlugs: string[], concurrencyLimit = CONCURRENCY_LIMIT) => {
   console.log(`Fetching pages slugs from ${categorySlugs.length} categories...`);
   progressBar.start(categorySlugs.length, 0);
-  const { results, errors } = await PromisePool.withConcurrency(CONCURRENCY_LIMIT)
+  const { results, errors } = await PromisePool.withConcurrency(concurrencyLimit)
     .for(categorySlugs)
     .process(async (categorySlug) => {
       const categoryPages = await fetchCategoryPages(categorySlug);
@@ -74,13 +75,17 @@ const getPageSlugsFromCategories = async (categorySlugs: string[]) => {
   return results.flat();
 };
 
-const extractLinksFromPages = async (pageSlugs: string[]): Promise<Link[]> => {
+const extractLinksFromPages = async (pageSlugs: string[], concurrencyLimit = CONCURRENCY_LIMIT): Promise<Link[]> => {
   console.log(`Extracting links from ${pageSlugs.length} pages...`);
   progressBar.start(pageSlugs.length, 0);
-  const { results, errors } = await PromisePool.withConcurrency(CONCURRENCY_LIMIT)
+  const { results, errors } = await PromisePool.withConcurrency(concurrencyLimit)
     .for(pageSlugs)
     .process(async (pageSlug) => {
       const page = await fetchPage(pageSlug);
+      // You might get a public "Link"" page with some irrelevant content, ignore it
+      if (page.type !== "basic") {
+        return [];
+      }
       const links = await parseLinksFromPage("https://dev.fingerprint.com/docs/" + page.slug, page.body_html);
       progressBar.increment();
       return links;
@@ -92,19 +97,20 @@ const extractLinksFromPages = async (pageSlugs: string[]): Promise<Link[]> => {
   return results.flat();
 };
 
-(async () => {
+const checkReadme = async () => {
   const startTime = performance.now();
+  const concurrencyLimit = 10;
 
   const categoriesSlugs = await fetchCategoriesSlugs();
   console.log(`Fetched ${categoriesSlugs.length} categories.\n`);
 
-  const pagesSlugs = await getPageSlugsFromCategories(categoriesSlugs);
+  const pagesSlugs = await getPageSlugsFromCategories(categoriesSlugs, concurrencyLimit);
   console.log(`Fetched ${pagesSlugs.length} pages.\n`);
 
-  const links = await extractLinksFromPages(pagesSlugs);
+  const links = await extractLinksFromPages(pagesSlugs, concurrencyLimit);
   console.log(`Extracted ${links.length} links.\n`);
 
-  const { results, errors } = await checkLinks(links);
+  const { results, errors } = await checkLinks({ links, concurrencyLimit });
 
   const report = getReport(results, errors);
   console.log(report.summary);
@@ -114,4 +120,6 @@ const extractLinksFromPages = async (pageSlugs: string[]): Promise<Link[]> => {
   writeFileSync(filename, JSON.stringify(report, null, 2));
   console.log(`Saved report to ${filename}`);
   console.log(`Finished in ${(performance.now() - startTime) / 1000} seconds.`);
-})();
+};
+
+checkReadme();

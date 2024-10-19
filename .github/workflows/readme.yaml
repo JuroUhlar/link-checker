@@ -7,12 +7,6 @@ on:
     #   schedule:
     #     - cron: '0 * * * *' # Run every hour
   workflow_dispatch:
-env:
-  # Playwright headless browsers running in CI get low confidence scores, causing flaky e2e tests. Lower the confidence score threshold for CI testing.
-  README_API_KEY: 0
-  # Run e2e tests against production
-  PRODUCTION_E2E_TEST_BASE_URL: 'https://demo.fingerprint.com'
-
 jobs:
   checkLinks:
     name: Check links
@@ -58,7 +52,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: broken-links-documentations/
+          name: broken-links-documentations.html
           path: results/brokenLinks-dev.fingerprint.com.html
           retention-days: 30
 #   report-status:

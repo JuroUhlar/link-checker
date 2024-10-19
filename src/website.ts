@@ -18,7 +18,7 @@ export const checkWebsite = async ({ websiteUrl, linkFilter }: CheckWebsiteArgs)
   const { links } = await getLinksFromPages({ pages, linkFilter });
   const { results, errors } = await checkLinks(links);
   const report = getJSONReport(results, errors);
-  console.log(report.summary);
+  console.log(report.summary); 
 
   const hostname = new URL(websiteUrl).hostname;
   const filename = `./results/brokenLinks-${hostname}.json`;

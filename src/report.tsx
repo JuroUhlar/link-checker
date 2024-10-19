@@ -3,6 +3,47 @@ import { Link, LinkWithResult } from "./types";
 import ReactDOMServer from "react-dom/server";
 import React from "react";
 import { writeFileSync } from "fs";
+import { StringLiteral } from "typescript";
+
+type LinkCheckReport = ReturnType<typeof getJSONReport>;
+
+type GetReportArgs = {
+  links: LinkWithResult[];
+  errors: PromisePoolError<Link>[];
+  siteName: string;
+};
+
+export const getJSONReport = ({ links, errors, siteName }: GetReportArgs) => {
+  const brokenLinks = links.filter((link) => link.result.ok === false && link.result.error === "broken link");
+  const hashNotFound = links.filter((link) => link.result.ok === false && link.result.error === "hash not found");
+  const couldNotCheck = links.filter((link) => link.result.ok === false && link.result.error === "could not check");
+  const unexpectedErrors = [
+    ...links.filter((link) => link.result.ok === false && link.result.error === "unexpected error"),
+    ...errors.map(
+      (error) =>
+        ({
+          ...error.item,
+          result: { ok: false, error: "unexpected error", errorDetail: error.message },
+        } satisfies LinkWithResult)
+    ),
+  ];
+
+  return {
+    siteName,
+    summary: {
+      linksChecked: links.length,
+      totalLinksToFix: brokenLinks.length + hashNotFound.length + unexpectedErrors.length,
+      brokenLinks: brokenLinks.length,
+      hashNotFound: hashNotFound.length,
+      networkErrors: unexpectedErrors.length,
+      couldNotCheck: couldNotCheck.length,
+    },
+    brokenLinks,
+    hashNotFound,
+    networkErrors: unexpectedErrors,
+    couldNotCheck,
+  };
+};
 
 const LinkRenderer = ({ link }: { link: LinkWithResult }) => {
   const { href, text, page, result } = link;
@@ -40,11 +81,12 @@ const JSONReportRenderer = ({ report }: { report: LinkCheckReport }) => {
   ];
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Link Check Report</h1>
+      <h1 className="text-3xl font-bold mb-6">Link Check Report for {report.siteName}</h1>
 
       <div className="bg-gray-100 p-4 rounded-lg mb-6">
         <h2 className="text-xl font-semibold mb-3">Summary</h2>
         <ul className="list-disc pl-5">
+          <li>Links checked: {report.summary.linksChecked}</li>
           <li>Total links to fix: {report.summary.totalLinksToFix}</li>
           <li>Broken links: {report.summary.brokenLinks}</li>
           <li>Hash not found: {report.summary.hashNotFound}</li>
@@ -79,7 +121,9 @@ const JSONReportRenderer = ({ report }: { report: LinkCheckReport }) => {
                 {link.result.ok ? (
                   <span className="text-green-600">OK</span>
                 ) : (
-                  <span className="text-red-600">{link.result.error}</span>
+                  <span className="text-red-600">
+                    {link.result.error} {link.result.errorDetail}
+                  </span>
                 )}
               </td>
             </tr>
@@ -88,29 +132,6 @@ const JSONReportRenderer = ({ report }: { report: LinkCheckReport }) => {
       </table>
     </div>
   );
-};
-
-type LinkCheckReport = ReturnType<typeof getJSONReport>;
-
-export const getJSONReport = (links: LinkWithResult[], errors: PromisePoolError<Link>[]) => {
-  const brokenLinks = links.filter((link) => link.result.ok === false && link.result.error === "broken link");
-  const hashNotFound = links.filter((link) => link.result.ok === false && link.result.error === "hash not found");
-  const networkErrors = [...links.filter((link) => link.result.ok === false && link.result.error === "network error")];
-  const couldNotCheck = links.filter((link) => link.result.ok === false && link.result.error === "could not check");
-
-  return {
-    summary: {
-      totalLinksToFix: brokenLinks.length + hashNotFound.length + networkErrors.length,
-      brokenLinks: brokenLinks.length,
-      hashNotFound: hashNotFound.length,
-      networkErrors: networkErrors.length,
-      couldNotCheck: couldNotCheck.length,
-    },
-    brokenLinks,
-    hashNotFound,
-    networkErrors,
-    couldNotCheck,
-  };
 };
 
 export function renderReportToHTMLFile(jsonReport: LinkCheckReport, filePath: string) {

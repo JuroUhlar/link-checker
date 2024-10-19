@@ -186,7 +186,6 @@ export async function checkLinkWithPlaywright(
       return {
         ok: false,
         error: "hash not found",
-        errorDetail: `hash: ${hash}`,
       };
     }
 

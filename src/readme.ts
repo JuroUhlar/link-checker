@@ -97,7 +97,7 @@ const extractLinksFromPages = async (pageSlugs: string[], concurrencyLimit = CON
   return results.flat();
 };
 
-export const checkReadmeDocs = async () => {
+export const checkReadmeDocs = async (siteName: string) => {
   const startTime = performance.now();
   const concurrencyLimit = 10;
 
@@ -112,22 +112,20 @@ export const checkReadmeDocs = async () => {
 
   const { results, errors } = await checkLinks({ links, concurrencyLimit });
 
-  const report = getJSONReport(results, errors);
-  console.log(report.summary);
+  const jsonFilename = `./results/brokenLinks-${siteName}.json`;
+  const htmlFilename = `./results/brokenLinks-${siteName}.html`;
 
-  const hostname = "dev.fingerprint.com";
-  const jsonFilename = `./results/brokenLinks-${hostname}.json`;
-  const htmlFilename = `./results/brokenLinks-${hostname}.html`;
+  const report = getJSONReport({ links: results, errors, siteName });
+  console.log(report.summary);
 
   writeFileSync(jsonFilename, JSON.stringify(report, null, 2));
   console.log(`Saved JSON report to ${jsonFilename}`);
 
   //   const report = JSON.parse(readFileSync(jsonFilename).toString());
-
   renderReportToHTMLFile(report, htmlFilename);
   console.log(`Saved HTML report to ${htmlFilename}`);
 
   console.log(`Finished in ${(performance.now() - startTime) / 1000} seconds.`);
+  return report;
 };
 
-// checkReadme();

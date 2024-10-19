@@ -1,0 +1,63 @@
+name: Run link checker on dev.fingerprint.com
+on:
+  schedule:
+    - cron: '0 * * * *' # Run every hour
+  workflow_dispatch:
+env:
+  # Playwright headless browsers running in CI get low confidence scores, causing flaky e2e tests. Lower the confidence score threshold for CI testing.
+  README_API_KEY: 0
+  # Run e2e tests against production
+  PRODUCTION_E2E_TEST_BASE_URL: 'https://demo.fingerprint.com'
+
+jobs:
+  checkLinks:
+    name: Check links
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: nodemodules-${{ hashFiles('yarn.lock') }}
+          restore-keys: nodemodules-
+
+      - name: Install node modules
+        run: yarn install --prefer-offline --frozen-lockfile
+
+      - name: Get installed Playwright version (used in cache key)
+        id: playwright-version
+        run: echo "PLAYWRIGHT_VERSION=$(node -e "process.stdout.write(require('@playwright/test/package.json').version)")" >> $GITHUB_ENV
+
+      - name: Cache Chromium browser binary
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-chrome-${{ env.PLAYWRIGHT_VERSION }}
+
+      - name: Install Chromium browser binary if cache missed
+        run: yarn playwright install --with-deps chromium
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      - name: Run link checker
+        run: yarn checkLinks:docs
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: broken-links-documentations/
+          path: results/brokenLinks-dev.fingerprint.com.html
+          retention-days: 30
+#   report-status:
+#     needs: checkLinks
+#     if: failure()
+#     uses: fingerprintjs/dx-team-toolkit/.github/workflows/report-workflow-status.yml@v1
+#     with:
+#       notification_title: 'Hey, <@U04GNKK5ZTQ>! Production e2e tests on demo.fingerprint.com have {status_message}'
+#       job_status: ${{ needs.e2e.result }}
+#     secrets:
+#       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

@@ -1,5 +1,8 @@
 
+
+# Ingore results contents but keep the folder
 results/*
+!results/.gitkeep
 
 # Logs
 logs

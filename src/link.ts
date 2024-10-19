@@ -13,6 +13,7 @@ import { Link, LinkCheckResult, LinkWithResult } from "./types";
 import PromisePool from "@supercharge/promise-pool";
 
 export const checkLinks = async (links: Link[], verbose = false) => {
+  console.log(`Checking ${links.length} links...`);
   const resultMap = new Map<string, LinkCheckResult>();
 
   progressBar.start(links.length, 0);

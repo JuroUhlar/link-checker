@@ -1,13 +1,389 @@
 {
   "summary": {
-    "totalLinksToFix": 0,
+    "totalLinksToFix": 41,
     "brokenLinks": 0,
-    "hashNotFound": 0,
-    "networkErrors": 0,
+    "hashNotFound": 32,
+    "networkErrors": 9,
     "couldNotCheck": 0
   },
   "brokenLinks": [],
-  "hashNotFound": [],
-  "networkErrors": [],
+  "hashNotFound": [
+    {
+      "href": "https://dev.fingerprint.com/docs/js-agent#region",
+      "text": "JavaScript agent Reference > region",
+      "page": "https://dev.fingerprint.com/docs/regions",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: region"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/js-agent#load-options",
+      "text": "load()",
+      "page": "https://dev.fingerprint.com/docs/billing",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: load-options"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs-pro-use-cases/blob/0589bdd38ba636c897b11fff8d9d9992417b763f/src/server/checks.ts#L186",
+      "text": "on GitHub",
+      "page": "https://dev.fingerprint.com/docs/protecting-from-client-side-tampering",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: L186"
+      }
+    },
+    {
+      "href": "https://github.com/fingerprintjs/fingerprintjs-pro-use-cases/blob/0589bdd38ba636c897b11fff8d9d9992417b763f/src/server/checks.ts#L186",
+      "text": "on GitHub",
+      "page": "https://dev.fingerprint.com/docs/protecting-from-client-side-tampering",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: L186"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#get-visitor-history-identification-only",
+      "text": "/visitors",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: get-visitor-history-identification-only"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#get-events-identification--bot-detection--aev",
+      "text": "/events",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: get-events-identification--bot-detection--aev"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#requestid",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: requestid"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#get-visitor-history-identification-only",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: get-visitor-history-identification-only"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#query-parameters",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: query-parameters"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#request",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: request"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#pagination",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: pagination"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#limit-limiting-scanned-results",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: limit-limiting-scanned-results"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#request-1",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: request-1"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#linkedid-adding-a-custom-identifier-to-events",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: linkedid-adding-a-custom-identifier-to-events"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/js-agent#requestid",
+      "text": "requestId",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: requestid"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#response",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: response"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#path-parameters",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: path-parameters"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#nodejs-sdk",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: nodejs-sdk"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#botresult",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: botresult"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#ip",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: ip"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#result-1",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: result-1"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#errors",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: errors"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#time",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: time"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#result",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: result"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#rootappsdata",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: rootappsdata"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#botd",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: botd"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#emulatordata",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: emulatordata"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#aev",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: aev"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#common",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: common"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#identification",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: identification"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/js-agent#ip",
+      "text": "result.ip",
+      "page": "https://dev.fingerprint.com/docs/segment",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: ip"
+      }
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/js-agent#visitorid",
+      "text": "result.visitorId",
+      "page": "https://dev.fingerprint.com/docs/segment",
+      "result": {
+        "ok": false,
+        "error": "hash not found",
+        "errorDetail": "hash: visitorid"
+      }
+    }
+  ],
+  "networkErrors": [
+    {
+      "href": "https://dev.fingerprint.com/docs/quick-start-guide#server-api",
+      "text": "secret API key",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": "Task in promise pool timed out after 20000ms"
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#headers",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": "Task in promise pool timed out after 20000ms"
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#get-events-identification--bot-detection--aev",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": "Task in promise pool timed out after 20000ms"
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#path-parameters-1",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": "Task in promise pool timed out after 20000ms"
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/js-agent#requestid",
+      "text": "requestId",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": "Task in promise pool timed out after 20000ms"
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#response-1",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": "Task in promise pool timed out after 20000ms"
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#identificationdata",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": "Task in promise pool timed out after 20000ms"
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#response",
+      "text": "here",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": "Task in promise pool timed out after 20000ms"
+    },
+    {
+      "href": "https://dev.fingerprint.com/docs/server-api#botddata",
+      "text": "",
+      "page": "https://dev.fingerprint.com/docs/server-api",
+      "result": "Task in promise pool timed out after 20000ms"
+    }
+  ],
   "couldNotCheck": []
 }

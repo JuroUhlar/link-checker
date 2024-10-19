@@ -1,14 +1,15 @@
 import PromisePool from "@supercharge/promise-pool";
 import { parseLinksFromPage } from "./page";
 import { CONCURRENCY_LIMIT, progressBar } from "./utils";
-import { url } from "inspector";
+import { Link } from "./types";
+import { checkLinks } from "./link";
+import { getReport } from "./report";
+import { writeFileSync } from "fs";
 
 require("dotenv").config();
 
 const callReadmeApi = async <T = any>(url: string) => {
-  const headers = {
-    authorization: `Basic ${process.env.README_API_KEY}`,
-  };
+  const headers = { authorization: `Basic ${process.env.README_API_KEY}` };
   try {
     const response = await fetch(url, {
       method: "GET",
@@ -25,65 +26,92 @@ const callReadmeApi = async <T = any>(url: string) => {
 };
 
 async function fetchCategoriesSlugs() {
-  const categories = await callReadmeApi(
-    "https://dash.readme.com/api/v1/categories?perPage=100"
-  );
+  console.log("Fetching categories from Readme...");
+  const categories = await callReadmeApi("https://dash.readme.com/api/v1/categories?perPage=100");
   return categories.map((category: any) => category.slug);
 }
 
-async function fetchCategoryPages(categorySlug: string): Promise<Page[]> {
-  return callReadmeApi<Page[]>(
-    `https://dash.readme.com/api/v1/categories/${categorySlug}/docs`
-  );
+async function fetchCategoryPages(categorySlug: string): Promise<PageItem[]> {
+  return callReadmeApi<PageItem[]>(`https://dash.readme.com/api/v1/categories/${categorySlug}/docs`);
 }
 
 async function fetchPage(slug: string) {
-  return callReadmeApi<Page>(`https://dash.readme.com/api/v1/docs/${slug}`);
+  return callReadmeApi<PageData>(`https://dash.readme.com/api/v1/docs/${slug}`);
 }
 
-type Page = {
+type PageItem = {
   slug: string;
   hidden: boolean;
-  children: Page[];
+  children: PageItem[];
 };
 
-const extractSlugsFromNestedPages = (pages: Page[]): string[] => {
-  return [
-    ...pages.map((page) => page.slug),
-    ...pages.flatMap((page) => extractSlugsFromNestedPages(page.children)),
-  ];
+type PageData = {
+  slug: string;
+  body_html: string;
 };
 
-(async () => {
-  const allPageSlugs: string[] = [];
-  const categoriesSlugs = await fetchCategoriesSlugs();
-  console.log(categoriesSlugs);
-  for (const category of categoriesSlugs) {
-    console.log(category);
-    const categoryPages = await fetchCategoryPages(category);
-    const publicCategoryPages = categoryPages?.filter((page) => !page.hidden);
-    console.log(publicCategoryPages.length);
-    const slugs = extractSlugsFromNestedPages(publicCategoryPages);
-    console.log(slugs);
-    allPageSlugs.push(...slugs);
+const flattenNestedPages = (pages: PageItem[]): PageItem[] => {
+  return [...pages.map((page) => page), ...pages.flatMap((page) => flattenNestedPages(page.children))];
+};
+
+const getPageSlugsFromCategories = async (categorySlugs: string[]) => {
+  console.log(`Fetching pages slugs from ${categorySlugs.length} categories...`);
+  progressBar.start(categorySlugs.length, 0);
+  const { results, errors } = await PromisePool.withConcurrency(CONCURRENCY_LIMIT)
+    .for(categorySlugs)
+    .process(async (categorySlug) => {
+      const categoryPages = await fetchCategoryPages(categorySlug);
+      const slugs = flattenNestedPages(categoryPages)
+        .filter((page) => !page.hidden)
+        .map((page) => page.slug);
+      progressBar.increment();
+      return slugs;
+    });
+  progressBar.stop;
+  if (errors.length > 0) {
+    console.error(`Errors fetching page slugs: ${errors.length}`, errors.toString());
   }
-  console.log(allPageSlugs.length);
+  return results.flat();
+};
 
-  progressBar.start(allPageSlugs.length, 0);
-  const { results, errors } = await PromisePool.withConcurrency(
-    CONCURRENCY_LIMIT
-  )
-    .for(allPageSlugs)
+const extractLinksFromPages = async (pageSlugs: string[]): Promise<Link[]> => {
+  console.log(`Extracting links from ${pageSlugs.length} pages...`);
+  progressBar.start(pageSlugs.length, 0);
+  const { results, errors } = await PromisePool.withConcurrency(CONCURRENCY_LIMIT)
+    .for(pageSlugs)
     .process(async (pageSlug) => {
       const page = await fetchPage(pageSlug);
-      const links = await parseLinksFromPage(
-        "https://dev.fingerprint.com/docs/" + page.slug,
-        page.body_html
-      );
+      const links = await parseLinksFromPage("https://dev.fingerprint.com/docs/" + page.slug, page.body_html);
       progressBar.increment();
       return links;
     });
   progressBar.stop;
+  if (errors.length > 0) {
+    console.error(`Errors fetching pages and extracting links: ${errors.length}`, errors.toString());
+  }
+  return results.flat();
+};
 
-  console.log(results, errors);
+(async () => {
+  const startTime = performance.now();
+
+  const categoriesSlugs = await fetchCategoriesSlugs();
+  console.log(`Fetched ${categoriesSlugs.length} categories.\n`);
+
+  const pagesSlugs = await getPageSlugsFromCategories(categoriesSlugs);
+  console.log(`Fetched ${pagesSlugs.length} pages.\n`);
+
+  const links = await extractLinksFromPages(pagesSlugs);
+  console.log(`Extracted ${links.length} links.\n`);
+
+  const { results, errors } = await checkLinks(links);
+
+  const report = getReport(results, errors);
+  console.log(report.summary);
+
+  const hostname = "dev.fingerprint.com";
+  const filename = `./results/brokenLinks-${hostname}.json`;
+  writeFileSync(filename, JSON.stringify(report, null, 2));
+  console.log(`Saved report to ${filename}`);
+  console.log(`Finished in ${(performance.now() - startTime) / 1000} seconds.`);
 })();

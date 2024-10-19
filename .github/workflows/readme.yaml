@@ -20,11 +20,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: nodemodules-${{ hashFiles('yarn.lock') }}
+          key: nodemodules-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: nodemodules-
 
       - name: Install node modules
-        run: yarn install --prefer-offline --frozen-lockfile
+        run: pnpm install --prefer-offline --frozen-lockfile
 
       - name: Get installed Playwright version (used in cache key)
         id: playwright-version
@@ -39,11 +39,11 @@ jobs:
           key: ${{ runner.os }}-playwright-chrome-${{ env.PLAYWRIGHT_VERSION }}
 
       - name: Install Chromium browser binary if cache missed
-        run: yarn playwright install --with-deps chromium
+        run: pnpm run playwright install --with-deps chromium
         if: steps.playwright-cache.outputs.cache-hit != 'true'
 
       - name: Run link checker
-        run: yarn checkLinks:docs
+        run: pnpm run checkLinks:docs
 
       - name: Upload report
         uses: actions/upload-artifact@v4

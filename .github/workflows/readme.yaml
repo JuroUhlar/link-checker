@@ -1,7 +1,11 @@
 name: Run link checker on dev.fingerprint.com
 on:
-  schedule:
-    - cron: '0 * * * *' # Run every hour
+    ## On merge to main
+  push:
+    branches:
+      - main
+    #   schedule:
+    #     - cron: '0 * * * *' # Run every hour
   workflow_dispatch:
 env:
   # Playwright headless browsers running in CI get low confidence scores, causing flaky e2e tests. Lower the confidence score threshold for CI testing.

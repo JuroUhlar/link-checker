@@ -1,17 +1,20 @@
 name: Run link checker on dev.fingerprint.com
 on:
-    ## On merge to main
   push:
     branches:
       - main
     #   schedule:
     #     - cron: '0 * * * *' # Run every hour
   workflow_dispatch:
+env:
+  README_API_KEY: ${{ secrets.README_API_KEY }}
+
 jobs:
   checkLinks:
     name: Check links
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v4
       - name: Cache node modules

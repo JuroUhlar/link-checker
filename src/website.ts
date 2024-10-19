@@ -2,7 +2,7 @@ import { getLinksFromPages, parseLinksFromPage } from "./page";
 import { writeFileSync } from "fs";
 
 import { checkLinks } from "./link";
-import { getReport } from "./report";
+import { getJSONReport } from "./report";
 import { getWebsitePages } from "./sitemap";
 import { Link } from "./types";
 
@@ -11,16 +11,13 @@ type CheckWebsiteArgs = {
   linkFilter?: (link: Link) => boolean;
 };
 
-export const checkWebsite = async ({
-  websiteUrl,
-  linkFilter,
-}: CheckWebsiteArgs) => {
+export const checkWebsite = async ({ websiteUrl, linkFilter }: CheckWebsiteArgs) => {
   const startTime = performance.now();
 
   const pages = await getWebsitePages(websiteUrl, true);
   const { links } = await getLinksFromPages({ pages, linkFilter });
   const { results, errors } = await checkLinks(links);
-  const report = getReport(results, errors);
+  const report = getJSONReport(results, errors);
   console.log(report.summary);
 
   const hostname = new URL(websiteUrl).hostname;

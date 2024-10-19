@@ -1,4 +1,4 @@
-import { getReport } from "./src/report";
+import { getJSONReport } from "./src/report";
 import { checkLink, checkLinkWithPlaywright, checkLinks } from "./src/link";
 import { checkWebsite } from "./src/website";
 import { getWebsitePages, getWebsiteSitemaps } from "./src/sitemap";

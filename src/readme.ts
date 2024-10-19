@@ -3,7 +3,7 @@ import { parseLinksFromPage } from "./page";
 import { CONCURRENCY_LIMIT, progressBar } from "./utils";
 import { Link } from "./types";
 import { checkLinks } from "./link";
-import { getReport } from "./report";
+import { getJSONReport, renderReportToHTML } from "./report";
 import { writeFileSync } from "fs";
 
 require("dotenv").config();
@@ -112,13 +112,18 @@ const checkReadme = async () => {
 
   const { results, errors } = await checkLinks({ links, concurrencyLimit });
 
-  const report = getReport(results, errors);
+  const report = getJSONReport(results, errors);
   console.log(report.summary);
 
   const hostname = "dev.fingerprint.com";
-  const filename = `./results/brokenLinks-${hostname}.json`;
-  writeFileSync(filename, JSON.stringify(report, null, 2));
-  console.log(`Saved report to ${filename}`);
+  const jsonFilename = `./results/brokenLinks-${hostname}.json`;
+  const htmlFilename = `./results/brokenLinks-${hostname}.html`;
+  writeFileSync(jsonFilename, JSON.stringify(report, null, 2));
+  console.log(`Saved JSON report to ${jsonFilename}`);
+
+  renderReportToHTML(report, htmlFilename);
+  console.log(`Saved HTML report to ${htmlFilename}`);
+
   console.log(`Finished in ${(performance.now() - startTime) / 1000} seconds.`);
 };
 

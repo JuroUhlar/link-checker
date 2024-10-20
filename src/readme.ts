@@ -113,6 +113,9 @@ export const checkReadmeDocs = async (siteName: string) => {
   const { results, errors } = await checkLinks({ links, concurrencyLimit });
 
   const report = getJSONReport({ links: results, errors, siteName });
+
+  // For easier report generation debugging
+  //  const report = JSON.parse(readFileSync("./results/brokenLinks-dev.fingerprint.com.json").toString());
   saveReport(report);
   console.log(report.summary);
 

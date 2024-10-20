@@ -8,7 +8,7 @@ export const log = (message: any, verbose = false) => {
   }
 };
 
-export const CONCURRENCY_LIMIT = 10;
+export const CONCURRENCY_LIMIT = 20;
 export const TASK_TIMEOUT = 20000;
 
 export const OKAY_STATUS_CODES = [200, 301, 302, 303, 307, 308];

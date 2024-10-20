@@ -80,7 +80,7 @@ const JSONReportRenderer = ({ report }: { report: LinkCheckReport }) => {
     ...report.couldNotCheck,
   ];
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="overflow-x-auto min-w-[720px] max-w-[1280px] mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Link Check Report for {report.siteName}</h1>
 
       <div className="bg-gray-100 p-4 rounded-lg mb-6">
@@ -95,7 +95,7 @@ const JSONReportRenderer = ({ report }: { report: LinkCheckReport }) => {
         </ul>
       </div>
 
-      <table className="bg-white border border-gray-300">
+      <table className="border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-100">
             <th className="py-2 px-4 border-b text-left">Link</th>
@@ -106,12 +106,12 @@ const JSONReportRenderer = ({ report }: { report: LinkCheckReport }) => {
         <tbody>
           {allBrokenLinks.map((link, index) => (
             <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 px-4 border-b break-all sm:break-words">
                 <a href={link.href} target="_blank">
                   <LinkRenderer link={link} />
                 </a>
               </td>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 px-4 border-b break-all sm:break-words">
                 {/* https://developer.mozilla.org/en-US/docs/Web/URI/Fragment/Text_fragments */}
                 <a href={`${link.page}#:~:text=${encodeURIComponent(link.text)}`} target="_blank">
                   {link.page}

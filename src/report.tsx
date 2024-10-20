@@ -151,3 +151,14 @@ export function renderReportToHTMLFile(jsonReport: LinkCheckReport, filePath: st
 
   writeFileSync(filePath, html);
 }
+
+export function saveReport(report: LinkCheckReport) {
+  const jsonFilename = `./results/brokenLinks-${report.siteName}.json`;
+  const htmlFilename = `./results/brokenLinks-${report.siteName}.html`;
+
+  writeFileSync(jsonFilename, JSON.stringify(report, null, 2));
+  console.log(`Saved JSON report to ${jsonFilename}`);
+
+  renderReportToHTMLFile(report, htmlFilename);
+  console.log(`Saved HTML report to ${htmlFilename}`);
+}

@@ -62,10 +62,7 @@ function getUserAgent(url: string) {
  * @returns LinkCheckResult
  * @throws {Error} - network can fail or something
  */
-export const checkLink = async (
-  url: string,
-  verbose = false
-): Promise<LinkCheckResult> => {
+export const checkLink = async (url: string, verbose = false): Promise<LinkCheckResult> => {
   const hash = new URL(url).hash;
   try {
     const response = await fetch(url, {
@@ -77,10 +74,7 @@ export const checkLink = async (
     });
 
     if (OKAY_STATUS_CODES.includes(response.status) === false) {
-      log(
-        `Responded with ${response.status}, ${response.statusText}, trying with Playwright`,
-        verbose
-      );
+      log(`Responded with ${response.status}, ${response.statusText}, trying with Playwright`, verbose);
       return await checkLinkWithPlaywright(url, verbose);
     }
 
@@ -99,8 +93,15 @@ export const checkLink = async (
 
     var $ = cheerio.load(await response.text());
 
-    // Some websites put the hash into the `href="#hash"` attribute instead of `id="hash"`
-    var element = $(`${hash}, [href="${hash}"]`).first();
+    const selectors = [
+      // Normal `id="hash"` selector
+      hash,
+      // Some websites put the hash into the `href="#hash"` attribute instead of `id="hash"`
+      `[href=${hash}]`,
+      // GitHub uses `data-line-number` attribute to handle line links like `#L1234`
+      isGithubCodeLineLink(url) && `[data-line-number=${hash.slice(2)}]`,
+    ];
+    var element = $(selectors.join(", ")).first();
     if (element.length === 0) {
       log(`Hash ${hash} not found at first, trying with Playwright`, verbose);
       return await checkLinkWithPlaywright(url, verbose);
@@ -133,11 +134,7 @@ async function isHashPresent(page, hash, timeout = 5000) {
   }
 }
 
-export async function checkLinkWithPlaywright(
-  url: string,
-  verbose = false,
-  headless = true
-): Promise<LinkCheckResult> {
+export async function checkLinkWithPlaywright(url: string, verbose = false, headless = true): Promise<LinkCheckResult> {
   const browser = await chromium.launch({
     headless,
     // Potentially helps avoid some bot detection checks
@@ -152,9 +149,7 @@ export async function checkLinkWithPlaywright(
     // Navigate to the URL
     const response = await Promise.race([
       page.goto(url),
-      page.waitForResponse(
-        (response) => response.url() === url && response.status() > 99
-      ),
+      page.waitForResponse((response) => response.url() === url && response.status() > 99),
     ]);
 
     log(`Navigation response: ${response?.status()}`, verbose);
@@ -204,3 +199,8 @@ export async function checkLinkWithPlaywright(
     }
   }
 }
+
+export const isGithubCodeLineLink = (href: string) => {
+  const url = new URL(href);
+  return url.host === "github.com" && url.pathname.includes("/blob/") && /^#L\d+$/.test(url.hash);
+};

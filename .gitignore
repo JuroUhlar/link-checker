@@ -4,6 +4,8 @@
 results/*
 !results/.gitkeep
 
+downloaded_md_files
+
 # Logs
 logs
 *.log

@@ -8,6 +8,7 @@ import { Link } from "./types";
 import { extractLinksFromMarkdown } from "./markdown";
 import { checkLinks } from "./link";
 import { getJSONReport, saveReport } from "./report";
+import { filterOutIrrelevantLinks } from "./page";
 
 dotenv.config();
 
@@ -86,7 +87,7 @@ async function getReadmeLinks(files: MdFile[]): Promise<Link[]> {
   const links = await parallelProcess(files, async (file) => {
     const markdown = await fetch(file.downloadUrl).then((res) => res.text());
     // Todo this is weird
-    const links = extractLinksFromMarkdown(markdown, file.downloadUrl, file.sourcePath);
+    const links = extractLinksFromMarkdown(markdown, file.sourcePath);
     return links;
   });
 
@@ -95,12 +96,11 @@ async function getReadmeLinks(files: MdFile[]): Promise<Link[]> {
 
 async function main() {
   const fingerprintPublicReadmes = await getReadmesFromOrg("fingerprintjs");
-  console.log(fingerprintPublicReadmes);
 
   const links = await getReadmeLinks(fingerprintPublicReadmes!);
-  console.log(links);
+  const filteredLinks = filterOutIrrelevantLinks(links);
 
-  const { results, errors } = await checkLinks({ links });
+  const { results, errors } = await checkLinks({ links: filteredLinks });
 
   const report = getJSONReport({ links: results, errors, siteName: "All public GitHub readmes" });
 

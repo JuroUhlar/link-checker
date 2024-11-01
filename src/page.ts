@@ -4,7 +4,7 @@ import { Link } from "./types";
 import { BROWSER_USER_AGENT, CONCURRENCY_LIMIT, progressBar } from "./utils";
 import { PromisePool } from "@supercharge/promise-pool";
 
-function filterOutIrrelevantLinks(links: Link[]): Link[] {
+export function filterOutIrrelevantLinks(links: Link[]): Link[] {
   const patternsToFilterOut = [
     // Localhost
     /^http:\/\/localhost/,

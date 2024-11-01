@@ -1,3 +1,4 @@
+import PromisePool from "@supercharge/promise-pool";
 import * as cliProgress from "cli-progress";
 
 export const progressBar = new cliProgress.SingleBar({ stopOnComplete: true });
@@ -6,6 +7,27 @@ export const log = (message: any, verbose = false) => {
   if (verbose) {
     console.log(message);
   }
+};
+
+export const parallelProcess = async <T, R>(
+  items: T[],
+  processFn: (item: T) => Promise<R>,
+  concurrencyLimit = CONCURRENCY_LIMIT
+) => {
+  progressBar.start(items.length, 0);
+  const { results, errors } = await PromisePool.withConcurrency(concurrencyLimit)
+    .for(items)
+    .process(async (item) => {
+      const result = await processFn(item);
+      progressBar.increment();
+      return await result;
+    });
+  progressBar.stop;
+
+  if (errors.length > 0) {
+    console.error(`Errors processing items: ${errors.length}`, errors.toString());
+  }
+  return { results, errors };
 };
 
 export const CONCURRENCY_LIMIT = 20;

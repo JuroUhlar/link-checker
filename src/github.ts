@@ -1,11 +1,15 @@
+import { readFileSync } from "fs";
 import { Octokit } from "@octokit/rest";
 import fs from "fs/promises";
 import path from "path";
 import dotenv from "dotenv";
+import { parallelProcess, progressBar } from "./utils";
+import { Link } from "./types";
+import { extractLinksFromMarkdown } from "./markdown";
+import { checkLinks } from "./link";
+import { getJSONReport, saveReport } from "./report";
 
 dotenv.config();
-
-const OUTPUT_DIR = "./downloaded_md_files";
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 if (!GITHUB_TOKEN) {
@@ -16,31 +20,11 @@ if (!GITHUB_TOKEN) {
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
 interface MdFile {
-  path: string;
-  url: string;
+  sourcePath: string;
+  downloadUrl: string;
 }
 
-async function downloadMdFilesFromOrg(orgName: string): Promise<void> {
-  try {
-    const repos = await getAllOrgRepositories(orgName);
-    console.log(`Found ${repos.length} public repositories in ${orgName} organization.`);
-
-    for (const repo of repos) {
-      console.log(`\nProcessing repository: ${repo.full_name}`);
-      try {
-        const mdFiles = await findReadmeFilesInRepo(repo.owner.login, repo.name);
-        console.log(`Found ${mdFiles.length} markdown files in ${repo.full_name}`);
-        await downloadFiles(mdFiles, repo.owner.login, repo.name);
-      } catch (error) {
-        console.error(`Error processing repository ${repo.full_name}: ${(error as Error).message}`);
-      }
-    }
-  } catch (error) {
-    console.error(`Error processing organization ${orgName}: ${(error as Error).message}`);
-  }
-}
-
-async function getAllOrgRepositories(orgName: string) {
+async function getOrgRepos(orgName: string) {
   const repos = await octokit.paginate(octokit.repos.listForOrg, {
     org: orgName,
     type: "public",
@@ -74,55 +58,56 @@ async function findReadmeFilesInRepo(owner: string, repo: string): Promise<MdFil
   const mdFiles = treeData.tree
     .filter((item) => item.type === "blob" && item.path?.toLowerCase().endsWith("readme.md"))
     .map((item) => ({
-      path: item.path!,
-      url: `https://raw.githubusercontent.com/${owner}/${repo}/${defaultBranch}/${item.path}`,
+      sourcePath: `https://github.com/${owner}/${repo}/blob/${defaultBranch}/${item.path}`,
+      downloadUrl: `https://raw.githubusercontent.com/${owner}/${repo}/${defaultBranch}/${item.path}`,
     }));
 
+  console.log(mdFiles);
   return mdFiles;
 }
 
-async function downloadFiles(files: MdFile[], owner: string, repo: string): Promise<void> {
-  const downloadPromises = files.map(async (file) => {
-    const filePath = `${OUTPUT_DIR}/${repo}_${file.path.replace(/\//g, "_")}`;
+async function getReadmesFromOrg(orgName: string): Promise<MdFile[] | undefined> {
+  try {
+    const repos = await getOrgRepos(orgName);
+    console.log(`Found ${repos.length} public repositories in ${orgName} organization.`);
 
-    try {
-      const response = await fetch(file.url);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const content = await response.text();
-
-      await fs.mkdir(path.dirname(filePath), { recursive: true });
-      await fs.writeFile(filePath, content);
-      console.log(`✓ Downloaded: ${file.path}`);
-    } catch (error) {
-      console.error(`✗ Error downloading ${file.path}: ${(error as Error).message}`);
-    }
-  });
-
-  // Download files in parallel with a concurrency limit
-  const BATCH_SIZE = 5;
-  for (let i = 0; i < files.length; i += BATCH_SIZE) {
-    const batch = files.slice(i, i + BATCH_SIZE);
-    await Promise.all(batch.map((file) => downloadPromises[i]));
+    const { results } = await parallelProcess(repos, (repo) => {
+      return findReadmeFilesInRepo(repo.owner.login, repo.name);
+    });
+    const readmes = results.flat();
+    console.log(readmes);
+    return readmes;
+  } catch (error) {
+    console.error(`Error getting Readmes from organization ${orgName}: ${(error as Error).message}`);
   }
 }
 
+async function getReadmeLinks(files: MdFile[]): Promise<Link[]> {
+  const links = await parallelProcess(files, async (file) => {
+    const markdown = await fetch(file.downloadUrl).then((res) => res.text());
+    // Todo this is weird
+    const links = extractLinksFromMarkdown(markdown, file.downloadUrl, file.sourcePath);
+    return links;
+  });
+
+  return links.results.flat();
+}
+
 async function main() {
-  const organizationName = process.argv[2] || "fingerprintjs";
+  const fingerprintPublicReadmes = await getReadmesFromOrg("fingerprintjs");
+  console.log(fingerprintPublicReadmes);
 
-  console.log(`Starting download of Readme.md files from ${organizationName} organization...`);
-  console.log("Files will be saved to:", path.resolve(OUTPUT_DIR));
+  const links = await getReadmeLinks(fingerprintPublicReadmes!);
+  console.log(links);
 
-  const startTime = Date.now();
+  const { results, errors } = await checkLinks({ links });
 
-  try {
-    await downloadMdFilesFromOrg(organizationName);
-    const duration = ((Date.now() - startTime) / 1000).toFixed(2);
-    console.log(`\nAll downloads completed in ${duration} seconds`);
-  } catch (error) {
-    console.error("Error:", (error as Error).message);
-  }
+  const report = getJSONReport({ links: results, errors, siteName: "All public GitHub readmes" });
+
+  // For easier report generation debugging
+  //  const report = JSON.parse(readFileSync("./results/brokenLinks-dev.fingerprint.com.json").toString());
+  saveReport(report);
+  console.log(report.summary);
 }
 
 // Allow organization name to be passed as command line argument

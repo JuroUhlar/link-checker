@@ -159,7 +159,7 @@ export function renderReportToHTMLFile(jsonReport: LinkCheckReport, filePath: st
 }
 
 export function saveReport(report: LinkCheckReport) {
-  const normalizedSitename = report.siteName.replace(/\W/g, "-");
+  const normalizedSitename = report.siteName.replace(/\W/g, "-").toLowerCase();
   const jsonFilename = `./results/${normalizedSitename}.json`;
   const htmlFilename = `./results/${normalizedSitename}.html`;
 

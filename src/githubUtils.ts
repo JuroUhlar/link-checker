@@ -102,25 +102,22 @@ async function getReadmeLinks(files: MdFile[]): Promise<Link[]> {
   return links;
 }
 
-async function main() {
+export async function checkReadmesInGithubOrg(org: string) {
   const startTime = performance.now();
 
-  const fingerprintPublicReadmes = await getReadmesFromOrg("fingerprintjs");
+  const fingerprintPublicReadmes = await getReadmesFromOrg(org);
 
   const links = await getReadmeLinks(fingerprintPublicReadmes!);
   const filteredLinks = filterOutIrrelevantLinks(links);
 
   const { results, errors } = await checkLinks({ links: filteredLinks, verbose: true });
 
-  const report = getJSONReport({ links: results, errors, siteName: "All public GitHub readmes" });
+  const report = getJSONReport({ links: results, errors, siteName: `${org} GitHub readmes` });
 
-  // For easier report generation debugging
-  //  const report = JSON.parse(readFileSync("./results/brokenLinks-dev.fingerprint.com.json").toString());
   saveReport(report);
   console.log(report.summary);
 
   console.log(`\nFinished in ${(performance.now() - startTime) / 1000} seconds.`);
-}
 
-// Allow organization name to be passed as command line argument
-main();
+  return report;
+}

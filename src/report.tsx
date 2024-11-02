@@ -153,8 +153,9 @@ export function renderReportToHTMLFile(jsonReport: LinkCheckReport, filePath: st
 }
 
 export function saveReport(report: LinkCheckReport) {
-  const jsonFilename = `./results/brokenLinks-${report.siteName}.json`;
-  const htmlFilename = `./results/brokenLinks-${report.siteName}.html`;
+  const normalizedSitename = report.siteName.replace(/\W/g, "-");
+  const jsonFilename = `./results/brokenLinks-${normalizedSitename}.json`;
+  const htmlFilename = `./results/brokenLinks-${normalizedSitename}.html`;
 
   writeFileSync(jsonFilename, JSON.stringify(report, null, 2));
   console.log(`Saved JSON report to ${jsonFilename}`);

@@ -65,20 +65,21 @@ async function findReadmeFilesInRepo(owner: string, repo: string): Promise<MdFil
       downloadUrl: `https://raw.githubusercontent.com/${owner}/${repo}/${defaultBranch}/${item.path}`,
     }));
 
-  console.log(mdFiles);
   return mdFiles;
 }
 
 async function getReadmesFromOrg(orgName: string): Promise<MdFile[] | undefined> {
   try {
     const repos = await getOrgRepos(orgName);
-    console.log(`Found ${repos.length} public repositories in ${orgName} organization.`);
+    console.log(`\nFound ${repos.length} public repositories in ${orgName} organization.`);
 
     const { results } = await parallelProcess(repos, (repo) => {
       return findReadmeFilesInRepo(repo.owner.login, repo.name);
     });
     const readmes = results.flat();
-    // console.log(readmes);
+    console.log(
+      `\nFound ${readmes.length} public Readmes files in ${repos.length} repositories of ${orgName} organization.`
+    );
     return readmes;
   } catch (error) {
     console.error(`Error getting Readmes from organization ${orgName}: ${(error as Error).message}`);
@@ -86,13 +87,19 @@ async function getReadmesFromOrg(orgName: string): Promise<MdFile[] | undefined>
 }
 
 async function getReadmeLinks(files: MdFile[]): Promise<Link[]> {
-  const links = await parallelProcess(files, async (file) => {
+  console.log(`\nRetrieving links from ${files.length} files...`);
+  const { results, errors } = await parallelProcess(files, async (file) => {
     const markdown = await fetch(file.downloadUrl).then((res) => res.text());
     const links = extractLinksFromMarkdown(markdown, file.sourcePath);
     return links;
   });
 
-  return links.results.flat();
+  if (errors.length > 0) {
+    console.error(`Errors fetching files and extracting links: ${errors.length}`, errors.toString());
+  }
+  const links = results.flat();
+  console.log(`Extracted ${links.length} links from ${files.length} files.`);
+  return links;
 }
 
 async function main() {

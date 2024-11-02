@@ -80,7 +80,7 @@ export const checkLink = async (url: string, verbose = false): Promise<LinkCheck
 
     if (!hash) {
       log(`OK`, verbose);
-      return { ok: true };
+      return { ok: true, status: response.status };
     }
 
     if (hash.includes(":~:")) {
@@ -88,7 +88,7 @@ export const checkLink = async (url: string, verbose = false): Promise<LinkCheck
        * The link includes a [Text Fragment](https://developer.mozilla.org/en-US/docs/Web/Text_fragments)
        * Checking this properly is not trivial, let's ignore them for now
        **/
-      return { ok: true, note: "Text Fragment" };
+      return { ok: true, status: response.status, note: "Text Fragment" };
     }
 
     var $ = cheerio.load(await response.text());
@@ -99,8 +99,8 @@ export const checkLink = async (url: string, verbose = false): Promise<LinkCheck
       // Some websites put the hash into the `href="#hash"` attribute instead of `id="hash"`
       `[href=${hash}]`,
       `[href=${hash.toLowerCase()}]`,
-      // GitHub uses `data-line-number` attribute to handle line links like `#L1234`
-      isGithubCodeLineLink(url) && `[data-line-number=${hash.slice(2)}]`,
+      // GitHub uses `data-line-number` attribute to handle line links like `#L12` and `#L12-L15` (check just the first one for simplicity)
+      isGithubCodeLineLink(url) && `[data-line-number=${hash.split("-")[0].slice(2)}]`,
     ];
     var element = $(selectors.join(", ")).first();
     if (element.length === 0) {
@@ -109,16 +109,15 @@ export const checkLink = async (url: string, verbose = false): Promise<LinkCheck
     }
 
     log(`OK`, verbose);
+    return { ok: true, status: response.status };
   } catch (error) {
     log(`Something went wrong: ${error}`, verbose);
     log("Checking with Playwright", verbose);
     return await checkLinkWithPlaywright(url, verbose);
   }
-
-  return { ok: true };
 };
 
-async function isHashPresent(page: Page, hash: string, timeout = 5000) {
+async function isHashPresent(page: Page, hash: string, timeout = 3000) {
   const locator = page.locator(`[id="${hash}"], [href="#${hash}"], [href="#${hash.toLowerCase()}"]`).first();
 
   try {
@@ -148,13 +147,10 @@ export async function checkLinkWithPlaywright(url: string, verbose = false, head
 
   try {
     // Navigate to the URL
-    // const response = await Promise.race([
-    //   await page.goto(url),
-    //   await page.waitForResponse((response) => response.url() === url && response.status() > 99),
-    // ]);
-
-    const response = await page.goto(url);
-    console.log("Response: ", response);
+    const response = await Promise.race([
+      page.goto(url),
+      page.waitForResponse((response) => response.url() === url && response.status() > 99),
+    ]);
 
     log(`Navigation response: ${response?.status()}`, verbose);
     if (response && FORBIDDEN_STATUS_CODES.includes(response.status())) {
@@ -170,28 +166,28 @@ export async function checkLinkWithPlaywright(url: string, verbose = false, head
       return {
         ok: false,
         error: "broken link",
-        errorDetail: response?.status().toString(),
+        status: response?.status() ?? 0,
       };
     }
 
     const hash = new URL(url).hash.replace("#", "");
 
     if (hash.includes(":~:")) {
-      return { ok: true, note: "Text Fragment" };
+      return { ok: true, status: response.status(), note: "Text Fragment" };
     }
 
     if (hash && !(await isHashPresent(page, hash))) {
       log(`Hash not found`, verbose);
       return {
         ok: false,
+        status: response.status(),
         error: "hash not found",
       };
     }
 
     log(`OK`, verbose);
-    return { ok: true };
+    return { ok: true, status: response.status() };
   } catch (error) {
-    console.error("An error occurred:", error);
     return {
       ok: false,
       error: "broken link",
@@ -206,5 +202,5 @@ export async function checkLinkWithPlaywright(url: string, verbose = false, head
 
 export const isGithubCodeLineLink = (href: string) => {
   const url = new URL(href);
-  return url.host === "github.com" && url.pathname.includes("/blob/") && /^#L\d+$/.test(url.hash);
+  return url.host === "github.com" && url.pathname.includes("/blob/") && /^#L\d+(-L\d+)?$/.test(url.hash);
 };

@@ -49,6 +49,25 @@ jobs:
           name: fingerprintjs-github-readmes.html
           path: results/fingerprintjs-github-readmes.html
           retention-days: 30
+  web:
+    name: Check links to our resources on fingerprint.com
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-environment
+      
+      - name: Run link checker
+        run: pnpm run checkLinks:web
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fingerprint-com.html
+          path: results/fingerprint-com.html
+          retention-days: 30
 #   report-status:
 #     needs: checkLinks
 #     if: failure()

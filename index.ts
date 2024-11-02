@@ -1,12 +1,13 @@
-import { checkLink } from "./src/link";
+import { checkLink, checkLinkWithPlaywright } from "./src/link";
 
 (async () => {
-  for (let i = 0; i < 50; i++) {
-    console.log(
-      await checkLink(
-        "https://github.com/fingerprintjs/fingerprint-pro-server-api-java-sdk/blob/main/docs/FingerprintApi.md#webhookTrace",
-        true
-      )
-    );
-  }
+  // for (let i = 0; i < 50; i++) {
+  // console.log(await checkLink("https://docs.fingerprintjs.com/", true));
+  console.log(
+    await checkLink(
+      "hhttps://dev.fingerprint.com/docs/migrating-from-fingerprintjs-to-fingerprint-pro#migrating-from-fingerprintjs-v4-source-available-to-pr",
+      true
+    )
+  );
+  // }
 })();

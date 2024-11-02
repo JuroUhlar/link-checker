@@ -78,7 +78,7 @@ async function getReadmesFromOrg(orgName: string): Promise<MdFile[] | undefined>
       return findReadmeFilesInRepo(repo.owner.login, repo.name);
     });
     const readmes = results.flat();
-    console.log(readmes);
+    // console.log(readmes);
     return readmes;
   } catch (error) {
     console.error(`Error getting Readmes from organization ${orgName}: ${(error as Error).message}`);
@@ -88,7 +88,6 @@ async function getReadmesFromOrg(orgName: string): Promise<MdFile[] | undefined>
 async function getReadmeLinks(files: MdFile[]): Promise<Link[]> {
   const links = await parallelProcess(files, async (file) => {
     const markdown = await fetch(file.downloadUrl).then((res) => res.text());
-    // Todo this is weird
     const links = extractLinksFromMarkdown(markdown, file.sourcePath);
     return links;
   });
@@ -102,7 +101,7 @@ async function main() {
   const links = await getReadmeLinks(fingerprintPublicReadmes!);
   const filteredLinks = filterOutIrrelevantLinks(links);
 
-  const { results, errors } = await checkLinks({ links: filteredLinks });
+  const { results, errors } = await checkLinks({ links: filteredLinks, verbose: true });
 
   const report = getJSONReport({ links: results, errors, siteName: "All public GitHub readmes" });
 

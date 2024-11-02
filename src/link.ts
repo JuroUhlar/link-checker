@@ -112,7 +112,7 @@ export const checkLink = async (url: string, verbose = false): Promise<LinkCheck
   } catch (error) {
     log(`Something went wrong: ${error}`, verbose);
     log("Checking with Playwright", verbose);
-    const result = await checkLinkWithPlaywright(url, verbose);
+    return await checkLinkWithPlaywright(url, verbose);
   }
 
   return { ok: true };
@@ -148,10 +148,13 @@ export async function checkLinkWithPlaywright(url: string, verbose = false, head
 
   try {
     // Navigate to the URL
-    const response = await Promise.race([
-      page.goto(url),
-      page.waitForResponse((response) => response.url() === url && response.status() > 99),
-    ]);
+    // const response = await Promise.race([
+    //   await page.goto(url),
+    //   await page.waitForResponse((response) => response.url() === url && response.status() > 99),
+    // ]);
+
+    const response = await page.goto(url);
+    console.log("Response: ", response);
 
     log(`Navigation response: ${response?.status()}`, verbose);
     if (response && FORBIDDEN_STATUS_CODES.includes(response.status())) {

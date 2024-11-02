@@ -23,7 +23,7 @@ export const getJSONReport = ({ links, errors, siteName }: GetReportArgs) => {
       (error) =>
         ({
           ...error.item,
-          result: { ok: false, error: "unexpected error", errorDetail: error.message },
+          result: { ok: false, error: "unexpected error", errorDetail: error.message, status: 0 },
         } satisfies LinkWithResult)
     ),
   ];
@@ -45,31 +45,24 @@ export const getJSONReport = ({ links, errors, siteName }: GetReportArgs) => {
   };
 };
 
-const LinkRenderer = ({ link }: { link: LinkWithResult }) => {
+const HrefRenderer = ({ link }: { link: LinkWithResult }) => {
   const { href, text, page, result } = link;
 
   if (result.ok) {
-    return (
-      <span>
-        [{text}]({href})
-      </span>
-    );
+    return href;
   }
 
   if (result.error === "hash not found") {
     const [baseUrl, hash] = href.split("#");
     return (
       <span>
-        [{text}]({baseUrl}
-        <span className="text-red-600">#{hash}</span>)
+        {baseUrl}
+        <span className="text-red-600">#{hash}</span>
       </span>
     );
-  } else
-    return (
-      <span className="text-red-600">
-        [{text}]({href})
-      </span>
-    );
+  }
+
+  return <span className="text-red-600">{href}</span>;
 };
 
 const JSONReportRenderer = ({ report }: { report: LinkCheckReport }) => {
@@ -98,8 +91,8 @@ const JSONReportRenderer = ({ report }: { report: LinkCheckReport }) => {
       <table className="border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-100">
-            <th className="py-2 px-4 border-b text-left">Link</th>
             <th className="py-2 px-4 border-b text-left">Page</th>
+            <th className="py-2 px-4 border-b text-left">Link</th>
             <th className="py-2 px-4 border-b text-left">Result</th>
           </tr>
         </thead>
@@ -107,22 +100,35 @@ const JSONReportRenderer = ({ report }: { report: LinkCheckReport }) => {
           {allBrokenLinks.map((link, index) => (
             <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
               <td className="py-2 px-4 border-b break-all sm:break-words">
-                <a href={link.href} target="_blank">
-                  <LinkRenderer link={link} />
-                </a>
-              </td>
-              <td className="py-2 px-4 border-b break-all sm:break-words">
                 {/* https://developer.mozilla.org/en-US/docs/Web/URI/Fragment/Text_fragments */}
+                📄{" "}
                 <a href={`${link.page}#:~:text=${encodeURIComponent(link.text)}`} target="_blank">
                   {link.page}
                 </a>
               </td>
+              <td className="py-2 px-4 border-b break-all sm:break-words">
+                <a href={link.href} target="_blank">
+                  🔗"{link.text}" ➡️ <HrefRenderer link={link} />
+                </a>
+              </td>
+
               <td className="py-2 px-4 border-b">
                 {link.result.ok ? (
                   <span className="text-green-600">OK</span>
                 ) : (
                   <span className="text-red-600">
-                    {link.result.error} {link.result.errorDetail}
+                    {link.result.error === "broken link" && "🔴 "}
+                    {link.result.error === "hash not found" && "#️⃣ "}
+                    {link.result.error === "could not check" && "⚠️ "}
+                    {link.result.error === "unexpected error" && "❌ "}
+                    {link.result.error}
+                    {link.result.status ? ` (Status: ${link.result.status})` : null}
+                    {link.result.errorDetail ? (
+                      <details>
+                        <summary>Error detail</summary>
+                        <pre>{link.result.errorDetail}</pre>
+                      </details>
+                    ) : null}
                   </span>
                 )}
               </td>

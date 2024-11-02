@@ -103,6 +103,8 @@ async function getReadmeLinks(files: MdFile[]): Promise<Link[]> {
 }
 
 async function main() {
+  const startTime = performance.now();
+
   const fingerprintPublicReadmes = await getReadmesFromOrg("fingerprintjs");
 
   const links = await getReadmeLinks(fingerprintPublicReadmes!);
@@ -116,6 +118,8 @@ async function main() {
   //  const report = JSON.parse(readFileSync("./results/brokenLinks-dev.fingerprint.com.json").toString());
   saveReport(report);
   console.log(report.summary);
+
+  console.log(`\nFinished in ${(performance.now() - startTime) / 1000} seconds.`);
 }
 
 // Allow organization name to be passed as command line argument

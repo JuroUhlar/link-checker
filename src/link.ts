@@ -19,7 +19,7 @@ type CheckLinksArgs = {
 };
 
 export const checkLinks = async ({ links, verbose, concurrencyLimit }: CheckLinksArgs) => {
-  console.log(`Checking ${links.length} links...`);
+  console.log(`\nChecking ${links.length} links...`);
   const resultMap = new Map<string, LinkCheckResult>();
 
   progressBar.start(links.length, 0);

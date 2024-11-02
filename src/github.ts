@@ -32,11 +32,13 @@ async function getOrgRepos(orgName: string) {
     per_page: 100,
   });
 
-  return repos.map((repo) => ({
-    full_name: repo.full_name,
-    owner: { login: repo.owner!.login },
-    name: repo.name,
-  }));
+  return repos
+    .filter((repo) => repo.archived === false)
+    .map((repo) => ({
+      full_name: repo.full_name,
+      owner: { login: repo.owner!.login },
+      name: repo.name,
+    }));
 }
 
 async function findReadmeFilesInRepo(owner: string, repo: string): Promise<MdFile[]> {

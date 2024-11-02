@@ -1,5 +1,5 @@
 import * as cheerio from "cheerio";
-import { chromium } from "playwright";
+import { chromium, Page } from "playwright";
 import {
   BROWSER_USER_AGENT,
   CONCURRENCY_LIMIT,
@@ -98,6 +98,7 @@ export const checkLink = async (url: string, verbose = false): Promise<LinkCheck
       hash,
       // Some websites put the hash into the `href="#hash"` attribute instead of `id="hash"`
       `[href=${hash}]`,
+      `[href=${hash.toLowerCase()}]`,
       // GitHub uses `data-line-number` attribute to handle line links like `#L1234`
       isGithubCodeLineLink(url) && `[data-line-number=${hash.slice(2)}]`,
     ];
@@ -117,8 +118,8 @@ export const checkLink = async (url: string, verbose = false): Promise<LinkCheck
   return { ok: true };
 };
 
-async function isHashPresent(page, hash, timeout = 5000) {
-  const locator = page.locator(`[id="${hash}"], [href="#${hash}"]`).first();
+async function isHashPresent(page: Page, hash: string, timeout = 5000) {
+  const locator = page.locator(`[id="${hash}"], [href="#${hash}"], [href="#${hash.toLowerCase()}"]`).first();
 
   try {
     // Wait for the locator to be visible with a custom timeout

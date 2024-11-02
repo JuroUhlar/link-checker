@@ -251,4 +251,25 @@ describe("extractLinksFromMarkdown", () => {
       },
     ]);
   });
+
+  // Test links in nested GitHub readmes to GitHub paths in the same repository
+  it("should handle anchor links by prepending current page URL", async () => {
+    const markdown = "See [Folder](/nested/folder) and [File](/nested/file.md)";
+    const page = "https://github.com/fingerprintjs/repository/blob/main/folder/README.md";
+
+    const links = await extractLinksFromMarkdown(markdown, page);
+
+    expect(links).toEqual([
+      {
+        page: "https://github.com/fingerprintjs/repository/blob/main/folder/README.md",
+        href: "https://github.com/fingerprintjs/repository/blob/main/nested/folder",
+        text: "Folder",
+      },
+      {
+        page: "https://github.com/fingerprintjs/repository/blob/main/folder/README.md",
+        href: "https://github.com/fingerprintjs/repository/blob/main/nested/file.md",
+        text: "File",
+      },
+    ]);
+  });
 });

@@ -19,7 +19,7 @@ import { parallelProcess } from "./src/utils";
     links: Array.from({ length: 15 }).map((_, i) => ({
       page: "test",
       text: "test",
-      href: `https://dev.fingerprint.com/reference/javascript-agent#visitorid`,
+      href: `https://github.com/fingerprintjs/fingerprintjs-pro-use-cases/blob/0589bdd38ba636c897b11fff8d9d9992417b763f/src/server/checks.ts#L186`,
     })),
     verbose: true,
   });

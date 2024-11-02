@@ -160,8 +160,8 @@ export function renderReportToHTMLFile(jsonReport: LinkCheckReport, filePath: st
 
 export function saveReport(report: LinkCheckReport) {
   const normalizedSitename = report.siteName.replace(/\W/g, "-");
-  const jsonFilename = `./results/brokenLinks-${normalizedSitename}.json`;
-  const htmlFilename = `./results/brokenLinks-${normalizedSitename}.html`;
+  const jsonFilename = `./results/${normalizedSitename}.json`;
+  const htmlFilename = `./results/${normalizedSitename}.html`;
 
   writeFileSync(jsonFilename, JSON.stringify(report, null, 2));
   console.log(`Saved JSON report to ${jsonFilename}`);

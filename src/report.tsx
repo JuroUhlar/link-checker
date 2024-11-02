@@ -3,7 +3,6 @@ import { Link, LinkWithResult } from "./types";
 import ReactDOMServer from "react-dom/server";
 import React from "react";
 import { writeFileSync } from "fs";
-import { StringLiteral } from "typescript";
 
 type LinkCheckReport = ReturnType<typeof getJSONReport>;
 

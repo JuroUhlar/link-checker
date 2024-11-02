@@ -12,13 +12,13 @@ import { filterOutIrrelevantLinks } from "./page";
 
 dotenv.config();
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-if (!GITHUB_TOKEN) {
-  throw new Error("GITHUB_TOKEN is not set");
+const GH_TOKEN = process.env.GH_TOKEN;
+if (!GH_TOKEN) {
+  throw new Error("GH_TOKEN is not set");
 }
 
 // Initialize without token for public repos, but you can add a token for higher rate limits
-const octokit = new Octokit({ auth: GITHUB_TOKEN });
+const octokit = new Octokit({ auth: GH_TOKEN });
 
 interface MdFile {
   sourcePath: string;

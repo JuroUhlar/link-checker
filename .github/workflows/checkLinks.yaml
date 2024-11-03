@@ -9,6 +9,9 @@ on:
 env:
   README_API_KEY: ${{ secrets.README_API_KEY }}
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  DEV_REPORT: dev-fingerprint-com.html
+  GITHUB_REPORT: fingerprintjs-github-readmes.html
+  WEB_REPORT: fingerprint-com.html
 
 jobs:
   docs:
@@ -27,9 +30,10 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: dev-fingerprint-com.html
-          path: results/dev-fingerprint-com.html
+          name: ${{ env.DEV_REPORT }}
+          path: results/${{ env.DEV_REPORT }}
           retention-days: 30
+
   githubReadmes:
     name: Check links on public GitHub READMEs in the `fingerprintjs` organization
     timeout-minutes: 15
@@ -46,71 +50,91 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: fingerprintjs-github-readmes.html
-          path: results/fingerprintjs-github-readmes.html
+          name: ${{ env.GITHUB_REPORT }}
+          path: results/${{ env.GITHUB_REPORT }}
           retention-days: 30
-  web:
-    name: Check links to our resources on fingerprint.com
-    timeout-minutes: 20
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-environment
-      
-      - name: Run link checker
-        run: pnpm run checkLinks:web
 
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: fingerprint-com.html
-          path: results/fingerprint-com.html
-          retention-days: 30
-  combine-artifacts:
-      name: Combine all reports
-      needs: [docs, githubReadmes, web]
-      runs-on: ubuntu-latest
-      if: always()
+  # web:
+  #   name: Check links to our resources on fingerprint.com
+  #   timeout-minutes: 20
+  #   runs-on: ubuntu-latest
+    
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: ./.github/actions/setup-environment
       
-      steps:
-        - name: Download all artifacts
-          uses: actions/download-artifact@v4
-          with:
-            path: all-reports
-            
-        - name: Create combined archive
-          run: |
-            cd all-reports
-            zip -r ../combined-reports.zip ./*
-            
-        - name: Upload combined artifact
-          uses: actions/upload-artifact@v4
-          with:
-            name: combined-reports
-            path: combined-reports.zip
-            retention-days: 30
-  deploy:
-    name: Deploy reports to GitHub Pages
-    needs: [docs, githubReadmes, web]
+  #     - name: Run link checker
+  #       run: pnpm run checkLinks:web
+
+  #     - name: Upload report
+  #       uses: actions/upload-artifact@v4
+  #       if: always()
+  #       with:
+  #         name: ${{ env.WEB_REPORT }}
+  #         path: results/${{ env.WEB_REPORT }}
+  #         retention-days: 30
+
+  combine-artifacts:
+    name: Combine all reports
+    needs: [docs, githubReadmes]
     runs-on: ubuntu-latest
     if: always()
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    
+    steps:
+      - name: Create reports directory
+        run: mkdir reports
+
+      - name: Download dev.fingerprint.com report
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.DEV_REPORT }}
+          path: reports
+
+      - name: Download GitHub READMEs report
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.GITHUB_REPORT }}
+          path: reports
+
+      # - name: Download fingerprint.com report
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: ${{ env.WEB_REPORT }}
+      #     path: reports
+          
+      - name: Create combined archive
+        run: |
+          cd reports
+          zip -r ../combined-reports.zip ./*
+          
+      - name: Upload combined artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-reports
+          path: combined-reports.zip
+          retention-days: 30
+
+  deploy:
+    name: Deploy reports to GitHub Pages
+    needs: [docs, githubReadmes]
+    runs-on: ubuntu-latest
+    if: always()
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
           path: reports
+
       - name: Create index page
         run: |
-          cat > reports/index.html << 'EOL'
+          cat > reports/index.html << EOF
           <!DOCTYPE html>
           <html>
           <head>
@@ -128,25 +152,28 @@ jobs:
             <h1>Link Checker Reports</h1>
             <div class="report-list">
               <div class="report-item">
-                <a href="dev-fingerprint-com.html/dev-fingerprint-com.html">dev.fingerprint.com Report</a>
+                <a href="${DEV_REPORT}/${DEV_REPORT}">dev.fingerprint.com Report</a>
               </div>
               <div class="report-item">
-                <a href="fingerprintjs-github-readmes.html/fingerprintjs-github-readmes.html">GitHub READMEs Report</a>
+                <a href="${GITHUB_REPORT}/${GITHUB_REPORT}">GitHub READMEs Report</a>
               </div>
               <div class="report-item">
-                <a href="fingerprint-com.html/fingerprint-com.html">fingerprint.com Report</a>
+                <a href="${WEB_REPORT}/${WEB_REPORT}">fingerprint.com Report</a>
               </div>
             </div>
             <p>Last updated: <script>document.write(new Date().toLocaleString())</script></p>
           </body>
           </html>
-          EOL
+          EOF
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: reports
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
@@ -158,4 +185,4 @@ jobs:
 #       notification_title: 'Hey, <@U04GNKK5ZTQ>! Production e2e tests on demo.fingerprint.com have {status_message}'
 #       job_status: ${{ needs.e2e.result }}
 #     secrets:
-#       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}        

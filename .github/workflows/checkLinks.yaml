@@ -76,20 +76,18 @@ jobs:
 
   combine-artifacts:
     name: Combine all reports
-    needs: [docs, githubReadmes]
+    needs: [docs, githubReadmes, web]
     runs-on: ubuntu-latest
     if: always()
     
     steps:
       - name: Create reports directory
         run: mkdir reports
-
       - name: Download dev.fingerprint.com report
         uses: actions/download-artifact@v4
         with:
           name: ${{ env.DEV_REPORT }}
           path: reports
-
       - name: Download GitHub READMEs report
         uses: actions/download-artifact@v4
         with:

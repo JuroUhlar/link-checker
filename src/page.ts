@@ -1,8 +1,6 @@
 import * as cheerio from "cheerio";
 import { Link } from "./types";
-
-import { BROWSER_USER_AGENT, CONCURRENCY_LIMIT, progressBar } from "./utils";
-import { PromisePool } from "@supercharge/promise-pool";
+import { BROWSER_USER_AGENT, parallelProcess, progressBar } from "./utils";
 
 export function filterOutIrrelevantLinks(links: Link[]): Link[] {
   const patternsToFilterOut = [
@@ -72,13 +70,9 @@ export const getLinksFromPages = async ({
   console.log(`Retrieving links from ${pages.length} pages...`);
   // Parse links from pages
   progressBar.start(pages.length, 0);
-  const { results, errors } = await PromisePool.withConcurrency(CONCURRENCY_LIMIT)
-    .for(pages)
-    .process(async (page) => {
-      progressBar.increment();
-      return parseLinksFromPage(page);
-    });
-  progressBar.stop;
+  const { results, errors } = await parallelProcess(pages, async (page) => {
+    return parseLinksFromPage(page);
+  });
 
   // Flatten and filter results if a link filter is provided
   const flatResults = results.flat();

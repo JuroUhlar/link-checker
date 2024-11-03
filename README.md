@@ -35,6 +35,7 @@ So a proper documentation link checker must:
 [x] Deploy to GitHub pages
 [x] Enable Slack notifications
 [x] Nice Readme
+[ ] Clean up promise pool
 [ ] Run tests in CI
 [ ] Move repository
 [ ] Add more tests for everything

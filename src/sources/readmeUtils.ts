@@ -1,6 +1,5 @@
-import PromisePool from "@supercharge/promise-pool";
 import { parseLinksFromPage } from "../page";
-import { CONCURRENCY_LIMIT, progressBar } from "../utils";
+import { CONCURRENCY_LIMIT, parallelProcess, progressBar } from "../utils";
 import { Link } from "../types";
 import { checkLinks } from "../link";
 import { getJSONReport, saveReport } from "../report/report";
@@ -56,18 +55,18 @@ const flattenNestedPages = (pages: PageItem[]): PageItem[] => {
 
 const getPageSlugsFromCategories = async (categorySlugs: string[], concurrencyLimit = CONCURRENCY_LIMIT) => {
   console.log(`Fetching pages slugs from ${categorySlugs.length} categories...`);
-  progressBar.start(categorySlugs.length, 0);
-  const { results, errors } = await PromisePool.withConcurrency(concurrencyLimit)
-    .for(categorySlugs)
-    .process(async (categorySlug) => {
+  const { results, errors } = await parallelProcess(
+    categorySlugs,
+    async (categorySlug) => {
       const categoryPages = await fetchCategoryPages(categorySlug);
       const slugs = flattenNestedPages(categoryPages)
         .filter((page) => !page.hidden)
         .map((page) => page.slug);
-      progressBar.increment();
       return slugs;
-    });
-  progressBar.stop;
+    },
+    concurrencyLimit
+  );
+
   if (errors.length > 0) {
     console.error(`Errors fetching page slugs: ${errors.length}`, errors.toString());
   }
@@ -76,20 +75,20 @@ const getPageSlugsFromCategories = async (categorySlugs: string[], concurrencyLi
 
 const extractLinksFromPages = async (pageSlugs: string[], concurrencyLimit = CONCURRENCY_LIMIT): Promise<Link[]> => {
   console.log(`Extracting links from ${pageSlugs.length} pages...`);
-  progressBar.start(pageSlugs.length, 0);
-  const { results, errors } = await PromisePool.withConcurrency(concurrencyLimit)
-    .for(pageSlugs)
-    .process(async (pageSlug) => {
+  const { results, errors } = await parallelProcess(
+    pageSlugs,
+    async (pageSlug) => {
       const page = await fetchPage(pageSlug);
       // You might get a public "Link"" page with some irrelevant content, ignore it
       if (page.type !== "basic") {
         return [];
       }
       const links = await parseLinksFromPage("https://dev.fingerprint.com/docs/" + page.slug, page.body_html);
-      progressBar.increment();
       return links;
-    });
-  progressBar.stop;
+    },
+    concurrencyLimit
+  );
+
   if (errors.length > 0) {
     console.error(`Errors fetching pages and extracting links: ${errors.length}`, errors.toString());
   }

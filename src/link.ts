@@ -30,12 +30,12 @@ export const checkLinks = async ({ links, verbose, concurrencyLimit }: CheckLink
       const existingResult = resultMap.get(link.href);
       if (existingResult) {
         // Already checked, just use the result
-        link.result = existingResult;
+        (link as LinkWithResult).result = existingResult;
       } else {
         // New link, check it
         const newResult = await checkLink(link.href);
         resultMap.set(link.href, newResult);
-        link.result = newResult;
+        (link as LinkWithResult).result = newResult;
       }
       progressBar.increment();
       return link as LinkWithResult;
@@ -49,10 +49,6 @@ export const checkLinks = async ({ links, verbose, concurrencyLimit }: CheckLink
 };
 
 function getUserAgent(url: string) {
-  // Android website gets stuck in an infinite loop if user agent is spoofed
-  if (url.includes("android.com")) {
-    return "Link checker";
-  }
   return BROWSER_USER_AGENT;
 }
 

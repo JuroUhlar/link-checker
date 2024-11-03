@@ -1,4 +1,4 @@
-import { checkReadmeDocs } from "../src/readme";
+import { checkReadmeDocs } from "../src/sources/readmeUtils";
 
 (async () => {
   const report = await checkReadmeDocs("dev.fingerprint.com");
@@ -7,4 +7,3 @@ import { checkReadmeDocs } from "../src/readme";
     process.exit(1);
   }
 })();
-

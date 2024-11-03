@@ -1,5 +1,5 @@
 import { PromisePoolError } from "@supercharge/promise-pool";
-import { Link, LinkWithResult } from "./types";
+import { Link, LinkWithResult } from "../types";
 import ReactDOMServer from "react-dom/server";
 import React from "react";
 import { writeFileSync } from "fs";

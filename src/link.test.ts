@@ -97,8 +97,4 @@ describe("checkLink", () => {
     );
     expect(result).toEqual({ ok: true, status: 200, note: "Text Fragment" });
   });
-
-  /**
-   * Broken links
-   */
 });

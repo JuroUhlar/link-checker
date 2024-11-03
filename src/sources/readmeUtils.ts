@@ -1,10 +1,9 @@
 import PromisePool from "@supercharge/promise-pool";
-import { parseLinksFromPage } from "./page";
-import { CONCURRENCY_LIMIT, progressBar } from "./utils";
-import { Link } from "./types";
-import { checkLinks } from "./link";
-import { getJSONReport, renderReportToHTMLFile, saveReport } from "./report";
-import { readFileSync, writeFileSync } from "fs";
+import { parseLinksFromPage } from "../page";
+import { CONCURRENCY_LIMIT, progressBar } from "../utils";
+import { Link } from "../types";
+import { checkLinks } from "../link";
+import { getJSONReport, saveReport } from "../report/report";
 
 require("dotenv").config();
 
@@ -122,4 +121,3 @@ export const checkReadmeDocs = async (siteName: string) => {
   console.log(`Finished in ${(performance.now() - startTime) / 1000} seconds.`);
   return report;
 };
-

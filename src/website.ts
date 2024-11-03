@@ -1,7 +1,7 @@
 import { getLinksFromPages } from "./page";
 
 import { checkLinks } from "./link";
-import { getJSONReport, saveReport } from "./report";
+import { getJSONReport, saveReport } from "./report/report";
 import { getWebsitePages } from "./sitemap";
 import { Link } from "./types";
 

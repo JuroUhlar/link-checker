@@ -3,12 +3,12 @@ import { Octokit } from "@octokit/rest";
 import fs from "fs/promises";
 import path from "path";
 import dotenv from "dotenv";
-import { parallelProcess, progressBar } from "./utils";
-import { Link } from "./types";
-import { extractLinksFromMarkdown } from "./markdown";
-import { checkLinks } from "./link";
-import { getJSONReport, saveReport } from "./report";
-import { filterOutIrrelevantLinks } from "./page";
+import { parallelProcess, progressBar } from "../utils";
+import { Link } from "../types";
+import { extractLinksFromMarkdown } from "../markdown";
+import { checkLinks } from "../link";
+import { getJSONReport, saveReport } from "../report/report";
+import { filterOutIrrelevantLinks } from "../page";
 
 dotenv.config();
 

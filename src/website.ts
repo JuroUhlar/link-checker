@@ -22,4 +22,5 @@ export const checkWebsite = async ({ websiteUrl, linkFilter }: CheckWebsiteArgs)
   console.log(report.summary);
 
   console.log(`Finished in ${(performance.now() - startTime) / 1000} seconds.`);
+  return report;
 };

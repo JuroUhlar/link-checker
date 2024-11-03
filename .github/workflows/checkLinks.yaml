@@ -184,16 +184,25 @@ jobs:
     if: failure()
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare message
+        id: message
+        run: |
+          MESSAGE="*Link Checker Results*
+          • dev.fingerprint.com check: ${{ needs.docs.result }}
+          • GitHub READMEs check: ${{ needs.githubReadmes.result }}
+
+          View reports: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          
+          # Escape newlines for JSON
+          MESSAGE="${MESSAGE//$'\n'/\\n}"
+          echo "text=$MESSAGE" >> $GITHUB_OUTPUT
+
       - uses: slackapi/slack-github-action@v1.25.0
         with:
           payload: |
             {
-              "text": >
-                *Link Checker Results*
-                • dev.fingerprint.com check: ${{ needs.docs.result }}
-                • GitHub READMEs check: ${{ needs.githubReadmes.result }}
-
-                View reports: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+              "text": "${{ steps.message.outputs.text }}"
             }
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}˜
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()

@@ -91,6 +91,65 @@ jobs:
             name: combined-reports
             path: combined-reports.zip
             retention-days: 30
+  deploy:
+    name: Deploy reports to GitHub Pages
+    needs: [docs, githubReadmes, web]
+    runs-on: ubuntu-latest
+    if: always()
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: reports
+      - name: Create index page
+        run: |
+          cat > reports/index.html << 'EOL'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Link Checker Reports</title>
+            <style>
+              body { font-family: Arial, sans-serif; margin: 40px; }
+              h1 { color: #333; }
+              .report-list { margin-top: 20px; }
+              .report-item { margin: 10px 0; }
+              a { color: #0366d6; text-decoration: none; }
+              a:hover { text-decoration: underline; }
+            </style>
+          </head>
+          <body>
+            <h1>Link Checker Reports</h1>
+            <div class="report-list">
+              <div class="report-item">
+                <a href="dev-fingerprint-com.html/dev-fingerprint-com.html">dev.fingerprint.com Report</a>
+              </div>
+              <div class="report-item">
+                <a href="fingerprintjs-github-readmes.html/fingerprintjs-github-readmes.html">GitHub READMEs Report</a>
+              </div>
+              <div class="report-item">
+                <a href="fingerprint-com.html/fingerprint-com.html">fingerprint.com Report</a>
+              </div>
+            </div>
+            <p>Last updated: <script>document.write(new Date().toLocaleString())</script></p>
+          </body>
+          </html>
+          EOL
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: reports
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 #   report-status:
 #     needs: checkLinks
 #     if: failure()

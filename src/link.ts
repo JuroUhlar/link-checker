@@ -7,6 +7,7 @@ import {
   OKAY_STATUS_CODES,
   TASK_TIMEOUT,
   log,
+  parallelProcess,
   progressBar,
 } from "./utils";
 import { Link, LinkCheckResult, LinkWithResult } from "./types";
@@ -22,11 +23,9 @@ export const checkLinks = async ({ links, verbose, concurrencyLimit }: CheckLink
   console.log(`\nChecking ${links.length} links...`);
   const resultMap = new Map<string, LinkCheckResult>();
 
-  progressBar.start(links.length, 0);
-  const { results, errors } = await PromisePool.withConcurrency(concurrencyLimit ?? CONCURRENCY_LIMIT)
-    .withTaskTimeout(TASK_TIMEOUT)
-    .for(links)
-    .process(async (link): Promise<LinkWithResult> => {
+  const { results, errors } = await parallelProcess(
+    links,
+    async (link) => {
       const existingResult = resultMap.get(link.href);
       if (existingResult) {
         // Already checked, just use the result
@@ -37,10 +36,10 @@ export const checkLinks = async ({ links, verbose, concurrencyLimit }: CheckLink
         resultMap.set(link.href, newResult);
         (link as LinkWithResult).result = newResult;
       }
-      progressBar.increment();
       return link as LinkWithResult;
-    });
-  progressBar.stop();
+    },
+    concurrencyLimit
+  );
 
   console.log(`Checked ${results.length} links.`);
   console.log(`Unexpected errors ocurred for ${errors.length} links`);

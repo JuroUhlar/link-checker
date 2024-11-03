@@ -178,12 +178,22 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-#   report-status:
-#     needs: checkLinks
-#     if: failure()
-#     uses: fingerprintjs/dx-team-toolkit/.github/workflows/report-workflow-status.yml@v1
-#     with:
-#       notification_title: 'Hey, <@U04GNKK5ZTQ>! Production e2e tests on demo.fingerprint.com have {status_message}'
-#       job_status: ${{ needs.e2e.result }}
-#     secrets:
-#       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}        
+  report-status:
+    name: Report status to Slack
+    needs: [docs, githubReadmes]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+              "text": >
+                *Link Checker Results*
+                • dev.fingerprint.com check: ${{ needs.docs.result }}
+                • GitHub READMEs check: ${{ needs.githubReadmes.result }}
+
+                View reports: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}˜

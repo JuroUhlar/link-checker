@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "checkLinks:docs": "npx tsx ./checks/docs.ts",
     "checkLinks:github": "npx tsx ./checks/github.ts",
     "checkLinks:web": "npx tsx ./checks/web.ts"

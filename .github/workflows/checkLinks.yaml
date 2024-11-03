@@ -134,6 +134,7 @@ jobs:
 
       - name: Create index page
         run: |
+          TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S UTC')
           cat > reports/index.html << EOF
           <!DOCTYPE html>
           <html>
@@ -161,7 +162,7 @@ jobs:
                 <a href="${WEB_REPORT}/${WEB_REPORT}">fingerprint.com Report</a>
               </div>
             </div>
-            <p>Last updated: <script>document.write(new Date().toLocaleString())</script></p>
+            <p>Last updated: ${TIMESTAMP}</p>
           </body>
           </html>
           EOF

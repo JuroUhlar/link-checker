@@ -68,29 +68,29 @@ jobs:
           name: fingerprint-com.html
           path: results/fingerprint-com.html
           retention-days: 30
-combine-artifacts:
-    name: Combine all reports
-    needs: [docs, githubReadmes, web]
-    runs-on: ubuntu-latest
-    if: always()
-    
-    steps:
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: all-reports
-          
-      - name: Create combined archive
-        run: |
-          cd all-reports
-          zip -r ../combined-reports.zip ./*
-          
-      - name: Upload combined artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: combined-reports
-          path: combined-reports.zip
-          retention-days: 30
+  combine-artifacts:
+      name: Combine all reports
+      needs: [docs, githubReadmes, web]
+      runs-on: ubuntu-latest
+      if: always()
+      
+      steps:
+        - name: Download all artifacts
+          uses: actions/download-artifact@v4
+          with:
+            path: all-reports
+            
+        - name: Create combined archive
+          run: |
+            cd all-reports
+            zip -r ../combined-reports.zip ./*
+            
+        - name: Upload combined artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: combined-reports
+            path: combined-reports.zip
+            retention-days: 30
 #   report-status:
 #     needs: checkLinks
 #     if: failure()

@@ -1,5 +1,4 @@
-import { getLinksFromPages, parseLinksFromPage } from "./page";
-import { writeFileSync } from "fs";
+import { getLinksFromPages } from "./page";
 
 import { checkLinks } from "./link";
 import { getJSONReport, saveReport } from "./report";

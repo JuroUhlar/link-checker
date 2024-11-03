@@ -15,11 +15,18 @@ import { parallelProcess } from "./src/utils";
   //   }
   // );
 
+  console.log(
+    await checkLink(
+      "https://github.com/chromium/chromium/blob/37aabeb397ff0238cb3549b785430dfbab08131a/extensions/common/constants.h#L103",
+      true
+    )
+  );
+
   const { results } = await checkLinks({
-    links: Array.from({ length: 15 }).map((_, i) => ({
+    links: Array.from({ length: 1 }).map((_, i) => ({
       page: "test",
       text: "test",
-      href: `https://github.com/fingerprintjs/fingerprintjs-pro-use-cases/blob/0589bdd38ba636c897b11fff8d9d9992417b763f/src/server/checks.ts#L186`,
+      href: `https://github.com/chromium/chromium/blob/37aabeb397ff0238cb3549b785430dfbab08131a/extensions/common/constants.h#L103`,
     })),
     verbose: true,
   });

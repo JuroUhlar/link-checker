@@ -10,7 +10,7 @@ A GitHub workflow that checks for broken links in our documentation, public GitH
 ## Limitations
 
 > [!WARNING]  
-> While useful, this is just an internal prototype and a work in progress. 
+> While useful, this is still just an internal prototype and a work in progress. 
 
 * Fingerprint.com is only checked for links to our resources and GitHub, external links trigger too many false positives for now.
 * Link [text fragments](https://developer.mozilla.org/en-US/docs/Web/URI/Fragment/Text_fragments) are not checked.
@@ -34,10 +34,11 @@ So a proper documentation link checker must:
 [x] Combine artifact outputs
 [x] Deploy to GitHub pages
 [x] Enable Slack notifications
-[x] Nice Readme
-[ ] Clean up promise pool
-[ ] Run tests in CI
+[x] Nicer Readme
+[x] Clean up promise pool
+[x] Run tests in CI
 [ ] Move repository
+[ ] Fix Github `#L{number}` links occasional false positives 
 [ ] Add more tests for everything
 [ ] Nicer report styling
 [ ] Add `eslint`/`biome`

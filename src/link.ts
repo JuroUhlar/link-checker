@@ -1,17 +1,7 @@
 import * as cheerio from "cheerio";
 import { chromium, Page } from "playwright";
-import {
-  BROWSER_USER_AGENT,
-  CONCURRENCY_LIMIT,
-  FORBIDDEN_STATUS_CODES,
-  OKAY_STATUS_CODES,
-  TASK_TIMEOUT,
-  log,
-  parallelProcess,
-  progressBar,
-} from "./utils";
+import { BROWSER_USER_AGENT, FORBIDDEN_STATUS_CODES, OKAY_STATUS_CODES, log, parallelProcess } from "./utils";
 import { Link, LinkCheckResult, LinkWithResult } from "./types";
-import PromisePool from "@supercharge/promise-pool";
 
 type CheckLinksArgs = {
   links: Link[];

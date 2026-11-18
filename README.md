@@ -1,5 +1,8 @@
 # Documentation link checker 
 
+> [!IMPORTANT]
+> **Archived.** This was an early prototype, since superseded by [fingerprintjs/docs-link-checker](https://github.com/fingerprintjs/docs-link-checker). Use that instead.
+
 A GitHub workflow that checks for broken links in our documentation, public GitHub readmes, and our website.
 
 * Run periodically every day.
